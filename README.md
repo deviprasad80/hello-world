@@ -1,3 +1,3 @@
 # hello-world
-My first github repository
-__My first read-edit branch edit__
+My first github repository  
+My first read-edit branch edit
