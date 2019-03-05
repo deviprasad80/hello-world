@@ -9,6 +9,6 @@ My first underline
 My second underline  
 -------------------
 
-> My first block quote. This is to test  
-the blcok quoting feature.  
+>## This is a block quoting feature with a header 
+My first block quote. This is to test the block quoting feature.  
 > Second block quoting feature
