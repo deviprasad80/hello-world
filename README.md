@@ -9,12 +9,13 @@ My first underline
 My second underline  
 -------------------
 
------------------------------------------------------------------------
->## This is a block quoting feature with a header 
->  1. My first block quote. This is to test the block quoting feature.  
->  2. Another testing  
-   Second block quoting feature
->  Here's some example code:
- 
->     return DEVIPRASADA REDDY  
------------------------------------------------------------------------
+1. Me  
+2. Asw  
+* Mano  
+* Nith  
++ Mom  
++ Dad  
+- Sis  
+- Bro  
+3. X  
+5. Y
