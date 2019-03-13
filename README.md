@@ -14,7 +14,7 @@ My test table
 
 |S.No| NAME | AGE | &amp; RELATION |
 | ---| ---- | --- | --- |
-| 1  | Deviprasada REddy | 39 | Father |
+| 1  | Deviprasada Reddy | 39 | Father |
 | 2  | Ashwini |  27 | Mother |
 | 3  | Mano    | 7   | Son    |
 | 4  | Nithya  | 4   | Daughter|
