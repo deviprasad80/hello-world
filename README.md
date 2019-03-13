@@ -18,3 +18,4 @@ My test table
 | 2  | Ashwini |  27 | Mother |
 | 3  | Mano    | 7   | Son    |
 | 4  | Nithya  | 4   | Daughter|
+| 5 | Someone else | 1 | Pet |
