@@ -8,5 +8,4 @@
 | 4.	SONiC System Architecture ..................................... 4  |  
 |   4.1   SONiC subsystems Description ................................ 5  |  
 |   4.2   SONiC subsystems Interactions .............................. 10  |  
-| 
 | 5.    System configuration ......................................... 19  |
