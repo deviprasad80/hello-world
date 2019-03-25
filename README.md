@@ -21,3 +21,4 @@ My test table
 | 5 | Someone else | 1 | Pet |
 
 <kbd>[1](https://google.co.in)</kbd>
+[![](https://i.imgur.com/9wQkGeP.png)](../labels/comments)
