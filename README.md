@@ -24,4 +24,4 @@ My test table
 
 <kbd>[here](https://google.co.in)</kbd>
 
-[link to Google!](http://google.com)
+[![](https://i.imgur.com/9wQkGeP.png)](../labels/comments)
