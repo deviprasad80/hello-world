@@ -25,5 +25,5 @@ My test table
 [link to Google!](http://google.com)
 
 ~Devi~
-> Devi
+> Devi  
 ```Devi```
