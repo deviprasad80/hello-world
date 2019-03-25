@@ -21,3 +21,7 @@ My test table
 | 5 | Someone else | 1 | Pet |
 
 <kbd>[1](https://google.co.in)</kbd>
+
+<kbd>[here](https://google.co.in)</kbd>
+
+[link to Google!](http://google.com)
