@@ -20,5 +20,4 @@ My test table
 | 4  | Nithya  | 4   | Daughter|
 | 5 | Someone else | 1 | Pet |
 
-[1] []  
-[1]: https://google.co.in
+<kbd>[1](#https://goole.co.in)</kbd>
