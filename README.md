@@ -22,6 +22,6 @@ My test table
 
 <kbd>[1](https://google.co.in)</kbd>
 
+<<<<<<< HEAD
 <kbd>[here](https://google.co.in)</kbd>
 
-[![](https://i.imgur.com/9wQkGeP.png)](../labels/comments)
