@@ -21,4 +21,4 @@ My test table
 | 5 | Someone else | 1 | Pet |
 
 [1] []  
-[1]: www.google.co.in
+[1]: https://google.co.in
