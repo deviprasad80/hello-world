@@ -8,8 +8,8 @@ __*Table of contents*__
  4.	SONiC System Architecture ................................................................... 4    
    4.1   SONiC subsystems Description .................................................... 5    
    4.2   SONiC subsystems Interactions ................................................ 10    
- 5.    System configuration ......................................................................... 19  
-   5.1	System Configuration Overview ................................................... 19  
+ 5.    System configuration .......................................................................... 19  
+   5.1	System Configuration Overview .................................................. 19  
    5.2	System Configuration Files .......................................................... 19  
    5.3	System Auxiliary Configuration Files ....................................... 20  
    5.4	System Configuration Workflow -- Provisioning ................ 21  
