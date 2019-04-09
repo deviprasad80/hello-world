@@ -38,7 +38,7 @@ My test table
  
 \# List
  
-show logging ([\<\process-name\>\] [-l lines] | [-f]) 
+show logging ([\<process-name>] [-l lines] | [-f]) 
  
 Characters That Can Use Backslashes To Skip Markdown Formatting:
 code 
