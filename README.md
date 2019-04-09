@@ -24,6 +24,8 @@ My test table
 
 [link to Google!](http://google.com)
 
+![SONiC_Logo](https://github.com/deviprasad80/https---github.com-kannankvs-md2/blob/master/SONIC_logo.png "SONiC_logo")    // To insert a picture
+
 ~Devi~
 > Devi  
 ```Devi```
@@ -33,6 +35,9 @@ My test table
  
 - `Devi`
    - `Devi`
+ 
+ 
+show logging ([<process-name>] [-l lines] | [-f]) 
  
 Characters That Can Use Backslashes To Skip Markdown Formatting:
 code 
