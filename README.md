@@ -66,8 +66,8 @@ show logging ([\<process-name>] [-l lines] | [-f])
 Characters That Can Use Backslashes To Skip Markdown Formatting:
 code 
 \   backslash                                   |      |
-`   backtick									| ---  |
-*   asterisk
+`   backtick									 ------
+*   asterisk									
 _   underscore
 {}  curly braces
 []  square brackets
