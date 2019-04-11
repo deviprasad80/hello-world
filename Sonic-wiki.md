@@ -5,7 +5,9 @@ This document lists the configuration commands schema applied in the SONiC eco s
 
 # Configuration
 ###### Taoyu Li edited this page on Jan 24 2018 . [11 revisions](https://github.com/Azure/SONiC/wiki/Configuration/_history)
-**** Taoyu Li edited this page on Jan 24 2018 . [11 revisions](https://github.com/Azure/SONiC/wiki/Configuration/_history) ****
+*** Taoyu Li edited this page on Jan 24 2018 . [11 revisions](https://github.com/Azure/SONiC/wiki/Configuration/_history) ***
+
+
 SONiC is managing configuration in a single source of truth - a redisDB
 instance that we refer as ConfigDB. Applications subscribe to ConfigDB
 and generate their running configuration correspondingly.
