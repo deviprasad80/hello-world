@@ -4,8 +4,7 @@ This document lists the configuration commands schema applied in the SONiC eco s
 
 
 # Configuration
-Taoyu Li edited this page on Jan 24 2018 ?? [11
-revisions](https://github.com/Azure/SONiC/wiki/Configuration/_history)
+`Taoyu Li edited this page on Jan 24 2018 . [11 revisions](https://github.com/Azure/SONiC/wiki/Configuration/_history)`
 
 SONiC is managing configuration in a single source of truth - a redisDB
 instance that we refer as ConfigDB. Applications subscribe to ConfigDB
@@ -16,7 +15,7 @@ configure SONiC devices. For historical documentation, please refer to
 [Configuration with
 Minigraph](https://github.com/Azure/SONiC/wiki/Configuration-with-Minigraph-(~Sep-2017)))
 
-# **Config Load and Save** #
+# **Config Load and Save**
 
 In current version of SONiC, ConfigDB is implemented as database 4 of
 local redis. When system boots, configurations will be loaded from
@@ -32,7 +31,7 @@ We keep a way to load configuration from minigraph and write into
 ConfigDB for backward compatibility. To do that, run config
 load_minigraph.
 
-### Incremental Configuration ###
+### Incremental Configuration
 
 The design of ConfigDB supports incremental configuration - application
 could subscribe to changes in ConfigDB and response correspondingly.
