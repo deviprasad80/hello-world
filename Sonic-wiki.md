@@ -27,8 +27,8 @@ load of json file into DB. Generally, content in
 content in redisDB running config.
 
 We keep a way to load configuration from minigraph and write into
-ConfigDB for backward compatibility. To do that, run config
-load_minigraph.
+ConfigDB for backward compatibility. To do that, run `config
+load_minigraph`.
 
 ### Incremental Configuration
 
