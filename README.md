@@ -38,7 +38,7 @@ My test table
  
 \# List
  
- 
+** Github supports Unicode numeric character references (and HTML entities), you could try colored Unicode symbols, though it depends on the font rendering them in color **
 RED APPLE (&#x1F34E;): 🍎
 GREEN APPLE (&#x1F34F;): 🍏
 BLUE HEART (&#x1F499;): 💙
