@@ -1,11 +1,10 @@
-# INTRODUCTION
-
-This document lists the configuration commands schema applied in the SONiC eco system. All these commands find relevance in collecting system information, analysis and even for trouble shooting. All the commands are categorized under relevant topics with corresponding examples.
-
+# INTRODUCTION																																																																				| |										
+																																																																							- Home
+This document lists the configuration commands schema applied in the SONiC eco system. All these commands find relevance in collecting system information, analysis and even for trouble shooting. All the commands are categorized under relevant topics with corresponding examples.		- FAQ
+																																																																							|---|
 
 # Configuration
 ###### Taoyu Li edited this page on Jan 24 2018 . [11 revisions](https://github.com/Azure/SONiC/wiki/Configuration/_history)
-*** Taoyu Li edited this page on Jan 24 2018 . [11 revisions](https://github.com/Azure/SONiC/wiki/Configuration/_history) ***
 
 
 SONiC is managing configuration in a single source of truth - a redisDB
@@ -46,7 +45,7 @@ required after configuration changes in ConfigDB.
 
 ConfigDB uses a table-object schema that is similar with
 [AppDB](https://github.com/Azure/sonic-swss/blob/4c56d23b9ff4940bdf576cf7c9e5aa77adcbbdcc/doc/swss-schema.md),
-and config_db.json is a straight-forward serialization of DB. As an
+and `config_db.json` is a straight-forward serialization of DB. As an
 example, the following fragments could be BGP-related configuration in
 redis and json, correspondingly:
 
