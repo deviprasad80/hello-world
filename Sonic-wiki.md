@@ -1,3 +1,5 @@
+# DEMO
+
 # INTRODUCTION																																									
 This document lists the configuration commands schema applied in the SONiC eco system. All these commands find relevance in collecting system information, analysis and even for trouble shooting. All the commands are categorized under relevant topics with corresponding examples.  																																																																					
 
@@ -127,6 +129,28 @@ and migration plan
 		]
 	}
 },
+
+
+*** Below ACL table added as per the mail ***
+"ACL_TABLE": {
+	"aaa": {
+		"type": "L3",
+		"ports": "Ethernet0"
+	}
+},
+"ACL_RULE": {
+	"aaa|rule_0": {
+	"PRIORITY": "55",
+	"PACKET_ACTION": "DROP",
+	"L4_SRC_PORT": "0"
+	},
+	"aaa|rule_1": {
+	"PRIORITY": "55",
+	"PACKET_ACTION": "DROP",
+	"L4_SRC_PORT": "1"
+	}
+}
+
 ```
 
 ### BGP Sessions
@@ -550,6 +574,8 @@ instead of data network.
 These information are configured in individual tables. Domain name or IP
 address of the server is used as object key. Currently there are no
 attributes in those objects.
+
+*** NTP server ***
 ```
 "NTP_SERVER": {
 	"2.debian.pool.ntp.org": {},
@@ -564,6 +590,15 @@ attributes in those objects.
 "NTP_SERVER": {
     "23.92.29.245": {}, 
     "204.2.134.164": {}
+},
+```
+
+*** Syslog server ***
+```
+"SYSLOG_SERVER": {
+    "10.0.0.5": {}, 
+    "10.0.0.6": {}, 
+    "10.11.150.5": {}
 },
 ```
 
@@ -665,15 +700,6 @@ name as object key and member list as attribute.
 },
 ```
 
-### Syslog server
-
-```
-"SYSLOG_SERVER": {
-    "10.0.0.5": {}, 
-    "10.0.0.6": {}, 
-    "10.11.150.5": {}
-},
-```
 
 ### Tacplus Server
 
@@ -689,6 +715,7 @@ name as object key and member list as attribute.
     }
 },
 ```
+
 
 ### TC to Priority group map
 
