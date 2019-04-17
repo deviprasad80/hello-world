@@ -60,7 +60,7 @@ UP-POINTING SMALL RED TRIANGLE (&#x1F53C;): 🔼
 DOWN-POINTING SMALL RED TRIANGLE (&#x1F53D;): 🔽    
 
 Telugu name for six: &#3078;&#3120;&#3137; [comment]: <> (This is the decimal equivalent of the unicode value of the telugu fonts)
-
+[comment]: <> (This is the decimal equivalent of the unicode value of the telugu fonts)
 
 
 
