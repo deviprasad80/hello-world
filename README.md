@@ -59,7 +59,7 @@ DOWN-POINTING RED TRIANGLE (&#x1F53B;): 🔻
 UP-POINTING SMALL RED TRIANGLE (&#x1F53C;): 🔼  
 DOWN-POINTING SMALL RED TRIANGLE (&#x1F53D;): 🔽    
 
-Telugu name for six: &#3078;&#3120;&#3137; [//]: <> (This is a comment)
+Telugu name for six: &#3078;&#3120;&#3137; [This is a comment]
 
 
 show logging ([\<process-name>] [-l lines] | [-f])
