@@ -1,5 +1,3 @@
-# DEMO
-
 # INTRODUCTION																																									
 This document lists the configuration commands schema applied in the SONiC eco system. All these commands find relevance in collecting system information, analysis and even for trouble shooting. All the commands are categorized under relevant topics with corresponding examples.  																																																																					
 
