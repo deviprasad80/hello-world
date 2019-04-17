@@ -61,6 +61,8 @@ DOWN-POINTING SMALL RED TRIANGLE (&#x1F53D;): 🔽
 
 Telugu name for six: &#3078;&#3120;&#3137; [This is the decimal equivalent of the unicode value of the telugu fonts ]
 
+[comment]: <> (This is a comment, it will not be included)
+
 
 show logging ([\<process-name>] [-l lines] | [-f])
  
