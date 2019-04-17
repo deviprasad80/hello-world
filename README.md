@@ -59,7 +59,7 @@ DOWN-POINTING RED TRIANGLE (&#x1F53B;): 🔻
 UP-POINTING SMALL RED TRIANGLE (&#x1F53C;): 🔼  
 DOWN-POINTING SMALL RED TRIANGLE (&#x1F53D;): 🔽    
 
-[comment]: <> Inclue the deciaml equivalents of the unicode values of the Telugu fonts)
+[comment]: <> (Inclue the deciaml equivalents of the unicode values of the Telugu fonts)  
 Telugu name for six: &#3078;&#3120;&#3137;
 
 show logging ([\<process-name>] [-l lines] | [-f])
