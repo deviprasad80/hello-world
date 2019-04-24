@@ -1,11 +1,8 @@
 # Troubleshooting Guide
-::: {.mt-2 .mt-md-1 .pb-3 .gh-header-meta}
-Joe LeVeque edited this page Apr 5, 2018 ┬╖ [6
-revisions](/Azure/SONiC/wiki/Troubleshooting-Guide/_history){.muted-link}
-:::
+Joe LeVeque edited this page Apr 6, 2018 
 
-[](#investigating-packet-drops){#user-content-investigating-packet-drops .anchor}ΓÇïInvestigating Packet Drops
-------------------------------------------------------------------------------------------------------------
+## Investigating Packet Drops
+-------------------------------------------------------------------------------------------
 
 Packet drops can be investigated by viewing counters using the
 `show interfaces counters` command.
@@ -35,7 +32,7 @@ Packet drops can be investigated by viewing counters using the
          Ethernet20   47,983,339,172   35.89 MB/s      0.70%         0     2,174         0   58,986,354,359   51.83 MB/s      1.01%         0         0         0
          Ethernet24   33,543,533,441   36.59 MB/s      0.71%         0     1,613         0   43,066,076,370   49.92 MB/s      0.97%         0         0         0
 
-[](#physical-link-signal){#user-content-physical-link-signal .anchor}Physical Link SignaΓÇïΓÇïl
+## Physical Link Signal
 -------------------------------------------------------------------------------------------
 
 Use the following command to get optical signal strength. Note: not all
@@ -93,7 +90,7 @@ Generally, optical power should be greater than -10dBm.
                 StatusIndicators :
                         DataNotReady : Off
 
-[](#sonic-tech-support-dump){#user-content-sonic-tech-support-dump .anchor}SONiC Tech-SupportΓÇïΓÇï Dump
+## SONiC Tech-Support Dump
 ----------------------------------------------------------------------------------------------------
 
 Generate a dump of troubleshooting data. This is similar to a \"show
@@ -105,7 +102,7 @@ for troubleshooting.
 
         admin@sonic:~$ show techsupport
 
-[](#isolate-sonic-device-from-the-network){#user-content-isolate-sonic-device-from-the-network .anchor}Isolate SONiC Device from the NeΓÇïtwork
+## Isolate SONiC Device from the Network
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
 When there is suspicion that a SONiC device is dropping traffic and
@@ -134,19 +131,7 @@ command, examples follow.
 -   Example:
 
         admin@sonic:~$ sudo config bgp shutdown all
-:::
-:::
 
-::: {#wiki-rightbar .mt-4 .ml-md-6 .flex-shrink-0 .width-full .wiki-rightbar}
-::: {#wiki-pages-box .mb-4 .wiki-pages-box .js-wiki-pages-box role="navigation"}
-::: {.Box .Box--condensed .box-shadow}
-::: {.Box-header .js-wiki-toggle-collapse style="cursor: pointer"}
-### Pages [89]{.Counter .Counter--gray} {#pages-89 .Box-title}
-:::
-
-::: {.d-none .js-wiki-sidebar-toggle-display}
-::: {.filter-bar}
-:::
 
 -   **[Home](/Azure/SONiC/wiki){.d-block}**
 -   **[ACL Configuration High Level
