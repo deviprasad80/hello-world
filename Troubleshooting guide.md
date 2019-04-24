@@ -1,8 +1,7 @@
-# Troubleshooting Guide
+#**Troubleshooting Guide**
 Joe LeVeque edited this page Apr 6, 2018 
 
 ## Investigating Packet Drops
--------------------------------------------------------------------------------------------
 
 Packet drops can be investigated by viewing counters using the
 `show interfaces counters` command.
@@ -33,7 +32,6 @@ Packet drops can be investigated by viewing counters using the
          Ethernet24   33,543,533,441   36.59 MB/s      0.71%         0     1,613         0   43,066,076,370   49.92 MB/s      0.97%         0         0         0
 
 ## Physical Link Signal
--------------------------------------------------------------------------------------------
 
 Use the following command to get optical signal strength. Note: not all
 types of links have such channel monitor values. The AOC and DAC cables
@@ -91,7 +89,6 @@ Generally, optical power should be greater than -10dBm.
                         DataNotReady : Off
 
 ## SONiC Tech-Support Dump
-----------------------------------------------------------------------------------------------------
 
 Generate a dump of troubleshooting data. This is similar to a \"show
 tac\" command on other devices. An archive file containing the dump will
@@ -103,7 +100,6 @@ for troubleshooting.
         admin@sonic:~$ show techsupport
 
 ## Isolate SONiC Device from the Network
----------------------------------------------------------------------------------------------------------------------------------------------
 
 When there is suspicion that a SONiC device is dropping traffic and
 behaving abnormally, you may want to isolate the device from the
