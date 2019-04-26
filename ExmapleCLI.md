@@ -88,7 +88,7 @@
 |	   | 											   | config warm_restart enable swss		    	   | 
 |	   | 											   | 												   |
 |	   | (To set the neighsyncd_timer value	of SWSS service)| 	config warm_restart neighsyncd_timer 2000  |
-|	   | (To set the neighsyncd_timer value	of SWSS service)|	config warm_restart teamsyncd_timer 3000   | 
+|	   | (To set the teamsyncd_timer value	of SWSS service)|	config warm_restart teamsyncd_timer 3000   | 
 |	   | 											   | 												   |
 | 18   | config watermark telemetry interval 		   | config watermark telemetry interval 999		   |
 |	   | (To configure the interval for telemetry)	   | 												   |
