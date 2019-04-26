@@ -36,6 +36,10 @@ My test table
 - `Devi`
    - `Devi`
  
+-   Example:
+        admin@sonic:~$ show interfaces counters (Leave 8 spaces to highlight it without the '`' sign)
+
+
 \# List
  
 ** Github supports Unicode numeric character references (and HTML entities), you could try colored Unicode symbols, though it depends on the font rendering them in color **  

@@ -1,4 +1,4 @@
-# **Troubleshooting Guide**
+# Troubleshooting Guide
 Joe LeVeque edited this page Apr 6, 2018 
 
 ## Investigating Packet Drops
