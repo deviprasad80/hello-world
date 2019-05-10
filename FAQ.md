@@ -17,9 +17,8 @@
   onie_partition_type=gpt
   onie_kernel_version=3.2.35
   ```
-***How to program FDB static/dynamic entries into ASIC?***
-  You can program FDB entries into ASIC as static/dynamic. Please check this link [here](https://github.com/Azure/SONiC/issues/249)  
-  Give type as either "static" or "dynamic"
+***How to program FDB static/dynamic entries into ASIC?***  
+  You can program FDB entries into ASIC as static/dynamic. Please check this link [here](https://github.com/Azure/SONiC/issues/249). Give type as either "static" or "dynamic"
   
   - Example:
   ```
@@ -49,7 +48,7 @@
  ```
  
 ***How to know the interface naming mode?***  
-  Enter the command ***show interface naming_mode***. It is "default"
+  Enter the command ***show interface naming_mode***. Initially it will be "default".
   - Example:
   ```
   admin@sonic:~$ show interface naming_mode
@@ -70,7 +69,12 @@
  ```
  
  ***How to change the interface naming mode***  
-   Enter the command ***sudo config interface_naming_mode alias*** if you are not the root user. If you are the root user the just enter ***config interface_naming_mode alias*** command. Logout and login into the device for the change to effect.
+   Enter the command -   
+   ***sudo config interface_naming_mode alias*** (Non-root user).  
+   ***config interface_naming_mode alias*** (Root user).  
+   
+   Logout and login into the device for the change to take effect.
+   
    - Example: 
   ```
   admin@sonic:~$ sudo config interface_naming_mode alias
@@ -92,6 +96,7 @@
                   10.1.0.1/32
   ```
 
+***Note***: Notice the change in the interface names under the "Interface" coloumn in the above two examples.
 
    
  
