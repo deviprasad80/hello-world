@@ -1,6 +1,6 @@
 # FAQs
 
-*** How do we find out the onie version used by current SONIC? and what's the current version that's been used? ***
+***How do we find out the onie version used by current SONIC? and what's the current version that's been used?***
 
 ``` Please enter "cat /host/machine.conf" command in the Sonic device.```
   - Example
