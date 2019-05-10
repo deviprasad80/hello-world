@@ -48,8 +48,8 @@
   ]
  ```
  
-***How to know the interface naming mode?***
-  Enter the command ***show interface naming_mode***
+***How to know the interface naming mode?***  
+  Enter the command ***show interface naming_mode***. It is "default"
   - Example:
   ```
   admin@sonic:~$ show interface naming_mode
@@ -69,8 +69,8 @@
 
  ```
  
- ***How to change the interface naming mode***
-   Enter the command ***sudo config interface_naming_mode alias*** if you are not the root user. Logout and login into the device for the change to be implemented.
+ ***How to change the interface naming mode***  
+   Enter the command ***sudo config interface_naming_mode alias*** if you are not the root user. If you are the root user the just enter ***config interface_naming_mode alias*** command. Logout and login into the device for the change to effect.
    - Example: 
   ```
   admin@sonic:~$ sudo config interface_naming_mode alias
