@@ -2,7 +2,7 @@
 
 ***How do we find out the onie version used by current SONIC? and what's the current version that's been used?***
 
-  In the Sonic device, enter ***cat /host/machine.conf*** command
+  In the Sonic device, enter ***"cat /host/machine.conf"*** command
   - Example
   ```
   admin@sonic:~$ cat /host/machine.conf
