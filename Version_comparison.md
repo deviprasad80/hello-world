@@ -2,7 +2,7 @@
 
 ## Description
 
-Below mentioned are some of the sub-items related to the change  
+Below mentioned are some of the sub-items related to this change  
   
 - Removing condition in bridge port bridge id attribute (#706) (#707)   
 - Fix condition in bridge port bridge id attribute  
@@ -19,13 +19,13 @@ Below mentioned are some of the sub-items related to the change
 - Update saiserializetest.c  
 - Update saivlan.h (#752)    
 
-## Links to the commit  
+## Commit  
 
 [Link to the commit](https://github.com/opencomputeproject/SAI/commit/e472cc22654c388e56d749464bde7462bc9d8bda)
 
-## Links to the PR  
+## PRs related to this commit
 
 [756](https://github.com/opencomputeproject/SAI/pull/756);[706](https://github.com/opencomputeproject/SAI/pull/706);[707](https://github.com/opencomputeproject/SAI/pull/707);[717](https://github.com/opencomputeproject/SAI/pull/717);[721](https://github.com/opencomputeproject/SAI/pull/721);[722](https://github.com/opencomputeproject/SAI/pull/722);[731](https://github.com/opencomputeproject/SAI/pull/731);[733](https://github.com/opencomputeproject/SAI/pull/733);[725](https://github.com/opencomputeproject/SAI/pull/725);[745](https://github.com/opencomputeproject/SAI/pull/745);[752](https://github.com/opencomputeproject/SAI/pull/752)
 
-`PR-756 not present in the diff between version 1.2 & version 1.3`
+
 
