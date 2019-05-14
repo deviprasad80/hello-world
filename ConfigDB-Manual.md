@@ -196,10 +196,8 @@ and migration plan
           "type": "CTRLPLANE",
           "policy_desc": "SSH_ONLY"
       }
-   }
-}
+   },
 
-{
 "ACL_RULE": {
         "SNMP_ACL|DEFAULT_RULE": {
             "PRIORITY": "1",
