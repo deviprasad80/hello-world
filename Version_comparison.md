@@ -25,7 +25,7 @@ Below mentioned are some the sub-items related to the change
 
 ## Links to the PR  
 
-[756](https://github.com/opencomputeproject/SAI/pull/756);[706](https://github.com/opencomputeproject/SAI/pull/706);[707](https://github.com/opencomputeproject/SAI/pull/707);[717] (https://github.com/opencomputeproject/SAI/pull/717);[721] (https://github.com/opencomputeproject/SAI/pull/721);[722] (https://github.com/opencomputeproject/SAI/pull/722);[731] (https://github.com/opencomputeproject/SAI/pull/731);[733] (https://github.com/opencomputeproject/SAI/pull/733);[725] (https://github.com/opencomputeproject/SAI/pull/725);[745] (https://github.com/opencomputeproject/SAI/pull/745);[752] (https://github.com/opencomputeproject/SAI/pull/752)
+[756](https://github.com/opencomputeproject/SAI/pull/756);[706](https://github.com/opencomputeproject/SAI/pull/706);[707](https://github.com/opencomputeproject/SAI/pull/707);[717](https://github.com/opencomputeproject/SAI/pull/717);[721](https://github.com/opencomputeproject/SAI/pull/721);[722](https://github.com/opencomputeproject/SAI/pull/722);[731](https://github.com/opencomputeproject/SAI/pull/731);[733](https://github.com/opencomputeproject/SAI/pull/733);[725](https://github.com/opencomputeproject/SAI/pull/725);[745](https://github.com/opencomputeproject/SAI/pull/745);[752](https://github.com/opencomputeproject/SAI/pull/752)
 
 `PR-756 not present in the diff between version 1.2 & version 1.3`
 
