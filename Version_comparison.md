@@ -28,4 +28,20 @@ Below mentioned are some of the sub-items related to this change
 [756](https://github.com/opencomputeproject/SAI/pull/756)  [706](https://github.com/opencomputeproject/SAI/pull/706)  [707](https://github.com/opencomputeproject/SAI/pull/707)  [717](https://github.com/opencomputeproject/SAI/pull/717)  [721](https://github.com/opencomputeproject/SAI/pull/721)  [722](https://github.com/opencomputeproject/SAI/pull/722)  [731](https://github.com/opencomputeproject/SAI/pull/731)  [733](https://github.com/opencomputeproject/SAI/pull/733)  [725](https://github.com/opencomputeproject/SAI/pull/725)  [745](https://github.com/opencomputeproject/SAI/pull/745)  [752](https://github.com/opencomputeproject/SAI/pull/752)
 
 
+# Uninitialize data plane ON removal of switch object
+
+## Description
+
+Below mentioned are some of the sub-items related to this change
+
+- Controls whether data plane is unitialized upon removal of switc object as leaving traffic running without control is not recommended  
+- However, on some scenarios, such as fast boot, it is needed to leave the data plane running  
+- Host adapter will call this attribute if needed, and then call remove the switch  
+
+## Commit 
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/c26fb2657a7b246548d10458a542ea5fa2d23cd5)
+
+## PRs related to this commit
+[795](https://github.com/opencomputeproject/SAI/pull/795)
 
