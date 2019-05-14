@@ -1,4 +1,4 @@
-# ***SAI 1.4 Release Notes***
+# SAI 1.4 Release Notes
 
 # 1. Added SAI_OBJECT_TYPE_BRIDGE_PORT support in ACL
 
