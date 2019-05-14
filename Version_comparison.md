@@ -1,9 +1,9 @@
-## Added SAI_OBJECT_TYPE_BRIDGE_PORT support in ACL (PR: 756)
+# Added SAI_OBJECT_TYPE_BRIDGE_PORT support in ACL
 
+## Description
 
-Below mentioned are the changes/commits which are part of the PR-756
-
-***Description:***  
+Below mentioned are some the sub-items related to the change  
+  
 - Removing condition in bridge port bridge id attribute (#706) (#707)   
 - Fix condition in bridge port bridge id attribute  
 - Using validonly flag  
@@ -19,9 +19,11 @@ Below mentioned are the changes/commits which are part of the PR-756
 - Update saiserializetest.c  
 - Update saivlan.h (#752)    
 
-[Link to the commit](https://github.com/opencomputeproject/SAI/commit/e472cc22654c388e56d749464bde7462bc9d8bda)
+## [Link to the commit](https://github.com/opencomputeproject/SAI/commit/e472cc22654c388e56d749464bde7462bc9d8bda)
 
-[Link to the PR:756](https://github.com/opencomputeproject/SAI/pull/756)
+## Links to the PR  
+
+[756](https://github.com/opencomputeproject/SAI/pull/756)[706](https://github.com/opencomputeproject/SAI/pull/706)
 
 `PR-756 not present in the diff between version 1.2 & version 1.3`
 
