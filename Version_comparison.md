@@ -1,4 +1,6 @@
-# Added SAI_OBJECT_TYPE_BRIDGE_PORT support in ACL
+# ***SAI 1.4 Release Notes***
+
+# 1. Added SAI_OBJECT_TYPE_BRIDGE_PORT support in ACL
 
 ## Description
 
@@ -18,7 +20,7 @@ Below mentioned are some of the sub-items related to this change
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Uninitialize data plane ON removal of switch object
+# 2. Uninitialize data plane ON removal of switch object
 
 ## Description
 
@@ -28,7 +30,7 @@ Below mentioned are some of the sub-items related to this change
 - However, on some scenarios, such as fast boot, it is needed to leave the data plane running  
 - Host adapter will call this attribute if needed, and then call remove the switch  
 
-## Commit 
+## 3. Commit 
 
 [Link to the commit](https://github.com/opencomputeproject/SAI/commit/c26fb2657a7b246548d10458a542ea5fa2d23cd5)
 
@@ -38,7 +40,7 @@ Below mentioned are some of the sub-items related to this change
 
 ------------------------------------------------------------------------------------------------------------------------------------------
 
-# Add SAI_PORT_ATTR_EYE_VALUES
+# 4. Add SAI_PORT_ATTR_EYE_VALUES
 
 ## Description
 
@@ -55,7 +57,7 @@ Below mentioned are some of the sub-items related to this change
 
 ------------------------------------------------------------------------------------------------------------------------------------------
 
-# Add capability metadata for attributes
+# 5. Add capability metadata for attributes
 
 ## Description
 
@@ -65,13 +67,13 @@ Below mentioned are some of the sub-items related to this change
 
 [Link to the commit](https://github.com/opencomputeproject/SAI/commit/ca5006112d4fa64747a848ef85fd4194f26a3df8)
 
-## PRs related to this commit
+## 6. PRs related to this commit
 
 [794](https://github.com/opencomputeproject/SAI/pull/794)
 
 ------------------------------------------------------------------------------------------------------------------------------------------
 
-# Add license information to metadata source files
+# 7. Add license information to metadata source files
 
 ## Description
 
@@ -85,7 +87,7 @@ Below mentioned are some of the sub-items related to this change
 [799](https://github.com/opencomputeproject/SAI/pull/799)
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# VRRP support in RIF create call
+# 8. VRRP support in RIF create call
 
 ## Description
 
@@ -102,7 +104,7 @@ Below mentioned are some of the sub-items related to this change
 [792](https://github.com/opencomputeproject/SAI/pull/792)
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# Refactor parser for auto serialize and deserialize
+# 9. Refactor parser for auto serialize and deserialize
 
 ## Description
 
@@ -119,7 +121,7 @@ Below mentioned are some of the sub-items related to this change
 [804](https://github.com/opencomputeproject/SAI/pull/804)
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# Add mirror session congestion mode
+# 10. Add mirror session congestion mode
 
 ## Description
 
@@ -136,7 +138,7 @@ Below mentioned are some of the sub-items related to this change
 [786](https://github.com/opencomputeproject/SAI/pull/786)
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# Add HostIf traps for CISCO MCAST packet types
+# 11. Add HostIf traps for CISCO MCAST packet types
 
 ## Description
 
@@ -153,7 +155,7 @@ Below mentioned are some of the sub-items related to this change
 [819](https://github.com/opencomputeproject/SAI/pull/819)
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# Add a new DTel attribute to provide fine-grained control while enabling drop reports
+# 12. Add a new DTel attribute to provide fine-grained control while enabling drop reports
 
 ## Description
 
