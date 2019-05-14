@@ -77,6 +77,10 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
+- 
+
+- 
+
 
 ## Commit
 
@@ -170,5 +174,74 @@ Below mentioned are some of the sub-items related to this change
 ## PRs related to this commit
 
 [813](https://github.com/opencomputeproject/SAI/pull/813)
+
+------------------------------------------------------------------------------------------------------------------------------------------
+# 12. Create fdb using vlan object id instead of vlan id
+
+## Description
+
+-   
+
+- 
+
+## Commit
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/95eb274c2c4ecfe4213b6ad695d45769ae460313)
+
+## PRs related to this commit
+
+[829](https://github.com/opencomputeproject/SAI/pull/829)
+
+------------------------------------------------------------------------------------------------------------------------------------------
+# 13. IP in IP tunnel ptf tests
+
+## Description
+
+-   
+
+- 
+
+## Commit
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/9583b410903bffc0aa29f57a81ddd418e40867da)
+
+## PRs related to this commit
+
+[833](https://github.com/opencomputeproject/SAI/pull/833)  [385](https://github.com/opencomputeproject/SAI/pull/385)  [SAITUNNEL](https://github.com/opencomputeproject/SAI/blob/v0.9.4/test/saithrift/tests/saitunnel.py)
+
+------------------------------------------------------------------------------------------------------------------------------------------
+# 14. Added P4 Behavioral Model
+
+## Description
+
+- A general switch P4 behavioral model.
+- Implementation of the SAI API over the P4 BM.
+- unit test example for the sai api usage.
+- Thirft sai server implementation and ptf tests. (currently only L2 (1D,1Q) flows are supported)
+
+## Commit
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/09d8c749dac0e990e64c2090af93faa69f37b001)
+
+## PRs related to this commit
+
+[492](https://github.com/opencomputeproject/SAI/pull/492) 
+
+------------------------------------------------------------------------------------------------------------------------------------------
+# 15. Add meta data attribute support to SAI extensions
+
+## Description
+
+-   
+
+- 
+
+## Commit
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/0115c7c67d95ca492da467a99f7e0975a5954066)
+
+## PRs related to this commit
+
+[835](https://github.com/opencomputeproject/SAI/pull/835) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
