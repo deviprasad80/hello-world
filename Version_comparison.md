@@ -46,3 +46,137 @@ Below mentioned are some of the sub-items related to this change
 ## PRs related to this commit
 [795](https://github.com/opencomputeproject/SAI/pull/795)
 
+------------------------------------------------------------------------------------------------------------------------------------------
+
+# Add SAI_PORT_ATTR_EYE_VALUES
+
+## Description
+
+- "sai_port_lane_eye_values" name changed to "SAI_PORT_ATTR_EYE_VALUES"
+
+## Commit
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/829250450f2ff8a38e895413ccd85d92935acbbc)
+
+
+## PRs related to this commit
+
+[777](https://github.com/opencomputeproject/SAI/pull/777)
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+# Add capability metadata for attributes
+
+## Description
+
+- 
+
+## Commit
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/ca5006112d4fa64747a848ef85fd4194f26a3df8)
+
+## PRs related to this commit
+
+[794](https://github.com/opencomputeproject/SAI/pull/794)
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+# Add license information to metadata source files
+
+## Description
+
+
+## Commit
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/92e54170f17ccc0881832eea4e93114ba8fd1e79)
+
+## PRs related to this commit
+
+[799](https://github.com/opencomputeproject/SAI/pull/799)
+
+------------------------------------------------------------------------------------------------------------------------------------------
+# VRRP support in RIF create call
+
+## Description
+
+- To fix meta checker
+
+- To update VRRP PR with review comments
+
+## Commit
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/362659154965f46f84b70f5f55f2dc79f7234e68)
+
+## PRs related to this commit
+
+[792](https://github.com/opencomputeproject/SAI/pull/792)
+
+------------------------------------------------------------------------------------------------------------------------------------------
+# Refactor parser for auto serialize and deserialize
+
+## Description
+
+- 
+
+- 
+
+## Commit
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/2bd3dfadccd5a8e01e83b7604cb8ca281a56eec9)
+
+## PRs related to this commit
+
+[804](https://github.com/opencomputeproject/SAI/pull/804)
+
+------------------------------------------------------------------------------------------------------------------------------------------
+# Add mirror session congestion mode
+
+## Description
+
+- 
+
+- 
+
+## Commit
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/07c23b3f95cb8034a5ee2bd9baf6815be3eb7324)
+
+## PRs related to this commit
+
+[786](https://github.com/opencomputeproject/SAI/pull/786)
+
+------------------------------------------------------------------------------------------------------------------------------------------
+# Add HostIf traps for CISCO MCAST packet types
+
+## Description
+
+- To add CISCO MCast types other than UDLD to SAI header, so we can trap individual types to CPU  
+
+- Common Mcast DMAC trap is added to use a single trap for CISCO Mcast DMAC (01-00-0c-cc-cc-cc)  
+
+## Commit
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/9b169454b277f26664f52464184a80b0ff4f202b)
+
+## PRs related to this commit
+
+[819](https://github.com/opencomputeproject/SAI/pull/819)
+
+------------------------------------------------------------------------------------------------------------------------------------------
+# Add a new DTel attribute to provide fine-grained control while enabling drop reports
+
+## Description
+
+- To selectively enables/disables queue tail drop reporting when drop reporting is enabled  
+
+- If the new attribute is disabled, all other drops are still reported 
+
+## Commit
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/fb8cd257f2a5c7d880b40ab39a95ec3dcc6f9ac5)
+
+## PRs related to this commit
+
+[813](https://github.com/opencomputeproject/SAI/pull/813)
+
+------------------------------------------------------------------------------------------------------------------------------------------
