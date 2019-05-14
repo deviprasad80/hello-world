@@ -19,7 +19,9 @@ Below mentioned are some the sub-items related to the change
 - Update saiserializetest.c  
 - Update saivlan.h (#752)    
 
-## [Link to the commit](https://github.com/opencomputeproject/SAI/commit/e472cc22654c388e56d749464bde7462bc9d8bda)
+## Links to the commit  
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/e472cc22654c388e56d749464bde7462bc9d8bda)
 
 ## Links to the PR  
 
