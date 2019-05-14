@@ -25,7 +25,7 @@ Below mentioned are some the sub-items related to the change
 
 ## Links to the PR  
 
-[756](https://github.com/opencomputeproject/SAI/pull/756)[706](https://github.com/opencomputeproject/SAI/pull/706)
+[756](https://github.com/opencomputeproject/SAI/pull/756);[706](https://github.com/opencomputeproject/SAI/pull/706);[707] (https://github.com/opencomputeproject/SAI/pull/707); 
 
 `PR-756 not present in the diff between version 1.2 & version 1.3`
 
