@@ -30,7 +30,7 @@ Below mentioned are some of the sub-items related to this change
 - However, on some scenarios, such as fast boot, it is needed to leave the data plane running  
 - Host adapter will call this attribute if needed, and then call remove the switch  
 
-## 3. Commit 
+## Commit 
 
 [Link to the commit](https://github.com/opencomputeproject/SAI/commit/c26fb2657a7b246548d10458a542ea5fa2d23cd5)
 
@@ -40,7 +40,7 @@ Below mentioned are some of the sub-items related to this change
 
 ------------------------------------------------------------------------------------------------------------------------------------------
 
-# 4. Add SAI_PORT_ATTR_EYE_VALUES
+# 3. Add SAI_PORT_ATTR_EYE_VALUES
 
 ## Description
 
@@ -57,7 +57,7 @@ Below mentioned are some of the sub-items related to this change
 
 ------------------------------------------------------------------------------------------------------------------------------------------
 
-# 5. Add capability metadata for attributes
+# 4. Add capability metadata for attributes
 
 ## Description
 
@@ -67,13 +67,13 @@ Below mentioned are some of the sub-items related to this change
 
 [Link to the commit](https://github.com/opencomputeproject/SAI/commit/ca5006112d4fa64747a848ef85fd4194f26a3df8)
 
-## 6. PRs related to this commit
+## 5. PRs related to this commit
 
 [794](https://github.com/opencomputeproject/SAI/pull/794)
 
 ------------------------------------------------------------------------------------------------------------------------------------------
 
-# 7. Add license information to metadata source files
+# 6. Add license information to metadata source files
 
 ## Description
 
@@ -87,7 +87,7 @@ Below mentioned are some of the sub-items related to this change
 [799](https://github.com/opencomputeproject/SAI/pull/799)
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 8. VRRP support in RIF create call
+# 7. VRRP support in RIF create call
 
 ## Description
 
@@ -104,7 +104,7 @@ Below mentioned are some of the sub-items related to this change
 [792](https://github.com/opencomputeproject/SAI/pull/792)
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 9. Refactor parser for auto serialize and deserialize
+# 8. Refactor parser for auto serialize and deserialize
 
 ## Description
 
@@ -121,7 +121,7 @@ Below mentioned are some of the sub-items related to this change
 [804](https://github.com/opencomputeproject/SAI/pull/804)
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 10. Add mirror session congestion mode
+# 9. Add mirror session congestion mode
 
 ## Description
 
@@ -138,7 +138,7 @@ Below mentioned are some of the sub-items related to this change
 [786](https://github.com/opencomputeproject/SAI/pull/786)
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 11. Add HostIf traps for CISCO MCAST packet types
+# 10. Add HostIf traps for CISCO MCAST packet types
 
 ## Description
 
@@ -155,7 +155,7 @@ Below mentioned are some of the sub-items related to this change
 [819](https://github.com/opencomputeproject/SAI/pull/819)
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 12. Add a new DTel attribute to provide fine-grained control while enabling drop reports
+# 11. Add a new DTel attribute to provide fine-grained control while enabling drop reports
 
 ## Description
 
