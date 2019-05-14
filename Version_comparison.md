@@ -2,7 +2,7 @@
 
 ## Description
 
-Below mentioned are some the sub-items related to the change  
+Below mentioned are some of the sub-items related to the change  
   
 - Removing condition in bridge port bridge id attribute (#706) (#707)   
 - Fix condition in bridge port bridge id attribute  
