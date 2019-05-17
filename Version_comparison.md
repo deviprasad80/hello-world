@@ -18,6 +18,13 @@ Below mentioned are some of the sub-items related to this change
 
 [756](https://github.com/opencomputeproject/SAI/pull/756)  [706](https://github.com/opencomputeproject/SAI/pull/706)  [707](https://github.com/opencomputeproject/SAI/pull/707)  [717](https://github.com/opencomputeproject/SAI/pull/717)  [721](https://github.com/opencomputeproject/SAI/pull/721)  [722](https://github.com/opencomputeproject/SAI/pull/722)  [731](https://github.com/opencomputeproject/SAI/pull/731)  [733](https://github.com/opencomputeproject/SAI/pull/733)  [725](https://github.com/opencomputeproject/SAI/pull/725)  [745](https://github.com/opencomputeproject/SAI/pull/745)  [752](https://github.com/opencomputeproject/SAI/pull/752)
 
+## Revert commit
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/62921d245dbdcfdbbcd4e1c9ea36c66817817a1f)
+
+## Revert PR related to this commit
+
+[866](https://github.com/opencomputeproject/SAI/pull/866)
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # 2. Uninitialize data plane ON removal of switch object
@@ -91,7 +98,25 @@ Below mentioned are some of the sub-items related to this change
 [799](https://github.com/opencomputeproject/SAI/pull/799)
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 7. VRRP support in RIF create call
+# 7. Fix inout param declaration in functions
+
+## Description
+
+- To replace parameter "out" with "inout"
+
+- 
+
+
+## Commit
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/0443856640d078c6faaa8cbbb23d8751d56831fd)
+
+## PRs related to this commit
+
+[805](https://github.com/opencomputeproject/SAI/pull/805)
+
+------------------------------------------------------------------------------------------------------------------------------------------
+# 8. VRRP support in RIF create call
 
 ## Description
 
@@ -108,7 +133,41 @@ Below mentioned are some of the sub-items related to this change
 [792](https://github.com/opencomputeproject/SAI/pull/792)
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 8. Refactor parser for auto serialize and deserialize
+# 9. Add support for experimental attributes
+
+## Description
+
+- To add support for experimental attributes  
+
+- To Remove example fpga extensions (TBD: In the link it seems FPGA is added)  
+
+## Commit
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/fef8717822dffdb466263fc4d9fa2a6a9b21ecbf)
+
+## PRs related to this commit
+
+[807](https://github.com/opencomputeproject/SAI/pull/807)
+
+------------------------------------------------------------------------------------------------------------------------------------------
+# 11. Fix out parameter prefixes
+
+## Description
+
+-  To replace the parameter "out" with "inout" in the "inc/saiobject.h" file
+
+-   
+
+## Commit
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/e1a50ed0ab44c19bec7ce6d069b539b5b7b30ff2)
+
+## PRs related to this commit
+
+[809](https://github.com/opencomputeproject/SAI/pull/809)
+
+------------------------------------------------------------------------------------------------------------------------------------------
+# 12. Refactor parser for auto serialize and deserialize
 
 ## Description
 
@@ -125,7 +184,25 @@ Below mentioned are some of the sub-items related to this change
 [804](https://github.com/opencomputeproject/SAI/pull/804)
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 9. Add mirror session congestion mode
+
+# 13. Refactor generated metadata style
+
+## Description
+
+- Multiple parameters incorporated
+
+- Multiple indentation changes implemented
+
+## Commit
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/8fbda3a29cfc2835ec99c3280af4338ca19ea56c)
+
+## PRs related to this commit
+
+[810](https://github.com/opencomputeproject/SAI/pull/810)
+
+------------------------------------------------------------------------------------------------------------------------------------------
+# 14. Add mirror session congestion mode
 
 ## Description
 
@@ -142,13 +219,13 @@ Below mentioned are some of the sub-items related to this change
 [786](https://github.com/opencomputeproject/SAI/pull/786)
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 10. Add HostIf traps for CISCO MCAST packet types
+# 15. Add HostIf traps for CISCO MCAST packet types
 
 ## Description
 
 - To add CISCO MCast types other than UDLD to SAI header, so we can trap individual types to CPU  
 
-- Common Mcast DMAC trap is added to use a single trap for CISCO Mcast DMAC (01-00-0c-cc-cc-cc)    
+- Common Mcast DMAC trap is added to use a single trap for CISCO Mcast DMAC (01-00-0c-cc-cc-cc)  
 
 ## Commit
 
@@ -159,13 +236,15 @@ Below mentioned are some of the sub-items related to this change
 [819](https://github.com/opencomputeproject/SAI/pull/819)
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 11. Add a new DTel attribute to provide fine-grained control while enabling drop reports
+# 16. Add a new DTel attribute
 
 ## Description
 
-- To selectively enables/disables queue tail drop reporting when drop reporting is enabled   
+- To provide fine-grained control while enabling drop reports  
 
-- If the new attribute is disabled, all other drops are still reported  
+- To selectively enables/disables queue tail drop reporting when drop reporting is enabled
+
+- If the new attribute is disabled, all other drops are still reported
 
 ## Commit
 
@@ -176,7 +255,26 @@ Below mentioned are some of the sub-items related to this change
 [813](https://github.com/opencomputeproject/SAI/pull/813)
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 12. Create fdb using vlan object id instead of vlan id
+# 17. Make log level easier to be changed for all SAI APIs
+
+## Description
+
+- To make log level easier to be changed for all SAI APIs
+
+- "SAI_LOG_LEVEL_NOTICE" attribute changed to "log_level"
+
+
+## Commit
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/3627c42d676af897be10cbcb741bd80ab32aa91e)
+
+## PRs related to this commit
+
+[831](https://github.com/opencomputeproject/SAI/pull/831)
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+# 18. Create fdb using vlan object id instead of vlan id
 
 ## Description
 
@@ -193,7 +291,24 @@ Below mentioned are some of the sub-items related to this change
 [829](https://github.com/opencomputeproject/SAI/pull/829)
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 13. IP in IP tunnel ptf tests
+# 19. Update saihostif test
+
+## Description
+
+- Add support for create/remove hostif_table_entry  
+
+- Change policer meter type from bytes to packets
+
+## Commit
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/9f380f1cabd614ddabf0229196c7d7445aa93037)
+
+## PRs related to this commit
+
+[830](https://github.com/opencomputeproject/SAI/pull/830)
+
+------------------------------------------------------------------------------------------------------------------------------------------
+# 20. IP in IP tunnel ptf tests
 
 ## Description
 
@@ -210,14 +325,29 @@ Below mentioned are some of the sub-items related to this change
 [833](https://github.com/opencomputeproject/SAI/pull/833)  [385](https://github.com/opencomputeproject/SAI/pull/385)  [SAITUNNEL](https://github.com/opencomputeproject/SAI/blob/v0.9.4/test/saithrift/tests/saitunnel.py)
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 14. Added P4 Behavioral Model
+# 21. Add 3 new L2FDB tests
 
 ## Description
 
-- A general switch P4 behavioral model  
-- Implementation of the SAI API over the P4 BM  
-- unit test example for the sai api usage  
-- Thirft sai server implementation and ptf tests. (currently only L2 (1D,1Q) flows are supported)  
+- Add tests L2FDBMissUnicastTest, L2FDBMissBroadcastTest, L2FDBFloodRoutingNoVlan
+
+## Commit
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/4007d3aa1534450ed80ebfd978a29c74a3244999)
+
+## PRs related to this commit
+
+[838](https://github.com/opencomputeproject/SAI/pull/838)
+
+------------------------------------------------------------------------------------------------------------------------------------------
+# 22. Added P4 Behavioral Model
+
+## Description
+
+- A general switch P4 behavioral model.
+- Implementation of the SAI API over the P4 BM.
+- unit test example for the sai api usage.
+- Thirft sai server implementation and ptf tests. (currently only L2 (1D,1Q) flows are supported)
 
 ## Commit
 
@@ -228,11 +358,11 @@ Below mentioned are some of the sub-items related to this change
 [492](https://github.com/opencomputeproject/SAI/pull/492) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 15. Add meta data attribute support to SAI extensions
+# 23. Add meta data attribute support to SAI extensions
 
 ## Description
 
-- 
+-   
 
 - 
 
@@ -245,7 +375,7 @@ Below mentioned are some of the sub-items related to this change
 [835](https://github.com/opencomputeproject/SAI/pull/835) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 16. Add new flush type for clearing both static and dynamic entries
+# 24. Add new flush type for clearing both static and dynamic entries
 
 ## Description
 
@@ -263,7 +393,7 @@ Below mentioned are some of the sub-items related to this change
 [845](https://github.com/opencomputeproject/SAI/pull/845) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 17. Add port attibute to pause and unpause the egress of a port
+# 25. Add port attibute to pause and unpause the egress of a port
 
 ## Description
 
@@ -280,7 +410,7 @@ Below mentioned are some of the sub-items related to this change
 [840](https://github.com/opencomputeproject/SAI/pull/840) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 18. Add RIF counters
+# 26. Add RIF counters
 
 ## Description
 
@@ -297,7 +427,7 @@ Below mentioned are some of the sub-items related to this change
 [836](https://github.com/opencomputeproject/SAI/pull/836) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 19. Add p4_compiler submodule
+# 27. Add p4_compiler submodule
 
 ## Description
 
@@ -314,7 +444,39 @@ Below mentioned are some of the sub-items related to this change
 [837](https://github.com/opencomputeproject/SAI/pull/837) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 20. Add new IP in IP decap PTF tests
+# 28. Add PTP support
+
+## Description
+
+- PTP support "PTP traps + RX/TX meatadata" added
+
+- Modified struct definitions
+
+## Commit
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/a3211b66d32a36975e0cb0bafe5325baedd46e1c)
+
+## PRs related to this commit
+
+[841](https://github.com/opencomputeproject/SAI/pull/841)
+
+------------------------------------------------------------------------------------------------------------------------------------------
+# 29. changed aux to P4_aux (reserved name)
+
+## Description
+
+- Changed aux.py to P4_aux.py (reserved name)
+
+## Commit
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/4fce82c469021ca9b5e8d6e301647bea7f989d3c)
+
+## PRs related to this commit
+
+[852](https://github.com/opencomputeproject/SAI/pull/852)
+
+------------------------------------------------------------------------------------------------------------------------------------------
+# 30. Add new IP in IP decap PTF tests
 
 ## Description
 
@@ -331,7 +493,39 @@ Below mentioned are some of the sub-items related to this change
 [853](https://github.com/opencomputeproject/SAI/pull/853) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 21. Add warm boot recover attribute
+# 31. Port isolation group enhancement
+
+## Description
+
+- Add SAI_OBJECT_TYPE_ISOLATION_GROUP_MEMBER
+
+- Correct the SAI_ACL_ENTRY_ATTR_ACTION_END value
+
+## Commit
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/9cca39366b052894d8091814fa3dee9288c089c6)
+
+## PRs related to this commit
+
+[818](https://github.com/opencomputeproject/SAI/pull/818) 
+
+------------------------------------------------------------------------------------------------------------------------------------------
+# 32. Make code compatible with python3
+
+## Description
+
+- Code written in the "flexsai/p4/backend/json_stage/sai.cpp" file to be Python compatible
+
+## Commit
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/807e9880ed6867b5326fd66e2a4536abf0e6120d)
+
+## PRs related to this commit
+
+[857](https://github.com/opencomputeproject/SAI/pull/857) 
+
+------------------------------------------------------------------------------------------------------------------------------------------
+# 33. Add warm boot recover attribute
 
 ## Description
 
@@ -348,7 +542,7 @@ Below mentioned are some of the sub-items related to this change
 [854](https://github.com/opencomputeproject/SAI/pull/854) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 22. Add vxlan tunnel as possible condition for underlay interface attribute
+# 34. Add vxlan tunnel as possible condition for underlay interface attribute
 
 ## Description
 
@@ -365,7 +559,7 @@ Below mentioned are some of the sub-items related to this change
 [870](https://github.com/opencomputeproject/SAI/pull/870) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 23. Add watermark stat for headroom pool
+# 35. Add watermark stat for headroom pool
 
 ## Description
 
@@ -382,7 +576,84 @@ Below mentioned are some of the sub-items related to this change
 [871](https://github.com/opencomputeproject/SAI/pull/871) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 24. Add stat enum pointer to object type info metadata
+# 36. SAI Get Stats function counter_id data-type
+
+## Description
+
+- Stat_id_t is the data-type defined to uint32_t
+
+- API implementation is just made uniform with a single data-type for all objects
+
+## Commit
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/ada8d9ecb50a6c1b76b584795ac814ae6106ee98)
+
+## PRs related to this commit
+
+[869](https://github.com/opencomputeproject/SAI/pull/869) 
+
+------------------------------------------------------------------------------------------------------------------------------------------
+# 37. Add support SAI attribute
+
+## Description
+
+- Add support SAI_OBJECT_TYPE_LAG to SAI_ACL_ENTRY_ATTR_FIELD_IN/OUT_PORT
+
+## Commit
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/b0d364374e85e62c8409da346a38dcb48edf6030)
+
+## PRs related to this commit
+
+[864](https://github.com/opencomputeproject/SAI/pull/864) 
+
+------------------------------------------------------------------------------------------------------------------------------------------
+# 38. Allow object list on mandatory_on_create for mirror session
+
+## Description
+
+- Case "SAI_ATTR_VALUE_TYPE_OBJECT_LIST" created to allow "SAI_OBJECT_TYPE_MIRROR_SESSION" object
+
+## Commit
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/20199036a9031a71f7f27c1e4c9c48718e1fc124)
+
+## PRs related to this commit
+
+[875](https://github.com/opencomputeproject/SAI/pull/875) 
+
+------------------------------------------------------------------------------------------------------------------------------------------
+# 39. Allow mixed object type on mirror session
+
+## Description
+
+- 
+
+## Commit
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/4980664ecc60a1f6d7bb9dbd40e2dd02a04a4851)
+
+## PRs related to this commit
+
+[876](https://github.com/opencomputeproject/SAI/pull/876) 
+
+------------------------------------------------------------------------------------------------------------------------------------------
+# 40. Next Hop(NH) Attribute change
+
+## Description
+
+- Modified the condition to accept Tunnel Encap and MPLS Nexthop types.
+
+## Commit
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/f6c9b0064752b4f8661011d0a38a612413765daf)
+
+## PRs related to this commit
+
+[877](https://github.com/opencomputeproject/SAI/pull/877) 
+
+------------------------------------------------------------------------------------------------------------------------------------------
+# 41. Add stat enum pointer to object type info metadata
 
 ## Description
 
@@ -399,7 +670,7 @@ Below mentioned are some of the sub-items related to this change
 [881](https://github.com/opencomputeproject/SAI/pull/881) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 25. Add stats function param types check
+# 42. Add stats function param types check
 
 ## Description
 
@@ -416,7 +687,7 @@ Below mentioned are some of the sub-items related to this change
 [882](https://github.com/opencomputeproject/SAI/pull/882) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 26. Add struct member offset and size to metadata
+# 43. Add struct member offset and size to metadata
 
 ## Description
 
@@ -433,7 +704,22 @@ Below mentioned are some of the sub-items related to this change
 [883](https://github.com/opencomputeproject/SAI/pull/883) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 27. Add attr bridge id for bridge router interface
+# 44. Add stat enum defined test
+
+## Description
+
+- "statenum_defined" test case added
+
+## Commit
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/9781df8d45b5b29bd0826a445b8523b5a1041d7d)
+
+## PRs related to this commit
+
+[885](https://github.com/opencomputeproject/SAI/pull/885) 
+
+------------------------------------------------------------------------------------------------------------------------------------------
+# 45. Add attr bridge id for bridge router interface
 
 ## Description
 
@@ -452,7 +738,7 @@ Below mentioned are some of the sub-items related to this change
 [868](https://github.com/opencomputeproject/SAI/pull/868) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 28. Change SAI_MIRROR_SESSION_ATTR_VLAN_HEADER_VALID to CREATE_AND_SET
+# 46. Change SAI_MIRROR_SESSION_ATTR_VLAN_HEADER_VALID to CREATE_AND_SET
 
 ## Description
 
@@ -469,7 +755,7 @@ Below mentioned are some of the sub-items related to this change
 [879](https://github.com/opencomputeproject/SAI/pull/879) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 29. Uild saiserver and saiserver-dbg packages
+# 47. Uild saiserver and saiserver-dbg packages
 
 ## Description
 
@@ -486,7 +772,24 @@ Below mentioned are some of the sub-items related to this change
 [888](https://github.com/opencomputeproject/SAI/pull/888) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 30. Add switch notification attributes list to metadata
+# 48. Clarifications for SAI thrift test setup
+
+## Description
+
+- Add meta data attribute support to SAI extensions
+
+- Clarify SAI thrift test setup instructions
+
+## Commit
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/9d003649c1cfc4f66691ab767db4c3510b7a6379)
+
+## PRs related to this commit
+
+[860](https://github.com/opencomputeproject/SAI/pull/860) 
+
+------------------------------------------------------------------------------------------------------------------------------------------
+# 49. Add switch notification attributes list to metadata
 
 ## Description
 
@@ -503,7 +806,7 @@ Below mentioned are some of the sub-items related to this change
 [886](https://github.com/opencomputeproject/SAI/pull/886) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 31. Add SAI_SWITCH_ATTR_CURRENT_TEMP to get average temperature from sensors
+# 50. Add SAI_SWITCH_ATTR_CURRENT_TEMP to get average temperature from sensors
 
 ## Description
 
@@ -520,7 +823,39 @@ Below mentioned are some of the sub-items related to this change
 [880](https://github.com/opencomputeproject/SAI/pull/880) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 32. Define SAI_SWITCH_ATTR_PRE_SHUTDOWN for warm shutdown
+# 51. Force stat functions to be consistent across all SAI
+
+## Description
+
+- Force stat functions to be consistent across all SAI  
+
+- Fix object name  
+
+## Commit
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/7bab22c8ccc430f5ea0d295dc31aa603d4e89eee)
+
+## PRs related to this commit
+
+[884](https://github.com/opencomputeproject/SAI/pull/884) 
+
+------------------------------------------------------------------------------------------------------------------------------------------
+# 52. Add binary check in meta Makefile
+
+## Description
+
+- 
+
+## Commit
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/d839b8b46094dd27de5c7a9d01e8cfdc0c2af9c7)
+
+## PRs related to this commit
+
+[891](https://github.com/opencomputeproject/SAI/pull/891) 
+
+------------------------------------------------------------------------------------------------------------------------------------------
+# 53. Define SAI_SWITCH_ATTR_PRE_SHUTDOWN for warm shutdown
 
 ## Description
 
@@ -537,13 +872,77 @@ Below mentioned are some of the sub-items related to this change
 [890](https://github.com/opencomputeproject/SAI/pull/890) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 33. Add SAI_MIRROR_SESSION_ATTR_POLICER to mirror session attributes
+# 54. Add quote for serialized pointer
+
+## Description
+
+- Add unittests and Update unittests  
+
+- Add support for 32 bit pointer and Use macro for platform detect  
+
+## Commit
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/9e82be491f2dc3a5a8f75f58c01c09d09e6152eb)
+
+## PRs related to this commit
+
+[893](https://github.com/opencomputeproject/SAI/pull/893) 
+
+------------------------------------------------------------------------------------------------------------------------------------------
+# 55. Add check for params prefixed sai
+
+## Description
+
+- "_In_ sai_api_t sai_api_id" is now referred as "_In_ sai_api_t api"  
+
+- Entire headers style is to name parameters after type. So if type is sai_zzz_t parameter is named as zzz  
+
+## Commit
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/0bca0adfecd2bfe44f778e4df4d2157476282757)
+
+## PRs related to this commit
+
+[894](https://github.com/opencomputeproject/SAI/pull/894)
+
+------------------------------------------------------------------------------------------------------------------------------------------
+# 56. Add proper handle of pointer serialize
+
+## Description
+
+-   
+
+## Commit
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/647d10e8b67b623a58743df5d9622356dfcbd874)
+
+## PRs related to this commit
+
+[895](https://github.com/opencomputeproject/SAI/pull/895) 
+
+------------------------------------------------------------------------------------------------------------------------------------------
+# 57. Add BMToR extension module
+
+## Description
+
+- Extension module is temporarily stored under experimental till the infrastructure for integrating P4 autogenerated headers during build will be available  
+
+- Update for new pipeline  
+
+## Commit
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/ed7cdb140704a33534308790bdc18b99c81471e3)
+
+## PRs related to this commit
+
+[873](https://github.com/opencomputeproject/SAI/pull/873) 
+
+------------------------------------------------------------------------------------------------------------------------------------------
+# 58. Add SAI_MIRROR_SESSION_ATTR_POLICER to mirror session attributes
 
 ## Description
 
 - Enable the ability to attach a policer to the mirror session to throttle the mirrored packets without affecting the original traffic  
-
-- 
 
 ## Commit
 
@@ -554,7 +953,58 @@ Below mentioned are some of the sub-items related to this change
 [899](https://github.com/opencomputeproject/SAI/pull/899) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 34. Add ICMP match type/code for IPv6
+# 59. Add oper speed
+
+## Description
+
+- Current port speed attribute means configured speed  
+
+- Added new read only attribute for operational speed, which is the actual speed the port is working, depending on configuration, peer, cable, and can be zero if port is down  
+
+- Update saiport.h  
+
+## Commit
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/d1a27da2f12519d25a0c93949120408ace6dbfe0)
+
+## PRs related to this commit
+
+[898](https://github.com/opencomputeproject/SAI/pull/898) 
+
+------------------------------------------------------------------------------------------------------------------------------------------
+# 60. Add RDMA related matching fileds to ACL
+
+## Description
+
+- Added OpCode field in Base Transport Header (BTH)  
+
+- Added Syndrome field in The ACK Extended Transport Header (AETH)  
+
+## Commit
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/80e973314dca5aa61604ed57b142e7e379999981)
+
+## PRs related to this commit
+
+[878](https://github.com/opencomputeproject/SAI/pull/878) 
+
+------------------------------------------------------------------------------------------------------------------------------------------
+# 61. Remove duplicate bm entry
+
+## Description
+
+- Removed duplicate behavioral model entry  
+
+## Commit
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/40be269b17889e9030c08a9303cf1d90d080cc3c)
+
+## PRs related to this commit
+
+[902](https://github.com/opencomputeproject/SAI/pull/902) 
+
+------------------------------------------------------------------------------------------------------------------------------------------
+# 62. Add ICMP match type/code for IPv6
 
 ## Description
 
@@ -570,8 +1020,89 @@ Below mentioned are some of the sub-items related to this change
 
 [901](https://github.com/opencomputeproject/SAI/pull/901) 
 
-------------------------------------------------------------------------------------------------------------------------------------------
-# 35. Update API[saiexperimentalbmtor]
+-----------------------------------------------------------------------------------------------------------------------------------------
+# 63. Change tunnel route attr to next hop
+
+## Description
+
+- Change SAI_TABLE_TUNNEL_ROUTE_ENTRY_ATTR_NEXT_HOP_GROUP to SAI_TABLE_TUNNEL_ROUTE_ENTRY_ATTR_NEXT_HOP  
+
+## Commit
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/dd910e5cee64006a0f5f47fbec46fae5b8652466)
+
+## PRs related to this commit
+
+[903](https://github.com/opencomputeproject/SAI/pull/903) 
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+# 64. Create saibmtor.md
+
+## Description
+
+- Create and update saibmtor.md  
+
+- Add pipeline view  
+
+## Commit
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/642d00966da88bb6ddd781544f5d535dcc6847a0)
+
+## PRs related to this commit
+
+[904](https://github.com/opencomputeproject/SAI/pull/904) 
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+# 65. Add PTF test for setting ERSPAN vlan header
+
+## Description
+
+- Add PTF test for setting ERSPAN vlan header  
+
+## Commit
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/2165dbf11368f089cb030d20713d103c12b95803)
+
+## PRs related to this commit
+
+[905](https://github.com/opencomputeproject/SAI/pull/905) 
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+# 66. Allow PORT attribute lists to be set to internal
+
+## Description
+
+- Allow PORT attribute lists to be set to internal  
+
+## Commit
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/937515a6a61093e499936b2f9e10f690f6713eb0)
+
+## PRs related to this commit
+
+[908](https://github.com/opencomputeproject/SAI/pull/908) 
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+# 67. SAI library compilation fixes
+
+## Description
+
+- Add booldata to ACL param union  
+
+- Use EXTENSIONS_MAX as sai object type array size  
+
+- Fix rpc_server compilation  
+
+## Commit
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/f9bedb1dc880c0b3667c5977458b11807e57ae1b)
+
+## PRs related to this commit
+
+[909](https://github.com/opencomputeproject/SAI/pull/909) 
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+# 68. Update API[saiexperimentalbmtor]
 
 ## Description
 
@@ -587,14 +1118,92 @@ Below mentioned are some of the sub-items related to this change
 
 [913](https://github.com/opencomputeproject/SAI/pull/913) 
 
-------------------------------------------------------------------------------------------------------------------------------------------
-# 36. Add META_TUNNEL table[bmtor]
+-----------------------------------------------------------------------------------------------------------------------------------------
+# 69. SAI Port attributes for preemphasis setting
+
+## Description
+
+- Defined SAI Port attributes for setting preemphasis and other serdes driver settings   
+
+## Commit
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/5b5954f8324009c97fc7d03851309d3954ca01e0)
+
+## PRs related to this commit
+
+[907](https://github.com/opencomputeproject/SAI/pull/907) 
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+# 70. Fix perl warning on style module
+
+## Description
+
+- "/^union _sai_\w+ \{/;" added in the place of "/^union _sai_\w+ {/;"  
+
+## Commit
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/3854d6f38e6983857a64875fbe1f86d7964a4802)
+
+## PRs related to this commit
+
+[914](https://github.com/opencomputeproject/SAI/pull/914) 
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+# 71. Relax metadata symbols placement in data section
 
 ## Description
 
 - 
 
+## Commit
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/8a292593269bc4375450d8b6ef310fd7661bc208)
+
+## PRs related to this commit
+
+[918](https://github.com/opencomputeproject/SAI/pull/918) 
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+# 72. Fix saithrift compilation with newer thrift [saithrift]
+
+## Description
+
 - 
+
+## Commit
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/1d42f1218ad537e37fac84aadb7f6232472bdd58)
+
+## PRs related to this commit
+
+[923](https://github.com/opencomputeproject/SAI/pull/923) 
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+# 73. Update saitam.h
+
+## Description
+
+- Added Legacy Device Example  
+
+- IOAM and IFA INT APIs
+
+- Removed TAM INT API from this PR  
+
+## Commit
+
+[Link to the commit](https://github.com/opencomputeproject/SAI/commit/79babb0dc421c4de25d078010bd72f26caa57f74)
+
+## PRs related to this commit
+
+[874](https://github.com/opencomputeproject/SAI/pull/874) 
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+# 74. Add META_TUNNEL table[bmtor]
+
+## Description
+
+- 
+
 
 ## Commit
 
