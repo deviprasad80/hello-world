@@ -1204,7 +1204,6 @@ Below mentioned are some of the sub-items related to this change
 
 - 
 
-
 ## Commit
 
 [Link to the commit](https://github.com/opencomputeproject/SAI/commit/4887c361e1d7f6f4e440f00da2b80ef8d54f2866)
