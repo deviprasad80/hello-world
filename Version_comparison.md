@@ -63,24 +63,23 @@ Below mentioned are some of the sub-items related to this change
 [777](https://github.com/opencomputeproject/SAI/pull/777)
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-
 # 4. Add capability metadata for attributes
 
 ## Description
 
-- 
+- Metadata attributes such as "LoadCapabilities, CheckCapabilities()" added  
 
 ## Commit
 
 [Link to the commit](https://github.com/opencomputeproject/SAI/commit/ca5006112d4fa64747a848ef85fd4194f26a3df8)
 
-## 5. PRs related to this commit
+## PRs related to this commit
 
 [794](https://github.com/opencomputeproject/SAI/pull/794)
 
 ------------------------------------------------------------------------------------------------------------------------------------------
 
-# 6. Add license information to metadata source files
+# 5. Add license information to metadata source files
 
 ## Description
 
@@ -95,7 +94,7 @@ Below mentioned are some of the sub-items related to this change
 [799](https://github.com/opencomputeproject/SAI/pull/799)
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 7. Fix inout param declaration in functions
+# 6. Fix inout param declaration in functions
 
 ## Description
 
@@ -110,7 +109,7 @@ Below mentioned are some of the sub-items related to this change
 [805](https://github.com/opencomputeproject/SAI/pull/805)
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 8. VRRP support in RIF create call
+# 7. VRRP support in RIF create call
 
 ## Description
 
@@ -127,7 +126,7 @@ Below mentioned are some of the sub-items related to this change
 [792](https://github.com/opencomputeproject/SAI/pull/792)
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 9. Add support for experimental attributes
+# 8. Add support for experimental attributes
 
 ## Description
 
@@ -144,7 +143,7 @@ Below mentioned are some of the sub-items related to this change
 [807](https://github.com/opencomputeproject/SAI/pull/807)
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 11. Fix out parameter prefixes
+# 9. Fix out parameter prefixes
 
 ## Description
 
@@ -159,7 +158,7 @@ Below mentioned are some of the sub-items related to this change
 [809](https://github.com/opencomputeproject/SAI/pull/809)
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 12. Refactor parser for auto serialize and deserialize
+# 10. Refactor parser for auto serialize and deserialize
 
 ## Description
 
@@ -175,7 +174,7 @@ Below mentioned are some of the sub-items related to this change
 
 ------------------------------------------------------------------------------------------------------------------------------------------
 
-# 13. Refactor generated metadata style
+# 11. Refactor generated metadata style
 
 ## Description
 
@@ -192,7 +191,7 @@ Below mentioned are some of the sub-items related to this change
 [810](https://github.com/opencomputeproject/SAI/pull/810)
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 14. Add mirror session congestion mode
+# 12. Add mirror session congestion mode
 
 ## Description
 
@@ -207,7 +206,7 @@ Below mentioned are some of the sub-items related to this change
 [786](https://github.com/opencomputeproject/SAI/pull/786)
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 15. Add HostIf traps for CISCO MCAST packet types
+# 13. Add HostIf traps for CISCO MCAST packet types
 
 ## Description
 
@@ -224,7 +223,7 @@ Below mentioned are some of the sub-items related to this change
 [819](https://github.com/opencomputeproject/SAI/pull/819)
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 16. Add a new DTel attribute
+# 14. Add a new DTel attribute
 
 ## Description
 
@@ -243,7 +242,7 @@ Below mentioned are some of the sub-items related to this change
 [813](https://github.com/opencomputeproject/SAI/pull/813)
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 17. Make log level easier to be changed for all SAI APIs
+# 15. Make log level easier to be changed for all SAI APIs
 
 ## Description
 
@@ -262,7 +261,7 @@ Below mentioned are some of the sub-items related to this change
 
 ------------------------------------------------------------------------------------------------------------------------------------------
 
-# 18. Create fdb using vlan object id instead of vlan id
+# 16. Create fdb using vlan object id instead of vlan id
 
 ## Description
 
@@ -277,7 +276,7 @@ Below mentioned are some of the sub-items related to this change
 [829](https://github.com/opencomputeproject/SAI/pull/829)
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 19. Update saihostif test
+# 17. Update saihostif test
 
 ## Description
 
@@ -294,7 +293,7 @@ Below mentioned are some of the sub-items related to this change
 [830](https://github.com/opencomputeproject/SAI/pull/830)
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 20. IP in IP tunnel ptf tests
+# 18. IP in IP tunnel ptf tests
 
 ## Description
 
@@ -309,7 +308,7 @@ Below mentioned are some of the sub-items related to this change
 [833](https://github.com/opencomputeproject/SAI/pull/833)  [385](https://github.com/opencomputeproject/SAI/pull/385)  [SAITUNNEL](https://github.com/opencomputeproject/SAI/blob/v0.9.4/test/saithrift/tests/saitunnel.py)
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 21. Add 3 new L2FDB tests
+# 19. Add 3 new L2FDB tests
 
 ## Description
 
@@ -324,7 +323,7 @@ Below mentioned are some of the sub-items related to this change
 [838](https://github.com/opencomputeproject/SAI/pull/838)
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 22. Added P4 Behavioral Model
+# 20. Added P4 Behavioral Model
 
 ## Description
 
@@ -342,7 +341,7 @@ Below mentioned are some of the sub-items related to this change
 [492](https://github.com/opencomputeproject/SAI/pull/492) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 23. Add meta data attribute support to SAI extensions
+# 21. Add meta data attribute support to SAI extensions
 
 ## Description
 
@@ -357,7 +356,7 @@ Below mentioned are some of the sub-items related to this change
 [835](https://github.com/opencomputeproject/SAI/pull/835) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 24. Add new flush type for clearing both static and dynamic entries
+# 22. Add new flush type for clearing both static and dynamic entries
 
 ## Description
 
@@ -375,7 +374,7 @@ Below mentioned are some of the sub-items related to this change
 [845](https://github.com/opencomputeproject/SAI/pull/845) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 25. Add port attibute to pause and unpause the egress of a port
+# 23. Add port attibute to pause and unpause the egress of a port
 
 ## Description
 
@@ -390,7 +389,7 @@ Below mentioned are some of the sub-items related to this change
 [840](https://github.com/opencomputeproject/SAI/pull/840) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 26. Add RIF counters
+# 24. Add RIF counters
 
 ## Description
 
@@ -405,7 +404,7 @@ Below mentioned are some of the sub-items related to this change
 [836](https://github.com/opencomputeproject/SAI/pull/836) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 27. Add p4_compiler submodule
+# 25. Add p4_compiler submodule
 
 ## Description
 
@@ -422,7 +421,7 @@ Below mentioned are some of the sub-items related to this change
 [837](https://github.com/opencomputeproject/SAI/pull/837) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 28. Add PTP support
+# 26. Add PTP support
 
 ## Description
 
@@ -439,7 +438,7 @@ Below mentioned are some of the sub-items related to this change
 [841](https://github.com/opencomputeproject/SAI/pull/841)
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 29. changed aux to P4_aux (reserved name)
+# 27. changed aux to P4_aux (reserved name)
 
 ## Description
 
@@ -454,7 +453,7 @@ Below mentioned are some of the sub-items related to this change
 [852](https://github.com/opencomputeproject/SAI/pull/852)
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 30. Add new IP in IP decap PTF tests
+# 28. Add new IP in IP decap PTF tests
 
 ## Description
 
@@ -469,7 +468,7 @@ Below mentioned are some of the sub-items related to this change
 [853](https://github.com/opencomputeproject/SAI/pull/853) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 31. Port isolation group enhancement
+# 29. Port isolation group enhancement
 
 ## Description
 
@@ -486,7 +485,7 @@ Below mentioned are some of the sub-items related to this change
 [818](https://github.com/opencomputeproject/SAI/pull/818) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 32. Make code compatible with python3
+# 30. Make code compatible with python3
 
 ## Description
 
@@ -501,7 +500,7 @@ Below mentioned are some of the sub-items related to this change
 [857](https://github.com/opencomputeproject/SAI/pull/857) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 33. Add warm boot recover attribute
+# 31. Add warm boot recover attribute
 
 ## Description
 
@@ -516,7 +515,7 @@ Below mentioned are some of the sub-items related to this change
 [854](https://github.com/opencomputeproject/SAI/pull/854) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 34. Add vxlan tunnel as possible condition for underlay interface attribute
+# 32. Add vxlan tunnel as possible condition for underlay interface attribute
 
 ## Description
 
@@ -531,7 +530,7 @@ Below mentioned are some of the sub-items related to this change
 [870](https://github.com/opencomputeproject/SAI/pull/870) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 35. Add watermark stat for headroom pool
+# 33. Add watermark stat for headroom pool
 
 ## Description
 
@@ -546,7 +545,7 @@ Below mentioned are some of the sub-items related to this change
 [871](https://github.com/opencomputeproject/SAI/pull/871) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 36. SAI Get Stats function counter_id data-type
+# 34. SAI Get Stats function counter_id data-type
 
 ## Description
 
@@ -563,7 +562,7 @@ Below mentioned are some of the sub-items related to this change
 [869](https://github.com/opencomputeproject/SAI/pull/869) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 37. Add support SAI attribute
+# 35. Add support SAI attribute
 
 ## Description
 
@@ -578,7 +577,7 @@ Below mentioned are some of the sub-items related to this change
 [864](https://github.com/opencomputeproject/SAI/pull/864) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 38. Allow object list on mandatory_on_create for mirror session
+# 36. Allow object list on mandatory_on_create for mirror session
 
 ## Description
 
@@ -593,7 +592,7 @@ Below mentioned are some of the sub-items related to this change
 [875](https://github.com/opencomputeproject/SAI/pull/875) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 39. Allow mixed object type on mirror session
+# 37. Allow mixed object type on mirror session
 
 ## Description
 
@@ -608,7 +607,7 @@ Below mentioned are some of the sub-items related to this change
 [876](https://github.com/opencomputeproject/SAI/pull/876) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 40. Next Hop(NH) Attribute change
+# 38. Next Hop(NH) Attribute change
 
 ## Description
 
@@ -623,7 +622,7 @@ Below mentioned are some of the sub-items related to this change
 [877](https://github.com/opencomputeproject/SAI/pull/877) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 41. Add stat enum pointer to object type info metadata
+# 39. Add stat enum pointer to object type info metadata
 
 ## Description
 
@@ -638,7 +637,7 @@ Below mentioned are some of the sub-items related to this change
 [881](https://github.com/opencomputeproject/SAI/pull/881) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 42. Add stats function param types check
+# 40. Add stats function param types check
 
 ## Description
 
@@ -653,7 +652,7 @@ Below mentioned are some of the sub-items related to this change
 [882](https://github.com/opencomputeproject/SAI/pull/882) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 43. Add struct member offset and size to metadata
+# 41. Add struct member offset and size to metadata
 
 ## Description
 
@@ -668,7 +667,7 @@ Below mentioned are some of the sub-items related to this change
 [883](https://github.com/opencomputeproject/SAI/pull/883) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 44. Add stat enum defined test
+# 42. Add stat enum defined test
 
 ## Description
 
@@ -683,7 +682,7 @@ Below mentioned are some of the sub-items related to this change
 [885](https://github.com/opencomputeproject/SAI/pull/885) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 45. Add attr bridge id for bridge router interface
+# 43. Add attr bridge id for bridge router interface
 
 ## Description
 
@@ -702,7 +701,7 @@ Below mentioned are some of the sub-items related to this change
 [868](https://github.com/opencomputeproject/SAI/pull/868) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 46. Change SAI_MIRROR_SESSION_ATTR_VLAN_HEADER_VALID to CREATE_AND_SET
+# 44. Change SAI_MIRROR_SESSION_ATTR_VLAN_HEADER_VALID to CREATE_AND_SET
 
 ## Description
 
@@ -717,7 +716,7 @@ Below mentioned are some of the sub-items related to this change
 [879](https://github.com/opencomputeproject/SAI/pull/879) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 47. Uild saiserver and saiserver-dbg packages
+# 45. Uild saiserver and saiserver-dbg packages
 
 ## Description
 
@@ -732,7 +731,7 @@ Below mentioned are some of the sub-items related to this change
 [888](https://github.com/opencomputeproject/SAI/pull/888) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 48. Clarifications for SAI thrift test setup
+# 46. Clarifications for SAI thrift test setup
 
 ## Description
 
@@ -749,7 +748,7 @@ Below mentioned are some of the sub-items related to this change
 [860](https://github.com/opencomputeproject/SAI/pull/860) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 49. Add switch notification attributes list to metadata
+# 47. Add switch notification attributes list to metadata
 
 ## Description
 
@@ -764,7 +763,7 @@ Below mentioned are some of the sub-items related to this change
 [886](https://github.com/opencomputeproject/SAI/pull/886) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 50. Add SAI_SWITCH_ATTR_CURRENT_TEMP to get average temperature from sensors
+# 48. Add SAI_SWITCH_ATTR_CURRENT_TEMP to get average temperature from sensors
 
 ## Description
 
@@ -781,7 +780,7 @@ Below mentioned are some of the sub-items related to this change
 [880](https://github.com/opencomputeproject/SAI/pull/880) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 51. Force stat functions to be consistent across all SAI
+# 49. Force stat functions to be consistent across all SAI
 
 ## Description
 
@@ -798,7 +797,7 @@ Below mentioned are some of the sub-items related to this change
 [884](https://github.com/opencomputeproject/SAI/pull/884) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 52. Add binary check in meta Makefile
+# 50. Add binary check in meta Makefile
 
 ## Description
 
@@ -813,7 +812,7 @@ Below mentioned are some of the sub-items related to this change
 [891](https://github.com/opencomputeproject/SAI/pull/891) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 53. Define SAI_SWITCH_ATTR_PRE_SHUTDOWN for warm shutdown
+# 51. Define SAI_SWITCH_ATTR_PRE_SHUTDOWN for warm shutdown
 
 ## Description
 
@@ -828,7 +827,7 @@ Below mentioned are some of the sub-items related to this change
 [890](https://github.com/opencomputeproject/SAI/pull/890) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 54. Add quote for serialized pointer
+# 52. Add quote for serialized pointer
 
 ## Description
 
@@ -845,7 +844,7 @@ Below mentioned are some of the sub-items related to this change
 [893](https://github.com/opencomputeproject/SAI/pull/893) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 55. Add check for params prefixed sai
+# 53. Add check for params prefixed sai
 
 ## Description
 
@@ -862,7 +861,7 @@ Below mentioned are some of the sub-items related to this change
 [894](https://github.com/opencomputeproject/SAI/pull/894)
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 56. Add proper handle of pointer serialize
+# 54. Add proper handle of pointer serialize
 
 ## Description
 
@@ -877,7 +876,7 @@ Below mentioned are some of the sub-items related to this change
 [895](https://github.com/opencomputeproject/SAI/pull/895) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 57. Add BMToR extension module
+# 55. Add BMToR extension module
 
 ## Description
 
@@ -894,7 +893,7 @@ Below mentioned are some of the sub-items related to this change
 [873](https://github.com/opencomputeproject/SAI/pull/873) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 58. Add SAI_MIRROR_SESSION_ATTR_POLICER to mirror session attributes
+# 56. Add SAI_MIRROR_SESSION_ATTR_POLICER to mirror session attributes
 
 ## Description
 
@@ -909,7 +908,7 @@ Below mentioned are some of the sub-items related to this change
 [899](https://github.com/opencomputeproject/SAI/pull/899) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 59. Add oper speed
+# 57. Add oper speed
 
 ## Description
 
@@ -928,7 +927,7 @@ Below mentioned are some of the sub-items related to this change
 [898](https://github.com/opencomputeproject/SAI/pull/898) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 60. Add RDMA related matching fileds to ACL
+# 58. Add RDMA related matching fileds to ACL
 
 ## Description
 
@@ -945,7 +944,7 @@ Below mentioned are some of the sub-items related to this change
 [878](https://github.com/opencomputeproject/SAI/pull/878) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 61. Remove duplicate bm entry
+# 59. Remove duplicate bm entry
 
 ## Description
 
@@ -960,7 +959,7 @@ Below mentioned are some of the sub-items related to this change
 [902](https://github.com/opencomputeproject/SAI/pull/902) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 62. Add ICMP match type/code for IPv6
+# 60. Add ICMP match type/code for IPv6
 
 ## Description
 
@@ -975,7 +974,7 @@ Below mentioned are some of the sub-items related to this change
 [901](https://github.com/opencomputeproject/SAI/pull/901) 
 
 -----------------------------------------------------------------------------------------------------------------------------------------
-# 63. Change tunnel route attr to next hop
+# 61. Change tunnel route attr to next hop
 
 ## Description
 
@@ -990,7 +989,7 @@ Below mentioned are some of the sub-items related to this change
 [903](https://github.com/opencomputeproject/SAI/pull/903) 
 
 -----------------------------------------------------------------------------------------------------------------------------------------
-# 64. Create saibmtor.md
+# 62. Create saibmtor.md
 
 ## Description
 
@@ -1007,7 +1006,7 @@ Below mentioned are some of the sub-items related to this change
 [904](https://github.com/opencomputeproject/SAI/pull/904) 
 
 -----------------------------------------------------------------------------------------------------------------------------------------
-# 65. Add PTF test for setting ERSPAN vlan header
+# 63. Add PTF test for setting ERSPAN vlan header
 
 ## Description
 
@@ -1022,7 +1021,7 @@ Below mentioned are some of the sub-items related to this change
 [905](https://github.com/opencomputeproject/SAI/pull/905) 
 
 -----------------------------------------------------------------------------------------------------------------------------------------
-# 66. Allow PORT attribute lists to be set to internal
+# 64. Allow PORT attribute lists to be set to internal
 
 ## Description
 
@@ -1037,7 +1036,7 @@ Below mentioned are some of the sub-items related to this change
 [908](https://github.com/opencomputeproject/SAI/pull/908) 
 
 -----------------------------------------------------------------------------------------------------------------------------------------
-# 67. SAI library compilation fixes
+# 65. SAI library compilation fixes
 
 ## Description
 
@@ -1056,7 +1055,7 @@ Below mentioned are some of the sub-items related to this change
 [909](https://github.com/opencomputeproject/SAI/pull/909) 
 
 -----------------------------------------------------------------------------------------------------------------------------------------
-# 68. Update API[saiexperimentalbmtor]
+# 66. Update API[saiexperimentalbmtor]
 
 ## Description
 
@@ -1073,7 +1072,7 @@ Below mentioned are some of the sub-items related to this change
 [913](https://github.com/opencomputeproject/SAI/pull/913) 
 
 -----------------------------------------------------------------------------------------------------------------------------------------
-# 69. SAI Port attributes for preemphasis setting
+# 67. SAI Port attributes for preemphasis setting
 
 ## Description
 
@@ -1088,7 +1087,7 @@ Below mentioned are some of the sub-items related to this change
 [907](https://github.com/opencomputeproject/SAI/pull/907) 
 
 -----------------------------------------------------------------------------------------------------------------------------------------
-# 70. Fix perl warning on style module
+# 68. Fix perl warning on style module
 
 ## Description
 
@@ -1103,7 +1102,7 @@ Below mentioned are some of the sub-items related to this change
 [914](https://github.com/opencomputeproject/SAI/pull/914) 
 
 -----------------------------------------------------------------------------------------------------------------------------------------
-# 71. Relax metadata symbols placement in data section
+# 69. Relax metadata symbols placement in data section
 
 ## Description
 
@@ -1118,7 +1117,7 @@ Below mentioned are some of the sub-items related to this change
 [918](https://github.com/opencomputeproject/SAI/pull/918) 
 
 -----------------------------------------------------------------------------------------------------------------------------------------
-# 72. Fix saithrift compilation with newer thrift [saithrift]
+# 70. Fix saithrift compilation with newer thrift [saithrift]
 
 ## Description
 
@@ -1133,7 +1132,7 @@ Below mentioned are some of the sub-items related to this change
 [923](https://github.com/opencomputeproject/SAI/pull/923) 
 
 -----------------------------------------------------------------------------------------------------------------------------------------
-# 73. Update saitam.h
+# 71. Update saitam.h
 
 ## Description
 
@@ -1152,7 +1151,7 @@ Below mentioned are some of the sub-items related to this change
 [874](https://github.com/opencomputeproject/SAI/pull/874) 
 
 -----------------------------------------------------------------------------------------------------------------------------------------
-# 74. Add META_TUNNEL table[bmtor]
+# 72. Add META_TUNNEL table[bmtor]
 
 ## Description
 
