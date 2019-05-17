@@ -83,7 +83,9 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- 
+- Add check for non ascii characters in metadata files
+
+- Add C files check
 
 ## Commit
 
@@ -195,7 +197,7 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- 
+- Controls whether mirroring traffic can cause back pressure and packet drop of the original traffic
 
 ## Commit
 
@@ -265,7 +267,7 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- 
+- "vlan_oid" is used instead of "vlan_id"  
 
 ## Commit
 
@@ -297,7 +299,7 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- 
+- Changes made for new SAI header. Local routes are used to simplify the tests
 
 ## Commit
 
@@ -345,7 +347,7 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- 
+- Added te process for adding SAI extensions and attributes  
 
 ## Commit
 
@@ -393,7 +395,7 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- 
+- Router InterFace error packets and error octets counters added
 
 ## Commit
 
@@ -519,7 +521,9 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- 
+- Added vxlan tunnel to SAI_TUNNEL_ATTR_UNDERLAY_INTERFACE condition
+
+- RIF in which routing happens after encap needs to be specified when creating VxLAN tunnel
 
 ## Commit
 
@@ -641,7 +645,9 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- 
+- "CheckStatsFunction" function added
+
+- "fnparams" parameter added in the function.
 
 ## Commit
 
@@ -656,7 +662,7 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- 
+- "offsetof" and "sizeof" parameters added
 
 ## Commit
 
@@ -716,11 +722,11 @@ Below mentioned are some of the sub-items related to this change
 [879](https://github.com/opencomputeproject/SAI/pull/879) 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-# 45. Uild saiserver and saiserver-dbg packages
+# 45. Build saiserver and saiserver-dbg packages
 
 ## Description
 
-- 
+- Packages: "aiserver" and "saiserver-dbg" added
 
 ## Commit
 
@@ -865,7 +871,7 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
--   
+- "_In_ sai_pointer_t" pointer modified into "_In_ const sai_pointer_t"
 
 ## Commit
 
@@ -963,7 +969,7 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- 
+- ICMP changes for IPv6 implemented in the file /inc/saiacl.h under the "SAI_ACL_TABLE_ATTR_FIELD_ICMP_CODE" section
 
 ## Commit
 
@@ -978,7 +984,7 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- Change SAI_TABLE_TUNNEL_ROUTE_ENTRY_ATTR_NEXT_HOP_GROUP to SAI_TABLE_TUNNEL_ROUTE_ENTRY_ATTR_NEXT_HOP  
+- Change "SAI_TABLE_TUNNEL_ROUTE_ENTRY_ATTR_NEXT_HOP_GROUP" to "SAI_TABLE_TUNNEL_ROUTE_ENTRY_ATTR_NEXT_HOP"  
 
 ## Commit
 
@@ -1025,7 +1031,9 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- Allow PORT attribute lists to be set to internal  
+- PORT non object list attributes is set to internal switch values in the object type "SAI_OBJECT_TYPE_PORT"  
+
+- Allow non object lists on PORT to be set to internal default value in the object type "SAI_DEFAULT_VALUE_TYPE_SWITCH_INTERNAL"  
 
 ## Commit
 
@@ -1087,22 +1095,7 @@ Below mentioned are some of the sub-items related to this change
 [907](https://github.com/opencomputeproject/SAI/pull/907) 
 
 -----------------------------------------------------------------------------------------------------------------------------------------
-# 68. Fix perl warning on style module
-
-## Description
-
-- "/^union _sai_\w+ \{/;" added in the place of "/^union _sai_\w+ {/;"  
-
-## Commit
-
-[Link to the commit](https://github.com/opencomputeproject/SAI/commit/3854d6f38e6983857a64875fbe1f86d7964a4802)
-
-## PRs related to this commit
-
-[914](https://github.com/opencomputeproject/SAI/pull/914) 
-
------------------------------------------------------------------------------------------------------------------------------------------
-# 69. Relax metadata symbols placement in data section
+# 68. Relax metadata symbols placement in data section
 
 ## Description
 
@@ -1117,7 +1110,7 @@ Below mentioned are some of the sub-items related to this change
 [918](https://github.com/opencomputeproject/SAI/pull/918) 
 
 -----------------------------------------------------------------------------------------------------------------------------------------
-# 70. Fix saithrift compilation with newer thrift [saithrift]
+# 69. Fix saithrift compilation with newer thrift [saithrift]
 
 ## Description
 
@@ -1132,7 +1125,7 @@ Below mentioned are some of the sub-items related to this change
 [923](https://github.com/opencomputeproject/SAI/pull/923) 
 
 -----------------------------------------------------------------------------------------------------------------------------------------
-# 71. Update saitam.h
+# 70. Update saitam.h
 
 ## Description
 
@@ -1151,11 +1144,11 @@ Below mentioned are some of the sub-items related to this change
 [874](https://github.com/opencomputeproject/SAI/pull/874) 
 
 -----------------------------------------------------------------------------------------------------------------------------------------
-# 72. Add META_TUNNEL table[bmtor]
+# 71. Add META_TUNNEL table[bmtor]
 
 ## Description
 
-- 
+- "sai_table_meta_tunnel_entry_action_t" function defined  
 
 ## Commit
 
