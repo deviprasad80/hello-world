@@ -86,9 +86,6 @@ Below mentioned are some of the sub-items related to this change
 
 - 
 
-- 
-
-
 ## Commit
 
 [Link to the commit](https://github.com/opencomputeproject/SAI/commit/92e54170f17ccc0881832eea4e93114ba8fd1e79)
@@ -103,9 +100,6 @@ Below mentioned are some of the sub-items related to this change
 ## Description
 
 - To replace parameter "out" with "inout"
-
-- 
-
 
 ## Commit
 
@@ -156,8 +150,6 @@ Below mentioned are some of the sub-items related to this change
 
 -  To replace the parameter "out" with "inout" in the "inc/saiobject.h" file
 
--   
-
 ## Commit
 
 [Link to the commit](https://github.com/opencomputeproject/SAI/commit/e1a50ed0ab44c19bec7ce6d069b539b5b7b30ff2)
@@ -170,8 +162,6 @@ Below mentioned are some of the sub-items related to this change
 # 12. Refactor parser for auto serialize and deserialize
 
 ## Description
-
-- 
 
 - 
 
@@ -205,8 +195,6 @@ Below mentioned are some of the sub-items related to this change
 # 14. Add mirror session congestion mode
 
 ## Description
-
-- 
 
 - 
 
@@ -278,8 +266,6 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
--   
-
 - 
 
 ## Commit
@@ -311,8 +297,6 @@ Below mentioned are some of the sub-items related to this change
 # 20. IP in IP tunnel ptf tests
 
 ## Description
-
--   
 
 - 
 
@@ -362,8 +346,6 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
--   
-
 - 
 
 ## Commit
@@ -399,8 +381,6 @@ Below mentioned are some of the sub-items related to this change
 
 - Add rpc support to parse port attribute of pausing and unpausing a port egress  
 
-- 
-
 ## Commit
 
 [Link to the commit](https://github.com/opencomputeproject/SAI/commit/2fc95990b245c769723214dd7adca93f988bdb05)
@@ -413,8 +393,6 @@ Below mentioned are some of the sub-items related to this change
 # 26. Add RIF counters
 
 ## Description
-
--   
 
 - 
 
@@ -482,8 +460,6 @@ Below mentioned are some of the sub-items related to this change
 
 - Add parameter to sai_thrift_create_tunnel and sai_thrift_create_tunnel_term_table_entry  
 
-- 
-
 ## Commit
 
 [Link to the commit](https://github.com/opencomputeproject/SAI/commit/2d3e56a4d98a3cdc310e808aba7767c8da23f167)
@@ -529,9 +505,7 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- Currently the existing attribute SAI_SWITCH_ATTR_RESTART_WARM serves as a hint that warm restart procedure is restarting. After such boot, on some ASICs, SAI is reinitialized from scratch and SAI_KEY_BOOT_TYPE has the value of the boot type done. On other ASICs, SAI is not reinitialized from scratch, rather the process is resumed. A hint that the process is resumed is needed, and the current new attribute gives that hint.
-
-- 
+- Currently the existing attribute SAI_SWITCH_ATTR_RESTART_WARM serves as a hint that warm restart procedure is restarting. After such boot, on some ASICs, SAI is reinitialized from scratch and SAI_KEY_BOOT_TYPE has the value of the boot type done. On other ASICs, SAI is not reinitialized from scratch, rather the process is resumed. A hint that the process is resumed is needed, and the current new attribute gives that hint.  
 
 ## Commit
 
@@ -548,8 +522,6 @@ Below mentioned are some of the sub-items related to this change
 
 - 
 
-- 
-
 ## Commit
 
 [Link to the commit](https://github.com/opencomputeproject/SAI/commit/6e3ec78c76f64494cc38a2b8eb6c2b18d873e19b)
@@ -563,9 +535,7 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- Changed the title "Add watermark attribute for headroom pool" to "Add watermark stat for headroom pool"
-
-- 
+- Changed the title "Add watermark attribute for headroom pool" to "Add watermark stat for headroom pool"  
 
 ## Commit
 
@@ -659,8 +629,6 @@ Below mentioned are some of the sub-items related to this change
 
 - 
 
-- 
-
 ## Commit
 
 [Link to the commit](https://github.com/opencomputeproject/SAI/commit/acc83933ff21c68e8ef10c9826de45807fdc0438)
@@ -676,8 +644,6 @@ Below mentioned are some of the sub-items related to this change
 
 - 
 
-- 
-
 ## Commit
 
 [Link to the commit](https://github.com/opencomputeproject/SAI/commit/1d2f40db22049ae316308cc73c9673d276f0e0eb)
@@ -690,8 +656,6 @@ Below mentioned are some of the sub-items related to this change
 # 43. Add struct member offset and size to metadata
 
 ## Description
-
-- 
 
 - 
 
@@ -744,8 +708,6 @@ Below mentioned are some of the sub-items related to this change
 
 - Because SAI_MIRROR_SESSION_ATTR_VLAN_ID is no longer set as mandatory on create, user needs to set this VLAN ID specifically when creating an RSPAN session. Otherwise, the default value 0 will be used.  
 
-- 
-
 ## Commit
 
 [Link to the commit](https://github.com/opencomputeproject/SAI/commit/842bc881cc5c536a8fede8f42566e32bcd1d9102)
@@ -758,8 +720,6 @@ Below mentioned are some of the sub-items related to this change
 # 47. Uild saiserver and saiserver-dbg packages
 
 ## Description
-
-- 
 
 - 
 
@@ -794,8 +754,6 @@ Below mentioned are some of the sub-items related to this change
 ## Description
 
 - Add define and sanity checks  
-
-- 
 
 ## Commit
 
@@ -858,8 +816,6 @@ Below mentioned are some of the sub-items related to this change
 # 53. Define SAI_SWITCH_ATTR_PRE_SHUTDOWN for warm shutdown
 
 ## Description
-
--   
 
 - 
 
@@ -1007,8 +963,6 @@ Below mentioned are some of the sub-items related to this change
 # 62. Add ICMP match type/code for IPv6
 
 ## Description
-
-- 
 
 - 
 
