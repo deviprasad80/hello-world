@@ -1046,7 +1046,7 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- Add booldata to ACL param union  
+- Add booldata to ACL parameter union  
 
 - Use EXTENSIONS_MAX as sai object type array size  
 
