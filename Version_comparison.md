@@ -100,7 +100,7 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- To replace parameter "out" with "inout"
+- To replace parameter "out" with "inout" in the file "inc/saiacl.h"  
 
 ## Commit
 
@@ -115,9 +115,9 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- To fix meta checker
+- To fix meta checker  
 
-- To update VRRP PR with review comments
+- To update VRRP PR with review comments  
 
 ## Commit
 
@@ -149,7 +149,7 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
--  To replace the parameter "out" with "inout" in the "inc/saiobject.h" file
+-  To replace the parameter "out" with "inout" in the "inc/saiobject.h" file  
 
 ## Commit
 
@@ -180,9 +180,9 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- Multiple parameters incorporated
+- Multiple parameters incorporated  
 
-- Multiple indentation changes implemented
+- Multiple indentation changes implemented  
 
 ## Commit
 
@@ -197,7 +197,7 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- Controls whether mirroring traffic can cause back pressure and packet drop of the original traffic
+- Controls whether mirroring traffic can cause back pressure and packet drop of the original traffic  
 
 ## Commit
 
@@ -267,7 +267,7 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- "vlan_oid" is used instead of "vlan_id"  
+- "vlan_oid" is used instead of "vlan_id" in the file "test/saithrift/tests/saimirror.py"  
 
 ## Commit
 
@@ -314,7 +314,7 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- Add tests L2FDBMissUnicastTest, L2FDBMissBroadcastTest, L2FDBFloodRoutingNoVlan
+- Add tests L2FDBMissUnicastTest, L2FDBMissBroadcastTest, L2FDBFloodRoutingNoVlan in the file "test/saithrift/tests/saifdb.py"  
 
 ## Commit
 
@@ -347,7 +347,7 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- Added te process for adding SAI extensions and attributes  
+- Process incorporated for adding SAI extensions and attributes  
 
 ## Commit
 
@@ -362,10 +362,10 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- To clear either static or dynamic or both entries in FDB  
+- "SAI_FDB_FLUSH_ENTRY_TYPE_STATIC_DYNAMIC" flush type added for clearing all FDB entries
 
-- Need to mention either of the two entries to remove one of the entries or mention both to remove both  
-  -  Ex: SAI_FDB_FLUSH_ATTR_ENTRY_TYPE = SAI_FDB_FLUSH_ENTRY_TYPE_STATIC_DYNAMIC  
+- Need to mention either of the two to remove one of the entries or mention both to remove both the entries 
+  
 
 ## Commit
 
@@ -395,7 +395,7 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- Router InterFace error packets and error octets counters added
+- Router InterFace error packets and error octets counters added in the file "inc/sairouterinterface.h"  
 
 ## Commit
 
@@ -410,9 +410,7 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- Moved p4 backed submoduile to flexsai/p4
-
-- Moved p4 backend compiler from submodule to SAI repo
+- Moved p4 backed submoduile to flexsai/p4 and compiler from submodule to SAI repo  
 
 ## Commit
 
@@ -459,7 +457,7 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- Add parameter to sai_thrift_create_tunnel and sai_thrift_create_tunnel_term_table_entry  
+- Add parameter to "sai_thrift_create_tunnel" and "sai_thrift_create_tunnel_term_table_entry"   
 
 ## Commit
 
@@ -553,9 +551,9 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- Stat_id_t is the data-type defined to uint32_t
+- "Stat_id_t" is the data-type defined to uint32_t  
 
-- API implementation is just made uniform with a single data-type for all objects
+- API implementation is just made uniform with a single data-type for all objects  
 
 ## Commit
 
@@ -570,7 +568,7 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- Add support SAI_OBJECT_TYPE_LAG to SAI_ACL_ENTRY_ATTR_FIELD_IN/OUT_PORT
+- Add support "SAI_OBJECT_TYPE_LAG" to "SAI_ACL_ENTRY_ATTR_FIELD_IN/OUT_PORT"  
 
 ## Commit
 
@@ -856,7 +854,7 @@ Below mentioned are some of the sub-items related to this change
 
 - "_In_ sai_api_t sai_api_id" is now referred as "_In_ sai_api_t api"  
 
-- Entire headers style is to name parameters after type. So if type is sai_zzz_t parameter is named as zzz  
+- Entire header style is to name parameters after type. So if type is sai_zzz_t parameter is named as zzz  
 
 ## Commit
 
