@@ -1,8 +1,8 @@
 # FAQs
 
-***How do we find out the onie version used by current SONIC? and what's the current version that's been used?***
+## How do we find out the onie version used by current SONIC? and what's the current version that's been used?
 
-  In the Sonic device, enter ***"cat /host/machine.conf"*** command.
+  In the Sonic device, enter ## "cat /host/machine.conf"##  command.
   - Example:
   ```
   admin@sonic:~$ cat /host/machine.conf
@@ -17,7 +17,7 @@
   onie_partition_type=gpt
   onie_kernel_version=3.2.35
   ```
-***How to program FDB static/dynamic entries into ASIC?***  
+## How to program FDB static/dynamic entries into ASIC?
   You can program FDB entries into ASIC as static/dynamic. Please check this link [here](https://github.com/Azure/SONiC/issues/249). Give type as either "static" or "dynamic"
   
   - Example:
@@ -47,8 +47,8 @@
   ]
  ```
  
-***How to know the interface naming mode?***  
-  Enter the command ***show interface naming_mode***. Initially it will be "default".
+## How to know the interface naming mode?
+  Enter the command ## show interface naming_mode## . Initially it will be "default".
   - Example:
   ```
   admin@sonic:~$ show interface naming_mode
@@ -68,10 +68,10 @@
 
  ```
  
- ***How to change the interface naming mode***  
+ ## How to change the interface naming mode
    Enter the command -   
-   ***sudo config interface_naming_mode alias*** (Non-root user).  
-   ***config interface_naming_mode alias*** (Root user).  
+   **sudo config interface_naming_mode alias**  `Non-root user` 
+   **config interface_naming_mode alias**  `Root user`  
    
    Logout and login into the device for the change to take effect.
    
@@ -96,7 +96,7 @@
                   10.1.0.1/32
   ```
 
-***Note***: Notice the change in the interface names under the "Interface" coloumn in the above two examples.
+**Note** : Notice the change in the interface names under the "Interface" coloumn in the above two examples.
 
    
  
