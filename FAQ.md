@@ -2,7 +2,7 @@
 
 ## How do we find out the onie version used by current SONIC? and what's the current version that's been used?
 
-  In the Sonic device, enter ## "cat /host/machine.conf"##  command.
+  In the Sonic device, enter **cat /host/machine.conf**  command.
   - Example:
   ```
   admin@sonic:~$ cat /host/machine.conf
@@ -17,6 +17,8 @@
   onie_partition_type=gpt
   onie_kernel_version=3.2.35
   ```
+
+----------------------------------------------------------------------------------------------------------------------------
 ## How to program FDB static/dynamic entries into ASIC?
   You can program FDB entries into ASIC as static/dynamic. Please check this link [here](https://github.com/Azure/SONiC/issues/249). Give type as either "static" or "dynamic"
   
@@ -46,9 +48,10 @@
         }
   ]
  ```
- 
+
+---------------------------------------------------------------------------------------------------------------------------- 
 ## How to know the interface naming mode?
-  Enter the command ## show interface naming_mode## . Initially it will be "default".
+  Enter the command **show interface naming_mode**. Initially it will be "default".
   - Example:
   ```
   admin@sonic:~$ show interface naming_mode
@@ -67,10 +70,11 @@
                10.1.0.1/32
 
  ```
- 
- ## How to change the interface naming mode
+
+---------------------------------------------------------------------------------------------------------------------------- 
+## How to change the interface naming mode
    Enter the command -   
-   **sudo config interface_naming_mode alias**  `Non-root user` 
+   **sudo config interface_naming_mode alias**  `Non-root user`  
    **config interface_naming_mode alias**  `Root user`  
    
    Logout and login into the device for the change to take effect.
@@ -98,6 +102,44 @@
 
 **Note** : Notice the change in the interface names under the "Interface" coloumn in the above two examples.
 
+----------------------------------------------------------------------------------------------------------------------------
+## vlan configuration from the python cli results in a change in the redis database but not in the kernel level. Why?
+
+***Observation***
+Interfaces of a switch  stick to their startup configurations no matter what changes are made dynamically from the python cli. Vlanmgrd needs to be restarted for the kernel to know about the change.  
    
+
+
+ [Link](https://groups.google.com/forum/#!searchin/sonicproject/Vlan$20config$20from$20python$20cli%7Csort:date/sonicproject/wG0ZKYylVEU/GivLlGa5AAAJ)
  
+----------------------------------------------------------------------------------------------------------------------------
+## Does SONIC support CPU controlled fdb learning, Per port or per vlan basis?
+
+Please note, Sonic supports hardware based fdb learning.  The events of learning/aging/move is notified by hardware/SAI to Orchagent. 
+
+If yes, then , 
+- As SONIC registers for fdb events, a new address entry is written back to SAI as dynamic entries?  
+  - Sonic registers for fdb events and anytime hardware learns a new entry, it is notified from SAI driver to Orchagent  
   
+- Can it handle aging, and move also?  
+  - As I mentioned, aging/move happens in hardware and Orchagent gets notified of those events. Orchagent currently handles aging events but not move. The entry gets deleted if we get a move event   
+
+If not, then 
+- The fdb notifications  are just used for updating the local DB? And updating arp cache?
+  - FDB notifications are for updating local DB and also update observers (Mirroring) for any fdb event. It is not for updating arp cache. ARP is completely managed in kernel stack.  
+- Then dynamic fdb entries can only be configured by user using json?
+  - Yes, thats the current support.  
+  
+  [Link](https://groups.google.com/forum/#!topic/sonicproject/ufi2wEylSCE)
+
+----------------------------------------------------------------------------------------------------------------------------
+## What is the sequence of starting SONiC dockers and how do we add one step in startup? 
+
+I saw systemd/system/ directory in vs vm, where in the platform directory that we can inject another service?
+
+
+[Link](https://groups.google.com/forum/#!topic/sonicproject/YTzqmm8Wqlo)
+
+----------------------------------------------------------------------------------------------------------------------------
+
+ 
