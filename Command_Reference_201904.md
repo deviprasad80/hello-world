@@ -92,6 +92,7 @@ Table of Contents
 
 | # | Date    |  Document Version | Details |
 | --- | --- | --- | --- |
+| 3 |  May-31-2019 |SONiC architecture | CLI Guide for SONiC 201904 version (build# TBD) with complete "config" commad set|
 | 2 |  Apr-22-2019 |SONiC architecture | CLI Guide for SONiC 201811 version (build#32) with complete "config" command set |
 | 1 |  Mar-23-2019 |v1 | Initial version of CLI Guide with minimal command set | 
 
