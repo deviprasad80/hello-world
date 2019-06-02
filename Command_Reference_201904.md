@@ -3,14 +3,16 @@
 Table of Contents
 =================
 
+   * [SONiC COMMAND LINE INTERFACE GUIDE](#sonic-command-line-interface-guide)
+   * [Table of Contents](#table-of-contents)
    * [Document History](#document-history)
    * [Introduction](#introduction)
    * [Basic Configuration And Show](#basic-configuration-and-show)
       * [SSH Login](#ssh-login)
       * [Configuring Management Interface](#configuring-management-interface)
       * [Config Help](#config-help)
-      * [Show Versions](#show-versions)
       * [Show Help](#show-help)
+      * [Show Versions](#show-versions)
       * [Show System Status](#show-system-status)
       * [Show Hardware Platform](#show-hardware-platform)
          * [Transceivers](#transceivers)
@@ -41,7 +43,7 @@ Table of Contents
       * [Interface naming mode config commands](#interface-naming-mode-config-commands)
    * [IP](#ip)
       * [IP show commands](#ip-show-commands)
-	  * [IPv6 show commands](#ipv6-show-commands)
+      * [IPv6 show commands](#ipv6-show-commands)
    * [LLDP](#lldp)
       * [LLDP show commands](#lldp-show-commands)
    * [Loading, Reloading And Saving Configuration](#loading-reloading-and-saving-configuration)
@@ -54,7 +56,7 @@ Table of Contents
       * [Mirroring Show command](#mirroring-show-command)
       * [Mirroring Config command](#mirroring-config-command)
    * [NTP](#ntp)
-      * [NTP show command](#network-time-protocol-show-command)
+      * [NTP show command](#ntp-show-command)
    * [Platform Specific Commands](#platform-specific-commands)
    * [PortChannel Configuration And Show](#portchannel-configuration-and-show)
       * [PortChannel Show commands](#portchannel-show-commands)
@@ -92,7 +94,7 @@ Table of Contents
 
 | # | Date    |  Document Version | Details |
 | --- | --- | --- | --- |
-| 3 |  May-31-2019 |SONiC architecture | CLI Guide for SONiC 201904 version (build# TBD) with complete "config" commad set|
+| 3 |  May-31-2019 |SONiC architecture | CLI Guide for SONiC 201904 version (build# TBD) with complete "config" command set|
 | 2 |  Apr-22-2019 |SONiC architecture | CLI Guide for SONiC 201811 version (build#32) with complete "config" command set |
 | 1 |  Mar-23-2019 |v1 | Initial version of CLI Guide with minimal command set | 
 
