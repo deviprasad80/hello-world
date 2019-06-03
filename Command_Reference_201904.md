@@ -2561,10 +2561,10 @@ This command can be used to clear the counters for all queues of all ports. Note
   - Usage:  
     show queue counters [-c or --clear] [<interface-name>] 
 
+	This example gives the sample output from two ports Ethernet0 and Ethernet4  
+	
 - Example:
   ```
-    This example gives the sample output from two ports Ethernet0 and Ethernet4.
-	
     admin@sonic:~$ show queue counters 
          Port    TxQ    Counter/pkts    Counter/bytes    Drop/pkts    Drop/bytes
     ---------  -----  --------------  ---------------  -----------  ------------
