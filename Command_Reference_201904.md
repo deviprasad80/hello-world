@@ -1371,7 +1371,7 @@ When the session is shutdown using this command, BGP state in "show ip bgp summa
   admin@sonic:~$ sudo config bgp shutdown all
   ```
 
-**config bgp shutdown <neighbor>**  
+**config bgp shutdown neighbor**  
 
 This command is to shut down a BGP session with a neighbor by that neighbor's IP address or hostname
 
@@ -1386,12 +1386,12 @@ This command is to shut down a BGP session with a neighbor by that neighbor's IP
   ```
  
 
-**config bgp startup all**  
+***config bgp startup all*** 
 
 This command is used to start up all the IPv4 & IPv6 BGP neighbors
 
   - Usage:     
-    sudo config bgp startup all`
+    sudo config bgp startup all
  
 - Examples:  
   ``` 
@@ -1399,7 +1399,7 @@ This command is used to start up all the IPv4 & IPv6 BGP neighbors
   ```
  
  
-**config bgp startup <neighbor>**  
+***config bgp startup neighbor***  
 
 This command is used to start up the particular IPv4 or IPv6 BGP neighbor using either the IP address or hostname.
 
@@ -1798,13 +1798,15 @@ This command displays the current interface naming mode
   admin@sonic:~$ show interfaces naming_mode 
   **alias**
   ```
-  Following example shows another method to view the interface_naming_mode. Login to the below mentioned path to view the status  
+  
+  Following examples show another methods to view the interface_naming_mode. Login to the below mentioned path to view the status  
+  ```
   admin@sonic:~$ show int nam  
   alias  
   or  
   admin@sonic:/usr/lib/python2.7/dist-packages/show$ show int nam  
   alias
-
+  ```
 
 ## Interface naming mode config commands
 
