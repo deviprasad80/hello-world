@@ -1848,10 +1848,10 @@ NOTE: Some platforms do not support alias mapping. In such cases, this command i
 	NO OUTPUT IS DISPLAYED
   ```
 
-  ```
+	```
     admin@sonic:~$ sudo config interface_naming_mode alias
     Please logout and log back in for changes take effect.
-  ```
+	```
 
     - After user logs out and back in again, interfaces now referenced by hardware vendor aliases:  
 	
@@ -2437,8 +2437,7 @@ This command displays a list of NTP peers known to the server as well as a summa
   No association ID's returned
   
   RELEVANT OUTPUT TO BE OBTAINED  
-  
-```
+  ```
 
 Go Back To [Beginning of the document](#SONiC-COMMAND-LINE-INTERFACE-GUIDE) or [Beginning of this section](#NTP)
 
