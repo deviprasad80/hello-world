@@ -94,7 +94,7 @@ Table of Contents
 
 | # | Date    |  Document Version | Details |
 | --- | --- | --- | --- |
-| 3 |  May-31-2019 |SONiC architecture | CLI Guide for SONiC 201904 version (build# TBD) with complete "config" command set|
+| 3 |  June-3-2019 |SONiC architecture | CLI Guide for SONiC 201904 version (build# TBD) with complete "config" command set|
 | 2 |  Apr-22-2019 |SONiC architecture | CLI Guide for SONiC 201811 version (build#32) with complete "config" command set |
 | 1 |  Mar-23-2019 |v1 | Initial version of CLI Guide with minimal command set | 
 
@@ -1191,7 +1191,7 @@ This section explains all the BGP show commands and BGP configuation commands th
 
 ## BGP show commands
 
-**show bgp summary**  
+***show bgp summary***  
 
 This command displays the summary of all IPv4 bgp neighbors that are configured and the corresponding states.
 
@@ -1214,7 +1214,7 @@ This command displays the summary of all IPv4 bgp neighbors that are configured 
 
   ```
 
-**show bgp neighbors**  
+***show bgp neighbors***  
 
 This command displays all the details of IPv4 & IPv6 BGP neighbors when no optional argument is specified. 
 
@@ -1277,7 +1277,7 @@ In order to get details for an IPv6 neigbor, use "show bgp neighbor <ipv6_addres
   admin@sonic:~$ show bgp neighbors 192.168.1.161 routes
   ```
 
-**show bgp ipv6 summary**  
+***show bgp ipv6 summary***  
 
 This command displays the summary of all IPv4 bgp neighbors that are configured and the corresponding states.
 
@@ -1293,23 +1293,7 @@ This command displays the summary of all IPv4 bgp neighbors that are configured 
   
   ```
 
-***show bgp neighbors***
-
-This command displays all the details of one particular IPv6 Border Gateway Protocol (BGP) neighbor. Option is also available to display only the advertised routes, or the received routes, or all routes.
-
-  - Usage:  
-    show bgp neighbors <ipv6-address> (advertised-routes | received-routes | routes)`
-
-- Example:
-  ```
-  admin@sonic:~$ show bgp neighbors fc00::72 advertised-routes
-
-  admin@sonic:~$ show bgp neighbors fc00::72 received-routes
-
-  admin@sonic:~$ show bgp  neighbors fc00::72 routes
-  ```
-
-***show route-map***  
+***show route-map*** 
 
 This command displays the routing policy that takes precedence over the other route processes that are configured.
 
