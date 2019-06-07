@@ -4,13 +4,10 @@
 
 ## Description
 
-Below mentioned are some of the sub-items related to this change  
-  
-- Removing condition in bridge port bridge id attribute (#706) (#707)   
-- add SAI_SWITCH_ATTR_AVAILABLE_ACL_{TABLE,TABLE_GROUP} (#721)  
-- add SAI_SWITCH_ATTR_AVAILABLE_NEXT_HOP_GROUP_ENTRY (#722)  
+This object is included in the `saiacl.h` file and this has been added in addition to "SAI_OBJECT_TYPE_PORT" to test the mixed object port type  
+Mixed object port type "SAI_OBJECT_TYPE_BRIDGE_PORT" is reverted as all the lists were supporting single object types only.
 
-## Commit  
+## Commit
 
 [Link to the commit](https://github.com/opencomputeproject/SAI/commit/e472cc22654c388e56d749464bde7462bc9d8bda)
 
@@ -31,13 +28,9 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-Below mentioned are some of the sub-items related to this change
+Tear down process of a host adapter ensues the removal of the switch id. This will stop all the data plane and control plane transactions. Allowing data plane to be active without the control plane will be a security risk. This is achieved by setting the value "SAI_SWITCH_ATTR_UNINIT_DATA_PLANE_ON_REMOVAL" to `TRUE` except for special scenarios such as "fast boot" where host adapter would like to set this value to `False`, call remove switch function and have the data plane still running  
 
-- Controls whether data plane is unitialized upon removal of switc object as leaving traffic running without control is not recommended  
-- However, on some scenarios, such as fast boot, it is needed to leave the data plane running  
-- Host adapter will call this attribute if needed, and then call remove the switch  
-
-## Commit 
+## Commit
 
 [Link to the commit](https://github.com/opencomputeproject/SAI/commit/c26fb2657a7b246548d10458a542ea5fa2d23cd5)
 
@@ -50,7 +43,9 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- "sai_port_lane_eye_values" name changed to "SAI_PORT_ATTR_EYE_VALUES"
+- Added the "SAI_PORT_ATTR_EYE_VALUES" objectin the `saiport.h` file in v_1.4  
+- This will return the value "zero" if the port is down and will return the negotiated speed information if auto negotiation is on  
+
 
 ## Commit
 
@@ -66,6 +61,7 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
+- Capabilities package written in "Perl" is incorporated in v_1.4
 - Metadata attributes such as "LoadCapabilities, CheckCapabilities()" added  
 
 ## Commit
@@ -81,9 +77,8 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- Add check for non ascii characters in metadata files
-
-- Add C files check
+- License information for metadata files such as "cap.pm", "checksymbols.pl", "parse.pl", "saidepgraphgen.cpp" etc, is incorporated   
+- Check for non ascii characters in metadata files and C files check too added  
 
 ## Commit
 
@@ -98,8 +93,12 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- To replace parameter "out" with "inout" in the file "inc/saiacl.h"  
-
+- Replaced the parameter "out" with "inout" in the attribute list array in the file "inc/saiacl.h"  
+  - Example:
+  ```
+  _Out_ sai_attribute_t *attr_list)  
+  **_Inout**_ sai_attribute_t *attr_list)  
+  ```
 ## Commit
 
 [Link to the commit](https://github.com/opencomputeproject/SAI/commit/0443856640d078c6faaa8cbbb23d8751d56831fd)
@@ -113,9 +112,9 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- To fix meta checker  
+- Created a Virtual RIF object, which only programs the ingress router MAC that simplifies the management of VRRP master router's configuration in SAI adapter. Using a Virtual RIF allows SAI to optimize resources, so neighbor entries cannot be learned on a Virtual RIF. On a virtual RIF following attributes are invalid: ADMIN state, MTU size, packet action and multicast enable.
 
-- To update VRRP PR with review comments  
+- This object is created in the `sairouterinterface.h` file  
 
 ## Commit
 
@@ -130,9 +129,7 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- To add support for experimental attributes  
-
-- To Remove example fpga extensions (TBD: In the link it seems FPGA is added)  
+- Experimental object types include brief extensions to SAI APIs and are included in few extension files such as "saiextensions.h", "saiswitchextensions.h", saitypeextensions.h"  
 
 ## Commit
 
@@ -147,7 +144,9 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
--  To replace the parameter "out" with "inout" in the "inc/saiobject.h" file  
+- Prameter prefixes modified form "inout" to "out" in the attributes such as "sai_get_maximum_attribute_count" and " sai_get_object_count"  
+
+- These changes are incorporated in the "saiobject.h" file  
 
 ## Commit
 
@@ -162,7 +161,7 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- 
+- Parser values modified for "serialize" & "deserialize" attributes in the meta file "saiserialize.c"  
 
 ## Commit
 
@@ -177,9 +176,7 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- Multiple parameters incorporated  
-
-- Multiple indentation changes implemented  
+- Multiple parameters and indentations incorporated in different meta files  
 
 ## Commit
 
@@ -194,7 +191,9 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- Controls whether mirroring traffic can cause back pressure and packet drop of the original traffic  
+- Two attributes "SAI_MIRROR_SESSION_CONGESTION_MODE_INDEPENDENT" & "SAI_MIRROR_SESSION_CONGESTION_MODE_CORRELATED" are incorporated. In the former, the Mirroring traffic is independent from original traffic as the original traffic not affected by congestion of mirroring traffic. In the later, Mirroring traffic is correlated with original traffic and can cause back pressure and can even discard the original traffic if there is congestion  
+
+- These are incorporated in the meta file "saimirror.h"  
 
 ## Commit
 
@@ -209,9 +208,9 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- To add CISCO MCast types other than UDLD to SAI header, so we can trap individual types to CPU  
+- Host interface traps for "CDP", "VTP", "DTP" & "PAgP"  are added in the metafile "saihostif.h"  
 
-- Common Mcast DMAC trap is added to use a single trap for CISCO Mcast DMAC (01-00-0c-cc-cc-cc)  
+- These protocols are proprietory of Cisco and the traps are to capture individual types of cisco multicast to the CPU  
 
 ## Commit
 
@@ -226,11 +225,7 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- To provide fine-grained control while enabling drop reports  
-
-- To selectively enables/disables queue tail drop reporting when drop reporting is enabled
-
-- If the new attribute is disabled, all other drops are still reported
+- The attribute "SAI_ACL_ENTRY_ATTR_ACTION_DTEL_TAIL_DROP_REPORT_ENABLE" is incorporated to selectively enable/disable queue tail drop reporting when drop reporting is enabled. If the new attribute is disabled, all other drops are still reported  
 
 ## Commit
 
@@ -245,10 +240,13 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- To make log level easier to be changed for all SAI APIs
+- "SAI_LOG_LEVEL_NOTICE" attribute changed to "log_level" for all the SAI APIs to simplify the labeling of the attributes  
 
-- "SAI_LOG_LEVEL_NOTICE" attribute changed to "log_level"
-
+- Example  
+  ```
+  sai_log_set(SAI_API_SWITCH, SAI_LOG_LEVEL_NOTICE) is changed to 
+  sai_log_set(SAI_API_ACL, log_level)
+  ```
 
 ## Commit
 
@@ -263,7 +261,7 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- "vlan_oid" is used instead of "vlan_id" in the file "test/saithrift/tests/saimirror.py"  
+- "vlan_oid" is used instead of "vlan_id" in the file "test/saithrift/tests/saimirror.py". This is used as a reference to the actual VLAN ID in the Redis Database   
 
 ## Commit
 
@@ -278,7 +276,7 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- Add support for create/remove hostif_table_entry  
+- Provision to create/remove parameters in the hostif trap group for the sai_thrift_object_id incorporated
 
 - Change policer meter type from bytes to packets
 
@@ -295,7 +293,7 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- Changes made for new SAI header. Local routes are used to simplify the tests
+- For the packet test framework tests, changes are made for new SAI header. Local routes are used to simplify the tests
 
 ## Commit
 
@@ -310,7 +308,7 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- Add tests L2FDBMissUnicastTest, L2FDBMissBroadcastTest, L2FDBFloodRoutingNoVlan in the file "test/saithrift/tests/saifdb.py"  
+- Incorporated tests for L2FDBMissUnicastTest, L2FDBMissBroadcastTest, L2FDBFloodRoutingNoVlan in the file "test/saithrift/tests/saifdb.py"  
 
 ## Commit
 
@@ -325,10 +323,9 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- A general switch P4 behavioral model.
-- Implementation of the SAI API over the P4 BM.
-- unit test example for the sai api usage.
-- Thirft sai server implementation and ptf tests. (currently only L2 (1D,1Q) flows are supported)
+- SAI API over the P4 BM is implemented  to allow programming of packet forwarding planes
+  P4 - (Programming Protocol-Independent Packet Processors)
+  BM - (Behavioral Model)
 
 ## Commit
 
@@ -343,7 +340,7 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- Process incorporated for adding SAI extensions and attributes  
+- Processes for adding SAI extensions and attributes have been incorporated	
 
 ## Commit
 
@@ -358,10 +355,7 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- "SAI_FDB_FLUSH_ENTRY_TYPE_STATIC_DYNAMIC" flush type added for clearing all FDB entries
-
-- Need to mention either of the two to remove one of the entries or mention both to remove both the entries 
-  
+- New attribute (SAI_FDB_FLUSH_ENTRY_TYPE_ALL) that serves as new flush type for clearing all FDB entries has been added in the new version  
 
 ## Commit
 
@@ -376,7 +370,7 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- Add rpc support to parse port attribute of pausing and unpausing a port egress  
+- New attribute to puase and unpause the output(egress) from a port has been incorporated  
 
 ## Commit
 
@@ -391,7 +385,7 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- Router InterFace error packets and error octets counters added in the file "inc/sairouterinterface.h"  
+- Error counters for both packets and octets for the router interface to record the errors have been incorporated  
 
 ## Commit
 
@@ -406,7 +400,7 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- Moved p4 backed submoduile to flexsai/p4 and compiler from submodule to SAI repo  
+- P4(Programming Protocol-Independent Packet Processors) compiler sub modules have been incorporated. This serves as the back end for p4_16 compiler p4c  
 
 ## Commit
 
@@ -421,9 +415,7 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- PTP support "PTP traps + RX/TX meatadata" added
-
-- Modified struct definitions
+- PTP(Precision Time Protocol) support is added through the incorporation of PTP traps coupled with RX/TX meatadata  
 
 ## Commit
 
@@ -438,7 +430,7 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- Changed aux.py to P4_aux.py (reserved name)
+- Changed aux.py to P4_aux.py (reserved name) and then importing the same with the alias aux.py. This ensures that no changes to be made in the python code and at the same time assigning the proper reserved name to the function  
 
 ## Commit
 
@@ -453,7 +445,7 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- Add parameter to "sai_thrift_create_tunnel" and "sai_thrift_create_tunnel_term_table_entry"   
+- Updated the decapsulation PTF tests by adding new IPs (IPv4 & IPv6) along with Generic Routing Encapsulation (GRE)
 
 ## Commit
 
@@ -468,9 +460,7 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- Add SAI_OBJECT_TYPE_ISOLATION_GROUP_MEMBER
-
-- Correct the SAI_ACL_ENTRY_ATTR_ACTION_END value
+- This enhancement adds support for managing port isolation group. The isolation group attribute can be set on port or bridge port object. Packets which ingress on port/bridge port should not forward packets to the members of port isolation group object  
 
 ## Commit
 
@@ -485,7 +475,7 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- Code written in the "flexsai/p4/backend/json_stage/sai.cpp" file to be Python compatible
+- Attributes and syntax written in the older Python version are modified to be compatible with new python version(version 3)    
 
 ## Commit
 
@@ -500,7 +490,7 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- Currently the existing attribute SAI_SWITCH_ATTR_RESTART_WARM serves as a hint that warm restart procedure is restarting. After such boot, on some ASICs, SAI is reinitialized from scratch and SAI_KEY_BOOT_TYPE has the value of the boot type done. On other ASICs, SAI is not reinitialized from scratch, rather the process is resumed. A hint that the process is resumed is needed, and the current new attribute gives that hint.  
+- During warm restart, few ASICs are reinitialized from scratch and the attribute "SAI_KEY_BOOT_TYPE" has the value notifying the type of boot that has happened. In other ASICs the restart doesn't happen from scratch. Instead the process that was in progress before the restart gets resumed. In order to indicate that the process is resumed and not reinitialized from scratch, the new attribute "SAI_SWITCH_ATTR_WARM_RECOVER" is incorporated   
 
 ## Commit
 
@@ -515,9 +505,7 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- Added vxlan tunnel to SAI_TUNNEL_ATTR_UNDERLAY_INTERFACE condition
-
-- RIF in which routing happens after encap needs to be specified when creating VxLAN tunnel
+- VXLAN tunnel "SAI_TUNNEL_TYPE_VXLAN" added to SAI_TUNNEL_ATTR_UNDERLAY_INTERFACE condition. At the time of VXLAN creation, the router interface in which the routing happens post encapsulation should be specified  
 
 ## Commit
 
@@ -532,7 +520,7 @@ Below mentioned are some of the sub-items related to this change
 
 ## Description
 
-- Changed the title "Add watermark attribute for headroom pool" to "Add watermark stat for headroom pool"  
+- Added the watermark stat for the headroom pool attribute to align with the existing naming convention  
 
 ## Commit
 

@@ -128,6 +128,35 @@ command, examples follow.
 
         admin@sonic:~$ sudo config bgp shutdown all
 
+## Config load vlan configure failed
+
+
+
+## Unable to configure Management interface IP
+
+- Example:
+  ```
+	admin@sonic:~$ /sbin/ifconfig eth0 10.11.12.13/24
+	SIOCSIFADDR: Operation not permitted
+	SIOCSIFFLAGS: Operation not permitted
+	SIOCSIFNETMASK: Operation not permitted
+  ```
+
+Enter the command ***/sbin/ifconfig eth0*** to know the current management interface status for the interface eth0  
+
+## Unable to get output for show arp
+
+- Example:
+  ```
+  admin@sonic:~$ show arp -if Ethernet0
+  Address    MacAddress    Iface    Vlan
+  ---------  ------------  -------  ------
+  Total number of entries 0 
+  ```
+  
+Check the status of the interface using ***show ip interfaces***. Only when the interface is connected to a node and is up, only then an entry to the arp table will be added  
+
+
 
 -   **[Home](/Azure/SONiC/wiki){.d-block}**
 -   **[ACL Configuration High Level

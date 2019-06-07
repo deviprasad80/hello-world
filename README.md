@@ -9,6 +9,8 @@ My first underline
 My second underline  
 -------------------
 
+I love :coffee: :pizza: and :dancer:.
+
 My test table
 =============
 

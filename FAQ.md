@@ -141,5 +141,136 @@ I saw systemd/system/ directory in vs vm, where in the platform directory that w
 [Link](https://groups.google.com/forum/#!topic/sonicproject/YTzqmm8Wqlo)
 
 ----------------------------------------------------------------------------------------------------------------------------
+## Not able to see 'telemetry binary' after building the Debian package
 
- 
+ I followed the steps and built a Debian package in ubuntu 16.04 server.
+and copied sonic-telemetry_0.1_amd64.deb to sonic switch 
+installed it using "dpkg -i sonic-telemetry_0.1_amd64.deb". However, I don't see telemetry binary. Please let me know if I miss anything here.
+
+root@switch2:/home/admin#  ./telemetry --help
+bash: ./telemetry: No such file or directory
+
+
+git clone https://github.com/Azure/sonic-telemetry.git
+pushd sonic-telemetry
+dpkg-buildpackage -rfakeroot -b -us -uc
+popd
+
+telemetry runs on a docker. Please have a look at /usr/bin/telemetry.sh.
+The easy way is to include telemetry in sonic image itself. You can do that by marking ENABLE_SYSTEM_TELEMETRY=y  on the "rules/config" file while building sonic image. Telemetry service gets started automatically.
+
+root@sonic:/home/admin# ps -elf | grep tel
+4 S admin     2401     1  0  80   0 -  2955 -      Nov05 ?        00:00:00 /bin/bash /usr/bin/telemetry.sh attach
+0 S admin     2403  2401  0  80   0 - 45153 SyS_ep Nov05 ?        00:00:00 docker attach --no-stdin telemetry
+4 S root      2761  2370  0  80   0 - 159110 -     Nov05 pts/5    00:29:09 /usr/sbin/telemetry -logtostderr --insecure --port 8080 --allow_no_client_auth -v=2
+
+-------------------------------------------------------------------------------------------------------------------------------
+Is there any document other than radv spec? This document has limited information regarding radvd integration in sonic.
+Also as per docker script we found that radvd will be configured and started only when Sonic DEVICE_ROLE is set to "ToRRouter". 
+What is the significance of DEVICE_ROLE and difference between ToRRouter & LeafRouter role.
+Why is radvd configured and started only on "ToRRouter"?
+
+1. The radv is the IPv6 ND protocol part feature, used by routers to advertise their router-role information to the shared-link devices. 
+2. DEVICE_ROLE meaning the device(switch) roles in the DC network, ToRRouter meaning "Top of the Rack Router/Switcher", LeafRouter that is the middle device between ToRRouter and Spine;  The ToRs often directly connect to the Servers(host), so ToRs need the function radvd to spread the router-link informations. But LeafRouter is not directly connected to the servers(hosts), so one must not enable this function.
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------
+Is there demo or example code about call sonic CLI inside docker?
+
+such as call `show interfaces status` in sonic-telemetry docker.
+
+
+-------------------------------------------------------------------------------------------------------------------------------
+It's not easy to find any information about what would be the minimum hardware requirements to run SONIC ? I'm reading through architecture guide, and am wondering
+about every component being ran in separate docker container. Isn't it hardware-intensive ? How much RAM/CPU power would the HW need to run SONIC smoothly ?
+Do you have any hands-on experience with that ?
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------
+I have couple of questions: 
+
+
+1) Are there any instructions to compile sonic-buildimage/src/sonic-sairedis code separately for a new platform and what are the steps required ?
+
+2) Also, what are the various files at the top level i need to change. 
+
+3) description of the Dockerfile.j2 and the requirements for the same
+
+3) Any description of the docker containers that are used for sai
+
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------
+•	Is there any document other than radv spec? This document has limited information regarding radvd integration in sonic.
+•	Also as per docker script we found that radvd will be configured and started only when Sonic DEVICE_ROLE is set to "ToRRouter". 
+o	What is the significance of DEVICE_ROLE and difference between ToRRouter & LeafRouter role.
+o	Why is radvd configured and started only on "ToRRouter"?
+
+
+1. The radv is the IPv6 ND protocol part feature, used to routers advertise  theirs router-role information to the shared-link devices. 
+2. DEVICE_ROLE meaning the device(switch) roles in the DC network, ToRRouter meaning "Top of the Rack Router/Switcher", LeafRouter that is the middle device 
+   between ToRRouter and Spine;  The ToRs often directly connect to the Servers(host), so ToRs need the function radvd to spread the router-link informations. But LeafRouter 
+   not directly connects the servers(hosts), so not must enable this function. 
+
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------
+Could anyone explain how  bcmcmd communicates with ASIC.
+
+From command line, it looks bcmcmd connects to sswsyncd socket.
+
+    # USAGE: bcmcmd [-f <sun_path>] -v <cmd>
+      -v                         verbose mode
+      -f                         domain socket filename, default /var/run/sswsyncd/sswsyncd.socket
+
+is syncd listening on this socket?
+
+I'm trying to understand whether communication is like:
+    bcmcmd <--> ASIC
+or
+    bcmcmd <--> syncd <--> ASIC
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------
+My intention is to use a configuration with all ports part of VLAN1. I observed that the switch default VLAN (VLAN1) is not being exposed out to users. "show vlan brief" doesn't display an entry for VLAN1.
+
+When I tried to create VLAN1, it threw an error message.
+
+Nov 12 16:29:31.708140 sonic INFO kernel: [45185.022439] IPv6: ADDRCONF(NETDEV_UP): Vlan1: link is not ready
+Nov 12 16:29:31.710270 sonic NOTICE swss#orchagent: :- addVlan: Create an empty VLAN Vlan1 vid:1
+Nov 12 16:29:31.712193 sonic ERR syncd#syncd: brcm_sai_create_vlan:95 vlan create failed with error Entry exists (0xfffffff8).
+Nov 12 16:29:31.712446 sonic ERR syncd#syncd: :- processEvent: attr: SAI_VLAN_ATTR_VLAN_ID: 1
+Nov 12 16:29:31.712622 sonic ERR syncd#syncd: :- processEvent: failed to execute api: create, key: SAI_OBJECT_TYPE_VLAN:oid:0x2600000000061e, status: SAI_STATUS_ITEM_ALREADY_EXISTS
+
+At this point "show vlan brief" does display VLAN1. But when I try to add a port to be member of the VLAN1, orchagent crashes due to below error.
+
+Nov 11 23:23:12.309510 sonic ERR syncd#syncd: :- syncd_main: Runtime error: :- translate_vid_to_rid: unable to get RID for VID: 0x26000000000616  
+
+Now, the questions I have to the SONiC community are
+ - What is the expected role of the switch default VLAN1? 
+ - Is the above observed behavior as per SONiC design or is it because of some missing pieces in the code?
+ - Why does cpu port continue to participate in switch default VLAN1 when none of the other ports are being allowed to be part of it?
+
+
+The observations I made are on a Broadcom platform.
+
+Really appreciate some insight.
+
+
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
