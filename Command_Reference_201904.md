@@ -3,8 +3,6 @@
 Table of Contents
 =================
 
-   * [SONiC COMMAND LINE INTERFACE GUIDE](#sonic-command-line-interface-guide)
-   * [Table of Contents](#table-of-contents)
    * [Document History](#document-history)
    * [Introduction](#introduction)
    * [Basic Configuration And Show](#basic-configuration-and-show)
@@ -56,7 +54,7 @@ Table of Contents
       * [Mirroring Show command](#mirroring-show-command)
       * [Mirroring Config command](#mirroring-config-command)
    * [NTP](#ntp)
-      * [NTP show command](#ntp-show-command)
+      * [NTP show command](#network-time-protocol-show-command)
    * [Platform Specific Commands](#platform-specific-commands)
    * [PortChannel Configuration And Show](#portchannel-configuration-and-show)
       * [PortChannel Show commands](#portchannel-show-commands)
@@ -903,7 +901,7 @@ When user has not configured server specific passkey, this global value shall be
 **config tacacs timeout**  
 
 This command is used to modify the global value for the TACACS+ timeout.
-When user has not configured server specific timeout, this global value shall be used for that server
+When user has not configured server specific timeout, this global value shall be used for that server.
 
 
    - Usage:  
@@ -930,7 +928,7 @@ This section explains the various show commands and configuration commands avail
 
 ## ACL show commands
 
-***show acl table***
+**show acl table**
 
 This command displays either all the ACL tables that are configured or only the specified "TABLE_NAME". 
 Output from the command displays the table name, type of the table, the list of interface(s) to which the table is bound and the description about the table.
@@ -1191,7 +1189,7 @@ This section explains all the BGP show commands and BGP configuation commands th
 
 ## BGP show commands
 
-***show bgp summary***  
+**show bgp summary** 
 
 This command displays the summary of all IPv4 bgp neighbors that are configured and the corresponding states.
 
@@ -1214,7 +1212,7 @@ This command displays the summary of all IPv4 bgp neighbors that are configured 
 
   ```
 
-***show bgp neighbors***  
+**show bgp neighbors** 
 
 This command displays all the details of IPv4 & IPv6 BGP neighbors when no optional argument is specified. 
 
@@ -1277,7 +1275,7 @@ In order to get details for an IPv6 neigbor, use "show bgp neighbor <ipv6_addres
   admin@sonic:~$ show bgp neighbors 192.168.1.161 routes
   ```
 
-***show bgp ipv6 summary***  
+**show bgp ipv6 summary**  
 
 This command displays the summary of all IPv4 bgp neighbors that are configured and the corresponding states.
 
@@ -1293,7 +1291,7 @@ This command displays the summary of all IPv4 bgp neighbors that are configured 
   
   ```
 
-***show route-map*** 
+**show route-map** 
 
 This command displays the routing policy that takes precedence over the other route processes that are configured.
 
@@ -1386,7 +1384,7 @@ This command is to shut down a BGP session with a neighbor by that neighbor's IP
   ```
  
 
-***config bgp startup all*** 
+**config bgp startup all** 
 
 This command is used to start up all the IPv4 & IPv6 BGP neighbors
 
@@ -1399,7 +1397,7 @@ This command is used to start up all the IPv4 & IPv6 BGP neighbors
   ```
  
  
-***config bgp startup neighbor***  
+**config bgp startup neighbor**  
 
 This command is used to start up the particular IPv4 or IPv6 BGP neighbor using either the IP address or hostname.
 
