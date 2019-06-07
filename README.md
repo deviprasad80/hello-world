@@ -9,7 +9,11 @@ My first underline
 My second underline  
 -------------------
 
+<<<<<<< HEAD
 I love :coffee: :pizza: and :dancer:.
+=======
+I love :coffee: :pizza:, and :dancer:.
+>>>>>>> ffb1b75c7369409fa7eda245a88068c8404f8612
 
 My test table
 =============
