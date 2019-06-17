@@ -1725,9 +1725,9 @@ IP address for either physical interface or for portchannel or for VLAN interfac
 - Usage:  
     config interface ip add <ip_addr> <interface-name>
 
-- Examples:  
+- Example:  
   ```	
-  admin@sonic:~$ sudo config interface ip add 10.11.12.13.24 Ethernet63
+  admin@sonic:~$ sudo config interface ip add 10.11.12.13/24 Ethernet63
   ```
 NOTE: In versions until 201811, syntax is config ip add <interface_name> <ip_addr>
 
@@ -1735,9 +1735,9 @@ NOTE: In versions until 201811, syntax is config ip add <interface_name> <ip_add
 - Usage:  
     config interface ip add <ip_addr> <vlanID>
 
-- Examples:  
+- Example:  
   ```	
-  admin@sonic:~$ sudo config interface ip add 10.11.12.13.24 vlan100
+  admin@sonic:~$ sudo config interface ip add 10.11.12.13/24 vlan100
   ```
 NOTE: In versions until 201811, syntax is config interface <vlanID> ip add <ip_addr> 
 
@@ -1746,15 +1746,19 @@ NOTE: In versions until 201811, syntax is config interface <vlanID> ip add <ip_a
 
 - Usage:  
     config interface ip remove <ip_addr> <interface-name>
+
+- Example:
   ```
-  admin@sonic:~$ sudo config interface ip remove 10.0.0.126/31 Ethernet63
+  admin@sonic:~$ sudo config interface ip remove 10.11.12.13/24 Ethernet63
   ```
 NOTE: In versions until 201811, syntax is config ip remove <interface_name> <ip_addr>
 
 - Usage:  
     config interface ip remove <ip_addr> <vlanID>
+
+- Example:
   ```
-  admin@sonic:~$ sudo config interface ip remove  10.0.0.126/31 vlan100
+  admin@sonic:~$ sudo config interface ip remove  10.11.12.13/24 vlan100
   ```
 NOTE: In versions until 201811, syntax is config interface <vlanID> ip remove <ip_addr>
 
@@ -1765,7 +1769,7 @@ This command is used for setting the asymmetric PFC for an interface to either "
 - Usage:  
     config interface <interface-name> pfc asymmetric on/off
 
-- Examples:  
+- Example:  
   ```	
   admin@sonic:~$ sudo config interface Ethernet0 pfc asymmetric on 
   ```
@@ -1781,8 +1785,8 @@ This command is used to administratively shut down either the Physical interface
   ```
   admin@sonic:~$ sudo config interface shutdown Ethernet63
   ```
-
 NOTE: In versions until 201811, syntax is config interface <interface_name> shutdown
+
 
 **config interface startup**  
 
@@ -1803,20 +1807,20 @@ This command is used to configure the speed for the Physical interface. Use the 
 Dynamic breakout feature is yet supported in SONiC and hence uses cannot configure any values other than 40G and 100G.
 
 - Usage:  
-    portconfig [-h] [-v] -p PORT [-l] [-s SPEED] [-f FEC] [-vv]
+    portconfig [-h] [-v] -p PORT [-l] [-s SPEED] [-f FEC] [-vv]  
+	
 
 Set SONiC port parameters
 
-optional arguments:
-   -h, --help            show this help message and exit
-   -v, --version         show program's version number and exit
-   -p PORT, --port PORT  port name (e.g. Ethernet0)
-   -l, --list            list port parametars
-   -s SPEED, --speed SPEED
-                        port speed value in Mbit
-   -f FEC, --fec FEC     port fec mode value in (none, rs, fc)
-   -vv, --verbose        Verbose output
-
+optional arguments:  
+   -h, --help            show this help message and exit  
+   -v, --version         show program's version number and exit  
+   -p PORT, --port PORT  port name (e.g. Ethernet0)  
+   -l, --list            list port parametars  
+   -s SPEED, --speed SPEED  
+                        port speed value in Mbit  
+   -f FEC, --fec FEC     port fec mode value in (none, rs, fc)  
+   -vv, --verbose        Verbose output  
 
 - Example:
   ```
