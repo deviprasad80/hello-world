@@ -535,9 +535,7 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- "Stat_id_t" is the data-type defined to uint32_t  
-
-- API implementation is just made uniform with a single data-type for all objects  
+- This change is incorporated to maintain a common enumeration type for all the SAI stat Get APIs uniformly  
 
 ## Commit
 
@@ -552,7 +550,7 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- Add support "SAI_OBJECT_TYPE_LAG" to "SAI_ACL_ENTRY_ATTR_FIELD_IN/OUT_PORT"  
+- This is to incorporate an additional object type "SAI_OBJECT_TYPE_LAG" to "SAI_ACL_ENTRY_ATTR_FIELD_IN/OUT_PORT". This will further support the the object id list  
 
 ## Commit
 
@@ -582,7 +580,7 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- 
+- Updated the "check_mixed_object_list_types" case to allow "SAI_OBJECT_TYPE_MIRROR_SESSION" object
 
 ## Commit
 
@@ -597,7 +595,7 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- Modified the condition to accept Tunnel Encap and MPLS Nexthop types.
+- Next Hop attribute type is updated with "MPLS" and "TUNNEL_CAP" types  
 
 ## Commit
 
@@ -612,7 +610,7 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- 
+- Metadata information is updated with the pointer to the status of the enum (statenumname)
 
 ## Commit
 
