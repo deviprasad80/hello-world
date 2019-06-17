@@ -625,9 +625,7 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- "CheckStatsFunction" function added
-
-- "fnparams" parameter added in the function.
+- "CheckStatsFunction" function incorporated with conditions and exceptions for a list of attributes  
 
 ## Commit
 
@@ -642,7 +640,7 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- "offsetof" and "sizeof" parameters added
+- Metadata (meta/aspell.en.pws) is updated with the parameters "offsetof" and "sizeof"  
 
 ## Commit
 
