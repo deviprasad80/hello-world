@@ -36,8 +36,6 @@ Table of Contents
    * [Interface Configuration And Show-Commands](#interface-configuration-and-show-commands)
       * [Interface Show Commands](#interface-show-commands)
       * [Interface Config Commands](#interface-config-commands)
-   * [Interface Configuration Commands](#interface-configuration-commands-Release201904)
-      * [Interface Config Commands](#interface-config-commands)
    * [Interface Naming Mode](#interface-naming-mode)
       * [Interface naming mode show commands](#interface-naming-mode-show-commands)
       * [Interface naming mode config commands](#interface-naming-mode-config-commands)
@@ -1706,15 +1704,16 @@ This sub-section explains the following list of configuration on the interfaces.
 4) speed - to set the interface speed
 5) startup - to bring up the administratively shutdown interface
 
-From 201904 release onwards, the “Config interface” command syntax is changed as follows    
+From 201904 release onwards, the “Config interface” command syntax is changed and the format is as follows    
 
-- Config interface  interface_subcommand <interface_name>  
+- Config interface  interface_subcommand <interface_name>   
 i.e Interface name comes after the subcommand  
-   - Ex: config interface startup Ethernet63  
+- Ex: config interface startup Ethernet63  
 
 The syntax for all such interface_subcommands are given below under each command  
 
-NOTE: In older versions of SONiC until 201811 release, the command syntax was config interface <interface_name>  interface_subcommand  
+NOTE: In older versions of SONiC until 201811 release, the command syntax was  
+      config interface <interface_name> interface_subcommand  
 
  **config interface ip add/remove**
 
@@ -1826,7 +1825,7 @@ optional arguments:
 
 NOTE: In versions until 201811, syntax is config interface <interface_name> speed 40000
 
-Go Back To [Beginning of the document](#SONiC-COMMAND-LINE-INTERFACE-GUIDE) or [Beginning of this section](#Interface Config Commands_Release-201904)
+Go Back To [Beginning of the document](#SONiC-COMMAND-LINE-INTERFACE-GUIDE) or [Beginning of this section](#interface-configuration-and-show-commands)
 
 
 # Interface Naming Mode
