@@ -1809,19 +1809,6 @@ Dynamic breakout feature is yet supported in SONiC and hence uses cannot configu
 - Usage:  
     portconfig [-h] [-v] -p PORT [-l] [-s SPEED] [-f FEC] [-vv]  
 	
-
-Set SONiC port parameters
-
-optional arguments:  
-   -h, --help            show this help message and exit  
-   -v, --version         show program's version number and exit  
-   -p PORT, --port PORT  port name (e.g. Ethernet0)  
-   -l, --list            list port parametars  
-   -s SPEED, --speed SPEED  
-                        port speed value in Mbit  
-   -f FEC, --fec FEC     port fec mode value in (none, rs, fc)  
-   -vv, --verbose        Verbose output  
-
 - Example:
   ```
   admin@sonic:~$ portconfig -p Ethernet63 -s 40000
