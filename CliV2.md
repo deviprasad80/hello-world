@@ -1804,7 +1804,7 @@ NOTE: In versions until 201811, syntax is config interface <interface_name> star
 **config interface speed**  
 
 This command is used to configure the speed for the Physical interface. Use the value 40000 for setting it to 40G and 100000 for 100G. Users need to know the device to configure it properly. 
-Dynamic breakout feature is yet supported in SONiC and hence uses cannot configure any values other than 40G and 100G.
+Dynamic breakout feature is yet to be supported in SONiC and hence uses cannot configure any values other than 40G and 100G.
 
 - Usage:  
     portconfig [-h] [-v] -p PORT [-l] [-s SPEED] [-f FEC] [-vv]  
