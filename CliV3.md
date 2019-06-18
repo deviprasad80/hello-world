@@ -1126,24 +1126,24 @@ This command displays the ARP entries in the device with following options.
 
 - Example:
   ```
-  admin@sonic:~$ show arp -if Ethernet40
-  Address          MacAddress          Iface        Vlan
-  -------------    -----------------   ----------   ------
-  192.168.1.181    e4:c7:22:c1:07:7c   Ethernet40   -
-  Total number of entries 1 
+    admin@sonic:~$ show arp -if Ethernet40
+    Address          MacAddress          Iface        Vlan
+    -------------    -----------------   ----------   ------
+    192.168.1.181    e4:c7:22:c1:07:7c   Ethernet40   -
+    Total number of entries 1 
 
   ```
   
   - Optionally, you can specify an IP address in order to display only that particular entry
 
-
 - Example:
   ```
-  admin@sonic:~$ show arp 192.168.1.181
-  Address          MacAddress          Iface        Vlan
-  -------------    -----------------   ----------   ------
-  192.168.1.181    e4:c7:22:c1:07:7c   Ethernet40   -
-  Total number of entries 1 
+    admin@sonic:~$ show arp 192.168.1.181
+    Address          MacAddress          Iface        Vlan
+    -------------    -----------------   ----------   ------
+    192.168.1.181    e4:c7:22:c1:07:7c   Ethernet40   -
+    Total number of entries 1 
+  
   ```
 
 ## NDP show commands
@@ -1182,10 +1182,9 @@ This command displays either all the IPv6 neighbor mac addresses, or for a parti
 	fe80::20c:29ff:fef9:324   00:0c:29:f9:03:24  eth0     -       REACHABLE
 	Total number of entries 3 
 
-   ```
+  ```
 
 Go Back To [Beginning of the document](#SONiC-COMMAND-LINE-INTERFACE-GUIDE) or [Beginning of this section](#Watermark-Configuration-And-Show)
-
 
 
 # BGP Configuration And Show Commands
@@ -1206,16 +1205,16 @@ This command displays the summary of all IPv4 bgp neighbors that are configured 
  
 - Example:
   ```
-  admin@sonic:~$ show ip bgp summary
-  BGP router identifier 1.2.3.4, local AS number 65061
-  RIB entries 6124, using 670 KiB of memory
-  Peers 2, using 143 KiB of memory
+    admin@sonic:~$ show ip bgp summary
+    BGP router identifier 1.2.3.4, local AS number 65061
+    RIB entries 6124, using 670 KiB of memory
+    Peers 2, using 143 KiB of memory
   
-  Neighbor        V         AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State/PfxRcd
-  192.168.1.161    4 65501   88698  102781        0    0    0 08w5d14h        2
-  192.168.1.163    4 65502   88698  102780        0    0    0 08w5d14h        2
+    Neighbor        V         AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State/PfxRcd
+    192.168.1.161    4 65501   88698  102781        0    0    0 08w5d14h        2
+    192.168.1.163    4 65502   88698  102780        0    0    0 08w5d14h        2
   
-  Total number of neighbors 2
+    Total number of neighbors 2
   ```
 
 - FRR
@@ -1229,37 +1228,37 @@ This command displays the summary of all IPv4 & IPv6 bgp neighbors that are conf
  
 - Example:
   ```
-  root@sonic-z9264f-9251:~# show bgp summary
+   root@sonic-z9264f-9251:~# show bgp summary
 
- IPv4 Unicast Summary:
- BGP router identifier 10.1.0.32, local AS number 65100 vrf-id 0
- BGP table version 6465
- RIB entries 12807, using 2001 KiB of memory
- Peers 4, using 83 KiB of memory
- Peer groups 2, using 128 bytes of memory
+   IPv4 Unicast Summary:
+   BGP router identifier 10.1.0.32, local AS number 65100 vrf-id 0
+   BGP table version 6465
+   RIB entries 12807, using 2001 KiB of memory
+   Peers 4, using 83 KiB of memory
+   Peer groups 2, using 128 bytes of memory
 
- Neighbor        V         AS MsgRcvd MsgSent   TblVer  InQ OutQ  Up/Down State/PfxRcd
- 10.0.0.57       4      64600    3995    4001        0    0    0 00:39:32         6400
- 10.0.0.59       4      64600    3995    3998        0    0    0 00:39:32         6400
- 10.0.0.61       4      64600    3995    4001        0    0    0 00:39:32         6400
- 10.0.0.63       4      64600    3995    3998        0    0    0 00:39:32         6400
+   Neighbor        V         AS MsgRcvd MsgSent   TblVer  InQ OutQ  Up/Down State/PfxRcd
+   10.0.0.57       4      64600    3995    4001        0    0    0 00:39:32         6400
+   10.0.0.59       4      64600    3995    3998        0    0    0 00:39:32         6400
+   10.0.0.61       4      64600    3995    4001        0    0    0 00:39:32         6400
+   10.0.0.63       4      64600    3995    3998        0    0    0 00:39:32         6400
 
- Total number of neighbors 4
+   Total number of neighbors 4
  
- IPv6 Unicast Summary:
- BGP router identifier 10.1.0.32, local AS number 65100 vrf-id 0
- BGP table version 12803
- RIB entries 12805, using 2001 KiB of memory
- Peers 4, using 83 KiB of memory
- Peer groups 2, using 128 bytes of memory
+   IPv6 Unicast Summary:
+   BGP router identifier 10.1.0.32, local AS number 65100 vrf-id 0
+   BGP table version 12803
+   RIB entries 12805, using 2001 KiB of memory
+   Peers 4, using 83 KiB of memory
+   Peer groups 2, using 128 bytes of memory
 
- Neighbor        V         AS MsgRcvd MsgSent   TblVer  InQ OutQ  Up/Down State/PfxRcd
- fc00::72        4      64600    3995    5208        0    0    0 00:39:30         6400
- fc00::76        4      64600    3994    5208        0    0    0 00:39:30         6400
- fc00::7a        4      64600    3993    5208        0    0    0 00:39:30         6400
- fc00::7e        4      64600    3993    5208        0    0    0 00:39:30         6400
+   Neighbor        V         AS MsgRcvd MsgSent   TblVer  InQ OutQ  Up/Down State/PfxRcd
+   fc00::72        4      64600    3995    5208        0    0    0 00:39:30         6400
+   fc00::76        4      64600    3994    5208        0    0    0 00:39:30         6400
+   fc00::7a        4      64600    3993    5208        0    0    0 00:39:30         6400
+   fc00::7e        4      64600    3993    5208        0    0    0 00:39:30         6400
 
- Total number of neighbors 4
+   Total number of neighbors 4
   ```
 
 NOTE: There is a change in the command syntax between "Quagga" & "Frr". The keyword "ip" from "Quagga" is discarded in "FRR"  
@@ -1282,50 +1281,51 @@ In order to get details for an IPv6 neigbor, use "show ipv6 bgp neighbor <ipv6_a
 
 - Example:
   ```
-  admin@sonic:~$ show ip bgp neighbors
-  BGP neighbor is 192.168.1.161, remote AS 65501, local AS 65061, external link
-   Description: ARISTA01T0
-    BGP version 4, remote router ID 1.2.3.4
-    BGP state = Established, up for 08w5d14h
-    Last read 00:00:46, hold time is 180, keepalive interval is 60 seconds
-    Neighbor capabilities:
-      4 Byte AS: advertised and received
-      Dynamic: received
-      Route refresh: advertised and received(old & new)
-      Address family IPv4 Unicast: advertised and received
-      Graceful Restart Capabilty: advertised and received
-        Remote Restart timer is 120 seconds
-        Address families by peer:
-          IPv4 Unicast(not preserved)
+     admin@sonic:~$ show ip bgp neighbors
+     BGP neighbor is 192.168.1.161, remote AS 65501, local AS 65061, external link
+     Description: ARISTA01T0
+     BGP version 4, remote router ID 1.2.3.4
+     BGP state = Established, up for 08w5d14h
+     Last read 00:00:46, hold time is 180, keepalive interval is 60 seconds
+     Neighbor capabilities:
+       4 Byte AS: advertised and received
+       Dynamic: received
+       Route refresh: advertised and received(old & new)
+       Address family IPv4 Unicast: advertised and received
+       Graceful Restart Capabilty: advertised and received
+         Remote Restart timer is 120 seconds
+         Address families by peer:
+           IPv4 Unicast(not preserved)
     Graceful restart informations:
-      End-of-RIB send: IPv4 Unicast
-      End-of-RIB received: IPv4 Unicast
-    Message statistics:
-      Inq depth is 0
-      Outq depth is 0
+       End-of-RIB send: IPv4 Unicast
+       End-of-RIB received: IPv4 Unicast
+     Message statistics:
+       Inq depth is 0
+       Outq depth is 0
                            Sent       Rcvd
-      Opens:                  1          1
-      Notifications:          0          0
-      Updates:            14066          3
-      Keepalives:         88718      88698
-      Route Refresh:          0          0
-      Capability:             0          0
-      Total:             102785      88702
-    Minimum time between advertisement runs is 30 seconds
+       Opens:                  1          1
+       Notifications:          0          0
+       Updates:            14066          3
+       Keepalives:         88718      88698
+       Route Refresh:          0          0
+       Capability:             0          0
+       Total:             102785      88702
+     Minimum time between advertisement runs is 30 seconds
   
-   For address family: IPv4 Unicast
-    Community attribute sent to this neighbor(both)
-    2 accepted prefixes
+     For address family: IPv4 Unicast
+      Community attribute sent to this neighbor(both)
+      2 accepted prefixes
   
-    Connections established 1; dropped 0
-    Last reset never
-  Local host: 192.168.1.160, Local port: 32961
-  Foreign host: 192.168.1.161, Foreign port: 179
-  Nexthop: 192.168.1.160
-  Nexthop global: fe80::f60f:1bff:fe89:bc00
-  Nexthop local: ::
-  BGP connection: non shared network
-  Read thread: on  Write thread: off
+      Connections established 1; dropped 0
+      Last reset never
+    Local host: 192.168.1.160, Local port: 32961
+    Foreign host: 192.168.1.161, Foreign port: 179
+    Nexthop: 192.168.1.160
+    Nexthop global: fe80::f60f:1bff:fe89:bc00
+    Nexthop local: ::
+    BGP connection: non shared network
+    Read thread: on  Write thread: off
+   
   ```
   
   - Optionally, you can specify an IP address in order to display only that particular neighbor. In this mode, you can optionally specify whether you want to display all routes advertised to the specified neighbor, all routes received from the specified neighbor or all routes (received and accepted) from the specified neighbor.
@@ -1349,57 +1349,57 @@ In order to get details for an IPv6 neigbor, use "show ipv6 bgp neighbor <ipv6_a
 
 - Example:
   ```
-  BGP neighbor is 10.0.0.57, remote AS 64600, local AS 65100, external link
- Description: ARISTA01T1
-  BGP version 4, remote router ID 100.1.0.29, local router ID 10.1.0.32
-  BGP state = Established, up for 00:42:15
-  Last read 00:00:00, Last write 00:00:03
-  Hold time is 10, keepalive interval is 3 seconds
-  Configured hold time is 10, keepalive interval is 3 seconds
-  Neighbor capabilities:
-    4 Byte AS: advertised and received
-    AddPath:
-      IPv4 Unicast: RX advertised IPv4 Unicast and received
-    Route refresh: advertised and received(new)
-    Address Family IPv4 Unicast: advertised and received
-    Hostname Capability: advertised (name: sonic-z9264f-9251,domain name: n/a) not received
-    Graceful Restart Capabilty: advertised and received
-      Remote Restart timer is 300 seconds
-      Address families by peer:
-        none
-  Graceful restart information:
-    End-of-RIB send: IPv4 Unicast
-    End-of-RIB received: IPv4 Unicast
-  Message statistics:
-    Inq depth is 0
-    Outq depth is 0
-                         Sent       Rcvd
-    Opens:                  2          1
-    Notifications:          2          0
-    Updates:             3206       3202
-    Keepalives:           845        847
-    Route Refresh:          0          0
-    Capability:             0          0
-    Total:               4055       4050
-  Minimum time between advertisement runs is 0 seconds
+    BGP neighbor is 10.0.0.57, remote AS 64600, local AS 65100, external link
+   Description: ARISTA01T1
+   BGP version 4, remote router ID 100.1.0.29, local router ID 10.1.0.32
+   BGP state = Established, up for 00:42:15
+   Last read 00:00:00, Last write 00:00:03
+   Hold time is 10, keepalive interval is 3 seconds
+   Configured hold time is 10, keepalive interval is 3 seconds
+   Neighbor capabilities:
+     4 Byte AS: advertised and received
+     AddPath:
+       IPv4 Unicast: RX advertised IPv4 Unicast and received
+     Route refresh: advertised and received(new)
+     Address Family IPv4 Unicast: advertised and received
+     Hostname Capability: advertised (name: sonic-z9264f-9251,domain name: n/a) not received
+     Graceful Restart Capabilty: advertised and received
+       Remote Restart timer is 300 seconds
+       Address families by peer:
+         none
+   Graceful restart information:
+     End-of-RIB send: IPv4 Unicast
+     End-of-RIB received: IPv4 Unicast
+   Message statistics:
+     Inq depth is 0
+     Outq depth is 0
+                          Sent       Rcvd
+     Opens:                  2          1
+     Notifications:          2          0
+     Updates:             3206       3202
+     Keepalives:           845        847
+     Route Refresh:          0          0
+     Capability:             0          0
+     Total:               4055       4050
+   Minimum time between advertisement runs is 0 seconds
 
- For address family: IPv4 Unicast
-  Update group 1, subgroup 1
-  Packet Queue length 0
-  Inbound soft reconfiguration allowed
-  Community attribute sent to this neighbor(all)
-  6400 accepted prefixes
+  For address family: IPv4 Unicast
+   Update group 1, subgroup 1
+   Packet Queue length 0
+   Inbound soft reconfiguration allowed
+   Community attribute sent to this neighbor(all)
+   6400 accepted prefixes
 
-  Connections established 1; dropped 0
-  Last reset 00:42:37, due to NOTIFICATION sent (Cease/Connection collision resolution)
-Local host: 10.0.0.56, Local port: 179
-Foreign host: 10.0.0.57, Foreign port: 46419
-Nexthop: 10.0.0.56
-Nexthop global: fc00::71
-Nexthop local: fe80::2204:fff:fe36:9449
-BGP connection: shared network
-BGP Connect Retry Timer in Seconds: 120
-Read thread: on  Write thread: on
+   Connections established 1; dropped 0
+   Last reset 00:42:37, due to NOTIFICATION sent (Cease/Connection collision resolution)
+   Local host: 10.0.0.56, Local port: 179
+   Foreign host: 10.0.0.57, Foreign port: 46419
+   Nexthop: 10.0.0.56
+   Nexthop global: fc00::71
+   Nexthop local: fe80::2204:fff:fe36:9449
+   BGP connection: shared network
+   BGP Connect Retry Timer in Seconds: 120
+   Read thread: on  Write thread: on
   ```
 
 - Optionally, you can specify an IP address in order to display only that particular neighbor. In this mode, you can optionally specify whether you want to display all routes advertised to the specified neighbor, all routes received from the specified neighbor or all routes (received and accepted) from the specified neighbor.
@@ -1407,14 +1407,16 @@ Read thread: on  Write thread: on
 
 - Example:
   ``` 
-  admin@sonic:~$ show bgp neighbors 10.0.0.57
+    admin@sonic:~$ show bgp neighbors 10.0.0.57
 
-  admin@sonic:~$ show bgp neighbors 10.0.0.57 advertised-routes
+    admin@sonic:~$ show bgp neighbors 10.0.0.57 advertised-routes
 
-  admin@sonic:~$ show bgp neighbors 10.0.0.57 received-routes
+    admin@sonic:~$ show bgp neighbors 10.0.0.57 received-routes
 
-  admin@sonic:~$ show bgp neighbors 10.0.0.57 routes
- 
+    admin@sonic:~$ show bgp neighbors 10.0.0.57 routes
+  
+  ```
+  
 NOTE: There is a change in the command syntax between "Quagga" & "Frr". The keyword "ip" from "Quagga" is discarded in "FRR"
 
 
@@ -1441,9 +1443,10 @@ This command displays the summary of all IPv4 bgp neighbors that are configured 
   fc00::7e        4 64600   12589   12592        0    0    0 06:51:25     6402
 
   Total number of neighbors 4
+  
   ```
 
-**FRR**
+- FRR
 - Usage:  
   show bgp ipv6 summary
 
@@ -1462,6 +1465,7 @@ This command displays the summary of all IPv4 bgp neighbors that are configured 
   fc00::7e        4      64600    3993    5208        0    0    0 00:39:30         6400
 
   Total number of neighbors 4
+  
   ```
 There is a change in the command syntax between "Quagga" & "Frr". The position of the keyword "ipv6" in the syntax is changed  
 
@@ -1491,12 +1495,13 @@ This command displays all the details of one particular IPv6 Border Gateway Prot
 
 - Example:
   ```
-  admin@sonic:~$ show bgp ipv6 neighbors fc00::72 advertised-routes
+   admin@sonic:~$ show bgp ipv6 neighbors fc00::72 advertised-routes
 
-  admin@sonic:~$ show bgp ipv6 neighbors fc00::72 received-routes
+   admin@sonic:~$ show bgp ipv6 neighbors fc00::72 received-routes
 
-  admin@sonic:~$ show bgp ipv6 neighbors fc00::72 routes  
-  
+   admin@sonic:~$ show bgp ipv6 neighbors fc00::72 routes  
+   
+  ```
 
 NOTE: There is a change in the command syntax between "Quagga" & "Frr". The position of the keyword "ipv6" in the syntax is changed
 
