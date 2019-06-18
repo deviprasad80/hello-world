@@ -1194,9 +1194,11 @@ In 201811 and older verisons "Quagga" was the default format. In current version
 
 ## BGP show commands
 
-- Quagga
+
 
 **show ip bgp summary**  
+
+- Quagga
 
 This command displays the summary of all IPv4 bgp neighbors that are configured and the corresponding states.
 
@@ -1217,9 +1219,9 @@ This command displays the summary of all IPv4 bgp neighbors that are configured 
     Total number of neighbors 2
   ```
 
-- FRR
-
 **show bgp summary**
+
+- FRR
 
 This command displays the summary of all IPv4 & IPv6 bgp neighbors that are configured and the corresponding states.  
 
@@ -1264,9 +1266,10 @@ This command displays the summary of all IPv4 & IPv6 bgp neighbors that are conf
 NOTE: There is a change in the command syntax between "Quagga" & "Frr". The keyword "ip" from "Quagga" is discarded in "FRR"  
 
 
-- Quagga
 
 **show ip bgp neighbors**  
+
+- Quagga
 
 This command displays all the details of IPv4 & IPv6 BGP neighbors when no optional argument is specified. 
 
@@ -1342,6 +1345,7 @@ In order to get details for an IPv6 neigbor, use "show ipv6 bgp neighbor <ipv6_a
   admin@sonic:~$ show ip bgp neighbors 192.168.1.161 routes
   ```
 
+
 - FRR
 
 - Usage:  
@@ -1349,7 +1353,8 @@ In order to get details for an IPv6 neigbor, use "show ipv6 bgp neighbor <ipv6_a
 
 - Example:
   ```
-    BGP neighbor is 10.0.0.57, remote AS 64600, local AS 65100, external link
+   admin@sonic:~$ show bgp neighbors
+   BGP neighbor is 10.0.0.57, remote AS 64600, local AS 65100, external link
    Description: ARISTA01T1
    BGP version 4, remote router ID 100.1.0.29, local router ID 10.1.0.32
    BGP state = Established, up for 00:42:15
@@ -1420,6 +1425,7 @@ In order to get details for an IPv6 neigbor, use "show ipv6 bgp neighbor <ipv6_a
 NOTE: There is a change in the command syntax between "Quagga" & "Frr". The keyword "ip" from "Quagga" is discarded in "FRR"
 
 
+
 **show ipv6 bgp summary**  
 
 This command displays the summary of all IPv4 bgp neighbors that are configured and the corresponding states.
@@ -1447,11 +1453,13 @@ This command displays the summary of all IPv4 bgp neighbors that are configured 
   ```
 
 - FRR
+
 - Usage:  
   show bgp ipv6 summary
 
 - Example:
   ```
+  admin@sonic:~$ show bgp ipv6 summary
   BGP router identifier 10.1.0.32, local AS number 65100 vrf-id 0
   BGP table version 12803
   RIB entries 12805, using 2001 KiB of memory
@@ -1468,6 +1476,7 @@ This command displays the summary of all IPv4 bgp neighbors that are configured 
   
   ```
 There is a change in the command syntax between "Quagga" & "Frr". The position of the keyword "ipv6" in the syntax is changed  
+
 
 
 **show ipv6 bgp neighbors**  
@@ -1487,6 +1496,7 @@ This command displays all the details of one particular IPv6 Border Gateway Prot
 
   admin@sonic:~$ show ipv6 bgp neighbors fc00::72 routes
   ```
+
 
 - FRR
 
