@@ -1428,7 +1428,7 @@ NOTE: There is a change in the command syntax between "Quagga" & "Frr". The keyw
 
 **show ipv6 bgp summary**  
 
-This command displays the summary of all IPv4 bgp neighbors that are configured and the corresponding states.
+This command displays the summary of all IPv6 bgp neighbors that are configured and the corresponding states.
 
 - Quagga
 
