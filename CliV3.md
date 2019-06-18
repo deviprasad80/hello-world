@@ -1220,7 +1220,7 @@ This command displays the summary of all IPv4 bgp neighbors that are configured 
 
 - FRR
 
-** show bgp summary**
+**show bgp summary**
 
 This command displays the summary of all IPv4 & IPv6 bgp neighbors that are configured and the corresponding states.  
 
@@ -1245,7 +1245,7 @@ This command displays the summary of all IPv4 & IPv6 bgp neighbors that are conf
  10.0.0.63       4      64600    3995    3998        0    0    0 00:39:32         6400
 
  Total number of neighbors 4
-
+ 
  IPv6 Unicast Summary:
  BGP router identifier 10.1.0.32, local AS number 65100 vrf-id 0
  BGP table version 12803
@@ -1450,20 +1450,21 @@ This command displays the summary of all IPv4 bgp neighbors that are configured 
 - Example:
   ```
   BGP router identifier 10.1.0.32, local AS number 65100 vrf-id 0
-BGP table version 12803
-RIB entries 12805, using 2001 KiB of memory
-Peers 4, using 83 KiB of memory
-Peer groups 2, using 128 bytes of memory
+  BGP table version 12803
+  RIB entries 12805, using 2001 KiB of memory
+  Peers 4, using 83 KiB of memory
+  Peer groups 2, using 128 bytes of memory
 
-Neighbor        V         AS MsgRcvd MsgSent   TblVer  InQ OutQ  Up/Down State/PfxRcd
-fc00::72        4      64600    3995    5208        0    0    0 00:39:30         6400
-fc00::76        4      64600    3994    5208        0    0    0 00:39:30         6400
-fc00::7a        4      64600    3993    5208        0    0    0 00:39:30         6400
-fc00::7e        4      64600    3993    5208        0    0    0 00:39:30         6400
+  Neighbor        V         AS MsgRcvd MsgSent   TblVer  InQ OutQ  Up/Down State/PfxRcd
+  fc00::72        4      64600    3995    5208        0    0    0 00:39:30         6400
+  fc00::76        4      64600    3994    5208        0    0    0 00:39:30         6400
+  fc00::7a        4      64600    3993    5208        0    0    0 00:39:30         6400
+  fc00::7e        4      64600    3993    5208        0    0    0 00:39:30         6400
 
-Total number of neighbors 4
- ```
+  Total number of neighbors 4
+  ```
 There is a change in the command syntax between "Quagga" & "Frr". The position of the keyword "ipv6" in the syntax is changed  
+
 
 **show ipv6 bgp neighbors**  
 
