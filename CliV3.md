@@ -459,7 +459,7 @@ This file is saved in the path `/var/log` and can be viewed by giving the comman
 Individual process can also be viewed using the command `ps -ax | grep <\process name>
 
 - Usage:  
-  show logging ([<process-name>] [-l lines] | [-f])
+  show logging ([<process_name>] [-l lines] | [-f])
 
 - Example:
   ```
@@ -1096,7 +1096,7 @@ This command displays the ARP entries in the device with following options.
 3) Display the ARP of a specific ip-address.
 
   - Usage:  
-    show arp [-if <ifname>] [<ip-address>]
+    show arp [-if] <if_name>] [<ip_address>]
     show arp - displays all entries
     show arp -if <ifname> - displays the ARP specific to the specified interface.
     show arp <ip-address> - displays the ARP specific to the specicied ip-address.
@@ -1152,7 +1152,7 @@ This command displays the ARP entries in the device with following options.
 This command displays either all the IPv6 neighbor mac addresses, or for a particular IPv6 neighbor, or for all IPv6 neighbors reachable via a specific interface.
 
   - Usage:  
-    show ndp [-if|--iface <interface-name.] [IP6ADDRESS]
+    show ndp [-if|--iface <interface_name> <IPv6_ADDRESS>
 
 
 - Example:
@@ -1194,11 +1194,9 @@ In 201811 and older verisons "Quagga" was the default format. In current version
 
 ## BGP show commands
 
-
-
 **show ip bgp summary**  
 
-- Quagga
+`Quagga`
 
 This command displays the summary of all IPv4 bgp neighbors that are configured and the corresponding states.
 
@@ -1221,7 +1219,7 @@ This command displays the summary of all IPv4 bgp neighbors that are configured 
 
 **show bgp summary**
 
-- FRR
+`FRR`
 
 This command displays the summary of all IPv4 & IPv6 bgp neighbors that are configured and the corresponding states.  
 
@@ -1269,7 +1267,7 @@ NOTE: There is a change in the command syntax between "Quagga" & "Frr". The keyw
 
 **show ip bgp neighbors**  
 
-- Quagga
+`Quagga`
 
 This command displays all the details of IPv4 & IPv6 BGP neighbors when no optional argument is specified. 
 
@@ -1346,7 +1344,7 @@ In order to get details for an IPv6 neigbor, use "show ipv6 bgp neighbor <ipv6_a
   ```
 
 
-- FRR
+`FRR`
 
 - Usage:  
   show bgp neighbors [<ipv4-address> [advertised-routes | received-routes | routes]]
@@ -1430,7 +1428,7 @@ NOTE: There is a change in the command syntax between "Quagga" & "Frr". The keyw
 
 This command displays the summary of all IPv6 bgp neighbors that are configured and the corresponding states.
 
-- Quagga
+`Quagga`
 
 - Usage:  
    show ipv6 bgp summary
@@ -1452,7 +1450,7 @@ This command displays the summary of all IPv6 bgp neighbors that are configured 
   
   ```
 
-- FRR
+`FRR`
 
 - Usage:  
   show bgp ipv6 summary
@@ -1481,7 +1479,7 @@ There is a change in the command syntax between "Quagga" & "Frr". The position o
 
 **show ipv6 bgp neighbors**  
 
-- Quagga
+`Quagga`
 
 This command displays all the details of one particular IPv6 Border Gateway Protocol (BGP) neighbor. Option is also available to display only the advertised routes, or the received routes, or all routes.
 
@@ -1498,7 +1496,7 @@ This command displays all the details of one particular IPv6 Border Gateway Prot
   ```
 
 
-- FRR
+`FRR`
 
   - Usage:  
     show bgp ipv6 neighbors <ipv6-address> (advertised-routes | received-routes | routes)`
@@ -1910,7 +1908,7 @@ i.e Interface name comes after the subcommand
 The syntax for all such interface_subcommands are given below under each command  
 
 NOTE: In older versions of SONiC until 201811 release, the command syntax was  
-      config interface <interface_name> interface_subcommand  
+      "config interface <interface_name> interface_subcommand"
 
  **config interface ip add/remove**
 
@@ -1930,19 +1928,19 @@ NOTE: In versions until 201811, syntax is config ip add <interface_name> <ip_add
 
 
 - Usage:  
-    config interface ip add <ip_addr> <vlanID>
+    config interface ip add <ip_addr> <vlan_ID>
 
 - Example:  
   ```	
   admin@sonic:~$ sudo config interface ip add 10.11.12.13/24 vlan100
   ```
-NOTE: In versions until 201811, syntax is config interface <vlanID> ip add <ip_addr> 
+NOTE: In versions until 201811, syntax is "config interface <vlan_ID> ip add <ip_addr>"
 
 
 **Removing IP Address**  
 
 - Usage:  
-    config interface ip remove <ip_addr> <interface-name>
+    config interface ip remove <ip_addr> <interface_name>
 
 - Example:
   ```
@@ -1951,20 +1949,20 @@ NOTE: In versions until 201811, syntax is config interface <vlanID> ip add <ip_a
 NOTE: In versions until 201811, syntax is config ip remove <interface_name> <ip_addr>
 
 - Usage:  
-    config interface ip remove <ip_addr> <vlanID>
+    config interface ip remove <ip_addr> <vlan_ID>
 
 - Example:
   ```
   admin@sonic:~$ sudo config interface ip remove  10.11.12.13/24 vlan100
   ```
-NOTE: In versions until 201811, syntax is config interface <vlanID> ip remove <ip_addr>
+NOTE: In versions until 201811, syntax is "config interface <vlan_ID> ip remove <ip_addr>"
 
   
 **config interface pfc**  
 This command is used for setting the asymmetric PFC for an interface to either "on" or "off". Once if it is configured, use "show interfaces status" to check the same.
 
 - Usage:  
-    config interface <interface-name> pfc asymmetric on/off
+    config interface <interface_name> pfc asymmetric on/off
 
 - Example:  
   ```	
@@ -1976,13 +1974,13 @@ This command is used for setting the asymmetric PFC for an interface to either "
 This command is used to administratively shut down either the Physical interface or port channel interface. Once if it is configured, use "show interfaces status" to check the same.
 
 - Usage:   
-    config interface shutdown <interface-name> 
+    config interface shutdown <interface_name> 
 
 - Example:
   ```
   admin@sonic:~$ sudo config interface shutdown Ethernet63
   ```
-NOTE: In versions until 201811, syntax is config interface <interface_name> shutdown
+NOTE: In versions until 201811, syntax is "config interface <interface_name> shutdown"
 
 
 **config interface startup**  
@@ -1990,13 +1988,13 @@ NOTE: In versions until 201811, syntax is config interface <interface_name> shut
 This command is used for administratively bringing up the Physical interface or port channel interface.Once if it is configured, use "show interfaces status" to check the same.
 
 - Usage:   
-  config interface startup <interface-name> 
+  config interface startup [interface_name]
 
 - Example:
   ```
   admin@sonic:~$ sudo config interface startup Ethernet63
   ```
-NOTE: In versions until 201811, syntax is config interface <interface_name> startup
+NOTE: In versions until 201811, syntax is "config interface <interface_name> startup"
 
 **config interface speed**  
 
@@ -2102,7 +2100,7 @@ This sub-section explains the various IP protocol specific show commands that ar
 This command displays either all the route entries from the routing table or a specific route.
 
   - Usage:  
-    show ip route [<ip-address>]`
+    show ip route [ip_address]
 
 
 - Example:
@@ -2165,6 +2163,21 @@ The type of interfaces include the following.
 					 10.12.0.102/32	
   ```
 
+
+Following command displays the ip address of a specific interface
+
+- Usage:
+  ip address show <interface_name>
+
+- Example:
+   ```
+	  admin@sonic:~$ ip address show Ethernet62
+	  249: Ethernet62: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 9100 qdisc pfifo_fast master Bridge state DOWN group default qlen 1000
+      link/ether 4c:76:25:f4:f9:00 brd ff:ff:ff:ff:ff:ff
+      inet 10.0.0.124/31 scope global Ethernet62
+         valid_lft forever preferred_lft forever
+   ```
+
 **show ip protocol**  
 
 This command displays the route-map that is configured for the routing protocol.
@@ -2209,7 +2222,7 @@ This sub-section explains the various IPv6 protocol specific show commands that 
 This command displays either all the IPv6 route entries from the routing table or a specific IPv6 route.
 
   - Usage:  
-    show ipv6 route [<ipv6-address>]
+    show ipv6 route <ipv6_address>
 	 
 
 - Example:
@@ -2324,7 +2337,7 @@ Go Back To [Beginning of the document](#SONiC-COMMAND-LINE-INTERFACE-GUIDE) or [
 This command displays the brief summary of all LLDP neighbors.
 
   - Usage:  
-    show lldp table`
+    show lldp table
 
 
 - Example:
@@ -2345,7 +2358,7 @@ This command displays the brief summary of all LLDP neighbors.
 This command displays more details about all LLDP neighbors or only the neighbors connected to a specific interface. 
 
   - Usage:  
-    show lldp neighbors [<interface-name>]
+    show lldp neighbors
 
 
 - Example:
@@ -2383,8 +2396,13 @@ This command displays more details about all LLDP neighbors or only the neighbor
 		PortDescr:    T0-2:hundredGigE1/30
 	-------------------------------------------------------------------------------
   ```
+    
+    
   - Optionally, you can specify an interface name in order to display only that particular interface
  
+ 
+- Usage:  
+    show lldp neighbors <interface_name> 
 
 - Example:
   ```
