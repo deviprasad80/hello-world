@@ -1511,7 +1511,7 @@ This command displays all the details of one particular IPv6 Border Gateway Prot
    
   ```
 
-NOTE: There is a change in the command syntax between "Quagga" & "Frr". The position of the keyword "ipv6" in the syntax is changed
+NOTE: There is a change in the command syntax between "Quagga" & "FRR". The position of the keyword "ipv6" in the syntax is changed
 
 
 **show route-map**  
@@ -1704,11 +1704,12 @@ The list of the WRED profile fields that are configurable is listed in the below
 	  -v, --verbose                 Enable verbose output
 	  --help                        Show this message and exit.
   ```
- 
+  
+  
 - Example:
   ``` 
-  root@T1-2:~# config ecn -profile wredprofileabcd -rmax 100
-     This command configures the "red max threshold" for the WRED profile name "wredprofileabcd". It will create the WRED profile if it does not exist.
+     root@T1-2:~# config ecn -profile wredprofileabcd -rmax 100
+        This command configures the "red max threshold" for the WRED profile name "wredprofileabcd". It will create the WRED profile if it does not exist.
   ```
 
 Go Back To [Beginning of the document](#SONiC-COMMAND-LINE-INTERFACE-GUIDE) or [Beginning of this section](#ECN-Configuration-And-Show-Commands)
