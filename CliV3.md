@@ -1925,9 +1925,9 @@ IP address for either physical interface or for portchannel or for VLAN interfac
   ```	
   admin@sonic:~$ sudo config interface ip add 10.11.12.13/24 Ethernet63
   ```
-NOTE: In versions until 201811, syntax is config ip add <interface_name> <ip_addr>
-
-
+NOTE: In versions until 201811, syntax is "config ip add <interface_name> <ip_addr>"
+  
+  
 - Usage:  
     config interface ip add <ip_addr> <vlan_ID>
 
@@ -1937,7 +1937,8 @@ NOTE: In versions until 201811, syntax is config ip add <interface_name> <ip_add
   ```
 NOTE: In versions until 201811, syntax is "config interface <vlan_ID> ip add <ip_addr>"
 
-
+  
+  
 **Removing IP Address**  
 
 - Usage:  
@@ -1947,8 +1948,9 @@ NOTE: In versions until 201811, syntax is "config interface <vlan_ID> ip add <ip
   ```
   admin@sonic:~$ sudo config interface ip remove 10.11.12.13/24 Ethernet63
   ```
-NOTE: In versions until 201811, syntax is config ip remove <interface_name> <ip_addr>
-
+NOTE: In versions until 201811, syntax is "config ip remove <interface_name> <ip_addr>"
+  
+  
 - Usage:  
     config interface ip remove <ip_addr> <vlan_ID>
 
@@ -1957,7 +1959,7 @@ NOTE: In versions until 201811, syntax is config ip remove <interface_name> <ip_
   admin@sonic:~$ sudo config interface ip remove  10.11.12.13/24 vlan100
   ```
 NOTE: In versions until 201811, syntax is "config interface <vlan_ID> ip remove <ip_addr>"
-
+  
   
 **config interface pfc**  
 This command is used for setting the asymmetric PFC for an interface to either "on" or "off". Once if it is configured, use "show interfaces status" to check the same.
@@ -2010,7 +2012,7 @@ Dynamic breakout feature is yet to be supported in SONiC and hence uses cannot c
   admin@sonic:~$ portconfig -p Ethernet63 -s 40000
   ```
 
-NOTE: In versions until 201811, syntax is config interface <interface_name> speed 40000
+NOTE: In versions until 201811, syntax is "config interface <interface_name> speed <4000>"
 
 Go Back To [Beginning of the document](#SONiC-COMMAND-LINE-INTERFACE-GUIDE) or [Beginning of this section](#interface-configuration-and-show-commands)
 
