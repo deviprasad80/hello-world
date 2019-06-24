@@ -477,7 +477,7 @@ Individual process can also be viewed using the command `ps -ax | grep <\process
   ```
   admin@sonic:~$ show logging sensord
   ```
-  - Optionally, you can specify a number of lines to display using the `-l' or `--lines` option. Only the most recent N lines will be displayed. Also NOTE that this option can be combined with a process name.
+  - Optionally, you can specify a number of lines to display using the `-l' or `--lines` option. Only the most recent N lines will be displayed. Also note that this option can be combined with a process name.
 
 - Examples:
   ```
@@ -2494,9 +2494,10 @@ If the argument is not specified, it prompts the user to confirm whether user re
 
 This command is used to load the configuration from /etc/sonic/minigraph.xml. 
 When users do not want to use configuration from config_db.json, they can copy the minigraph.xml configuration file to the device and load it using this command.
-This command restarts various services running in the device and it takes some time to complete the command.
-NOTE: If the user had logged in using SSH, users might get disconnected and some configuration failures might happen which might be hard to recover. Users need to reconnect their SSH sessions after configuring the management IP address. It is recommended to execute this command from console port.
-NOTE: Management interface IP address and default route (or specific route) may require reconfiguration in case if those parameters are not part of the minigraph.xml.
+This command restarts various services running in the device and it takes some time to complete the command.  
+  
+NOTE: If the user had logged in using SSH, users might get disconnected and some configuration failures might happen which might be hard to recover. Users need to reconnect their SSH sessions after configuring the management IP address. It is recommended to execute this command from console port  
+      Management interface IP address and default route (or specific route) may require reconfiguration in case if those parameters are not part of the minigraph.xml.
 
 When user specifies the optional argument "-y" or "--yes", this command forces the loading without prompting the user for confirmation.
 If the argument is not specified, it prompts the user to confirm whether user really wants to load this configuration file.
