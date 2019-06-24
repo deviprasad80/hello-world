@@ -148,7 +148,7 @@ This section covers the basic configurations related to the following
 ## SSH Login
 
 All SONiC devices support both the serial console based login and the SSH based login by default.
-The default credential (if not modified at image build time) for login is admin/YourPaSsWoRd.
+The default credential (if not modified at image build time) for login is `admin/YourPaSsWoRd`.
 In case of SSH login, users can login to the management interface (eth0) IP address after configuring the same using serial console. 
 Refer the following section for configuring the IP address for management interface.
 
@@ -425,7 +425,7 @@ This command displays the platform environmentals, such as voltages, temperature
   <... few more things ...>
 
   ```
-Note: The show output has got lot of information; only the sample output is given in the above example. 
+NOTE: The show output has got lot of information; only the sample output is given in the above example. 
 Though the displayed output slightly differs from one platform to another platform, the overall content will be similar to the example mentioned above.
 
 **show reboot-cause**  
@@ -477,7 +477,7 @@ Individual process can also be viewed using the command `ps -ax | grep <\process
   ```
   admin@sonic:~$ show logging sensord
   ```
-  - Optionally, you can specify a number of lines to display using the `-l' or `--lines` option. Only the most recent N lines will be displayed. Also note that this option can be combined with a process name.
+  - Optionally, you can specify a number of lines to display using the `-l' or `--lines` option. Only the most recent N lines will be displayed. Also NOTE that this option can be combined with a process name.
 
 - Examples:
   ```
@@ -740,7 +740,7 @@ When the tacacs+ authentication fails, it falls back to local authentication by 
 **aaa authentication login**  
 
 This command is used to either configure whether AAA should use local database or remote tacacs+ database for user authentication. 
-By default, AAA uses local database for authentication. New users can be added/deleted using the linux commands (note that the configuration done using linux commands are not preserved during reboot).
+By default, AAA uses local database for authentication. New users can be added/deleted using the linux commands (Note that the configuration done using linux commands are not preserved during reboot).
 Admin can enable remote tacacs+ server based authentication by selecting the AUTH_PROTOCOL as tacacs+ in this command.
 Admins need to configure the tacacs+ server accordingly and ensure that the connectivity to tacacas+ server is available via the management interface.
 Once if the admins choose the remote authentication based on tacacs+ server, all user logins will be authenticated by the tacacs+ server.
@@ -898,8 +898,13 @@ When user has not configured server specific passkey, this global value shall be
   ```
   root@T1-2:~# config tacacs passkey testing123
   root@T1-2:~#
+  ```  
+  
+- Example 2 : To configure default passkey value
   ```
-
+  root@T1-2:~# config tacacs default passkey
+  root@T1-2:~#
+  ```
 **config tacacs timeout**  
 
 This command is used to modify the global value for the TACACS+ timeout.
@@ -3183,7 +3188,7 @@ This command displays the current CPU usage by process. This command uses linux'
   - Usage:  
     show processes cpu
 	
-	Note that pipe option can be used using " | head -n" to display only the "n" number of lines.
+	NOTE that pipe option can be used using " | head -n" to display only the "n" number of lines.
 
 
 - Example:
@@ -3212,7 +3217,7 @@ This command displays the current memory usage by processes. This command uses l
   - Usage:  
     show processes memory
 	
-	Note that pipe option can be used using " | head -n" to display only the "n" number of lines.
+	NOTE that pipe option can be used using " | head -n" to display only the "n" number of lines.
 
 
 - Example:
