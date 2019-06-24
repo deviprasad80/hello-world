@@ -2101,7 +2101,7 @@ This sub-section explains the various IP protocol specific show commands that ar
 This command displays either all the route entries from the routing table or a specific route.
 
   - Usage:  
-    show ip route [ip_address]
+    show ip route <ip_address>
 
 
 - Example:
