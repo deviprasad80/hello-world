@@ -9,7 +9,7 @@ My first underline
 My second underline  
 -------------------
 
-This is to check <ip_addr> <vlanID>
+This is to check <ip_addr> <vlan_ID>
 
 
 <<<<<<< HEAD
