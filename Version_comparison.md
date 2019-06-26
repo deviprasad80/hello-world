@@ -1045,3 +1045,36 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 [907](https://github.com/opencomputeproject/SAI/pull/907) 
 
 -----------------------------------------------------------------------------------------------------------------------------------------
+frr.conf is created by template file, and folder is created at /etc/sonic/frr/ when i check the mount in bgp docker container I see the same files as expected.
+But when I access the FRR daemon with vtysh i find it empty of config
+
+
+ANSWER:
+
+Need to use vtysh -b first. Then vtysh  
+
+
+There are currently 3 modes of managing FRR configurations in SONiC today, they are controlled by the following attribute in config_db:
+{
+    "DEVICE_METADATA": {
+        "localhost": {
+            "docker_routing_config_mode": "xxxxxx",
+        }
+    },
+
+FRR itself has 2 modes of config management:
+   - integrated: the configurations of all daemons is maintained in frr.conf
+   - non-integrated: the configurations of each daemon is maintained in a specific <name>.conf file ( bgpd.conf, ospfd.conf etc..) and the "generic" config in zebra.conf
+this behavior is controlled by the presence of "service integrated-vtysh-config" in vtysh.conf
+
+for SONiC you can control this with:
+if docker_routing_config_mode is not present then FRR will function in non-integrated mode and bgpd.conf and zebra.conf files will be generated with a template and contents from config_db
+if docker_routing_config_mode is set to "separated" then FRR will function in non-integrated mode and bgpd.conf and zebra.conf files will be generated with a template and contents from config_db
+if docker_routing_config_mode is set to "unified" then FRR will function in integrated mode and a frr.conf file will be generated with a template and contents from config_db
+if docker_routing_config_mode is set to anything else (for eg. "split" or even "Mickey Mouse" as Nikos would put it ) then FRR functions in non-integrated mode and the config is not generated, its up to you to upload a /etc/sonic/frr/bgpd.conf on the host  
+
+before in non-integrated or non-managed mode the frr.conf file was not removed hence the behavior where the empty frr.conf file was used. Since commit f40795a it should work as advertised  
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
