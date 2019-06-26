@@ -9,11 +9,11 @@ My first underline
 My second underline  
 -------------------
 
-<pre>
+
 A: SONiC supports link aggregation with teamd container.  
-   SONiC is using [libteam] (http://libteam.org/) as the LACP implementation.  
-   The configuration is stored in the configuration database. Please refer to the [configuration] (https://github.com/Azure/SONiC/wiki/Configuration) samples here to configure the port-channels.
-</pre>
+&nbsp SONiC is using [libteam] (http://libteam.org/) as the LACP implementation.  
+&nbsp The configuration is stored in the configuration database. Please refer to the [configuration] (https://github.com/Azure/SONiC/wiki/Configuration) samples here to configure the port-channels.
+
 
 
 
