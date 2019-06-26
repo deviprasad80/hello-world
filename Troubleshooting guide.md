@@ -156,285 +156,107 @@ Enter the command ***/sbin/ifconfig eth0*** to know the current management inter
   
 Check the status of the interface using ***show ip interfaces***. Only when the interface is connected to a node and is up, only then an entry to the arp table will be added  
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Unable to reinstall Static Route after pull out and push in the link 
+
+```
+ {
+  "VLAN": {
+  "Vlan100": {
+  "vlanid": "100"
+  }
+ },
+  "VLAN_MEMBER": {
+  "Vlan100|Ethernet32": {
+  "tagging_mode": "untagged"
+  }
+ },
+  "VLAN_INTERFACE": {
+  "Vlan100|32.1.1.1/24": {},
+  "Vlan100|32.2.1.1/24": {}
+  },
+  "INTERFACE": {
+  "Ethernet33|33.1.1.1/24": {},
+  "Ethernet33|33.2.1.1/24": {}
+  },
+  "LOOPBACK_INTERFACE": {
+  "Loopback10|189.1.1.1/32": {}
+  }
+  }
+  [topo]
+  tc1(32.1.1.2/24)----(Ethernet32 Vlan100 32.1.1.1/24)DUT----(33.1.1.2/24)tc2
+  [operation & rslt]  
+  
+```
+1.Load the above configuration  
+2.F`rom DUT ping tc2 33.1.1.2 successfull  
+3.Add static route by command `sudo ip route add 40.1.1.0/24 nexthop via 33.1.1.2`  
+4.tc1 send ip packets to 40.1.1.2,tc2 receive all the packets from tc1  
+5.Pull out the line between dut and tc2.Kernel has the route item 40.1.1.0/24 and hardware del the 40.1.1.0/24  
+
+```	
+   admin@tau1t8-01:$ ip route  
+   default via 10.251.0.1 dev eth0 proto zebra  
+   10.0.0.56/31 dev PortChannel0001 proto kernel scope link src 10.0.0.56  
+  10.0.0.58/31 dev PortChannel0002 proto kernel scope link src 10.0.0.58  
+  10.0.0.60/31 dev PortChannel0003 proto kernel scope link src 10.0.0.60  
+  10.0.0.62/31 dev PortChannel0004 proto kernel scope link src 10.0.0.62  
+  10.251.0.0/24 dev eth0 proto kernel scope link src 10.251.0.189  
+  32.1.1.0/24 dev Vlan100 proto kernel scope link src 32.1.1.1  
+  32.2.1.0/24 dev Vlan100 proto kernel scope link src 32.2.1.1  
+  33.1.1.0/24 dev Ethernet33 proto kernel scope link src 33.1.1.1  
+  33.2.1.0/24 dev Ethernet33 proto kernel scope link src 33.2.1.1  
+  40.1.1.0/24 via 33.1.1.2 dev Ethernet33  
+  50.1.1.0/24 via 32.1.1.2 dev Vlan100  
+  240.127.1.0/24 dev docker0 proto kernel scope link src 240.127.1.1  
+  
+  admin@tau1t8-01:$ show arp  
+  Command: /usr/sbin/arp -n  
+  Address HWtype HWaddress Flags Mask Iface  
+  10.251.0.13 ether 00:06:06:03:ad:bc C eth0  
+  33.1.1.2 ether 00:1b:21:ba:f3:bd C Ethernet33  
+  32.1.1.2 ether 00:1b:21:ba:f3:bb C Vlan100  
+  10.251.0.246 ether 00:0c:29:55:e2:ee C eth0  
+  10.251.0.14 ether 00:03:0f:60:ae:82 C eth0  
+  10.251.0.1 ether 00:03:0f:81:12:67 C eth0  
+
+  admin@tau1t8-01:~$ redis-cli -n 0 keys ROUTE  
+1.	"ROUTE_TABLE:189.1.1.1"  
+2.	"ROUTE_TABLE:127.0.0.0/8"  
+3.	"ROUTE_TABLE:32.1.1.0/24"  
+4.	"ROUTE_TABLE:10.251.0.0/24"  
+5.	"ROUTE_TABLE:32.2.1.0/24"  
+6.	"ROUTE_TABLE:0.0.0.0/0"  
+7.	"ROUTE_TABLE:240.127.1.0/24"  
+8.	"ROUTE_TABLE:fe80::/64"  
+9.	"ROUTE_TABLE:::1"  
+10.	"ROUTE_TABLE:fc00:2::/64"  
+11.	"ROUTE_TABLE:50.1.1.0/24"  
+
+  admin@tau1t8-01:$ redis-cli -n 1 keys ROUTE40.1.1.0/24*  
+  (empty list or set)  
+  
+  Push in the line again,the Ethernet33 change to UP.But the route 40.1.1.0/24 not reinstall to hardware but kernel still has the route item  
+admin@tau1t8-01:$ ip route show 40.1.1.0/24  
+40.1.1.0/24 via 33.1.1.2 dev Ethernet33  
+admin@tau1t8-01:$ show arp 33.1.1.2  
+Command: /usr/sbin/arp -n 33.1.1.2  
+Address HWtype HWaddress Flags Mask Iface  
+33.1.1.2 ether 00:1b:21:ba:f3:bd C Ethernet33  
+admin@tau1t8-01:$ redis-cli -n 0 keys ROUTE  
+12.	"ROUTE_TABLE:189.1.1.1"  
+13.	"ROUTE_TABLE:127.0.0.0/8"  
+14.	"ROUTE_TABLE:32.1.1.0/24"  
+15.	"ROUTE_TABLE:10.251.0.0/24"  
+16.	"ROUTE_TABLE:32.2.1.0/24"  
+17.	"ROUTE_TABLE:0.0.0.0/0"  
+18.	"ROUTE_TABLE:240.127.1.0/24"  
+19.	"ROUTE_TABLE:fe80::/64"  
+20.	"ROUTE_TABLE:::1"  
+21.	"ROUTE_TABLE:fc00:2::/64"  
+22.	"ROUTE_TABLE:50.1.1.0/24"  
+admin@tau1t8-01:~$ redis-cli -n 1 keys ROUTE40.1.1.0/24*  
+(empty list or set)  
+（Note: This problem does not exist when static routing is added with zebra command）  
 
 
--   **[Home](/Azure/SONiC/wiki){.d-block}**
--   **[ACL Configuration High Level
-    Design](/Azure/SONiC/wiki/ACL-Configuration-High-Level-Design){.d-block}**
--   **[ACL Configuration Requirement
-    Description](/Azure/SONiC/wiki/ACL-Configuration-Requirement-Description){.d-block}**
--   **[ACL High Level
-    Design](/Azure/SONiC/wiki/ACL-High-Level-Design){.d-block}**
--   **[ACL test plan](/Azure/SONiC/wiki/ACL-test-plan){.d-block}**
--   **[Arch Spec
-    Guidelines](/Azure/SONiC/wiki/Arch-Spec-Guidelines){.d-block}**
--   **[Architecture](/Azure/SONiC/wiki/Architecture){.d-block}**
--   **[Asymmetric PFC High Level
-    Design](/Azure/SONiC/wiki/Asymmetric-PFC-High-Level-Design){.d-block}**
--   **[Becoming a
-    contributor](/Azure/SONiC/wiki/Becoming-a-contributor){.d-block}**
--   **[BGP GR helper mode test
-    plan](/Azure/SONiC/wiki/BGP-GR-helper-mode-test-plan){.d-block}**
--   **[BGP MP test plan](/Azure/SONiC/wiki/BGP-MP-test-plan){.d-block}**
--   **[Buffers Configuration Update
-    design](/Azure/SONiC/wiki/Buffers-Configuration-Update-design){.d-block}**
--   **[Build Broadcom Opennsl and
-    SAI](/Azure/SONiC/wiki/Build-Broadcom-Opennsl-and-SAI){.d-block}**
--   **[Building Guide](/Azure/SONiC/wiki/Building-Guide){.d-block}**
--   **[Command
-    Reference](/Azure/SONiC/wiki/Command-Reference){.d-block}**
--   **[Community
-    Meetings](/Azure/SONiC/wiki/Community-Meetings){.d-block}**
--   **[Configuration](/Azure/SONiC/wiki/Configuration){.d-block}**
--   **[Configuration with Minigraph
-    (\~Sep 2017)](/Azure/SONiC/wiki/Configuration-with-Minigraph-(~Sep-2017)){.d-block}**
--   **[Converting old or creating new buffers
-    config](/Azure/SONiC/wiki/Converting-old-or-creating-new-buffers-config){.d-block}**
--   **[Critical Resource Monitoring High Level
-    Design](/Azure/SONiC/wiki/Critical-Resource-Monitoring-High-Level-Design){.d-block}**
--   **[CRM test plan](/Azure/SONiC/wiki/CRM-test-plan){.d-block}**
--   **[Design
-    Guidelines](/Azure/SONiC/wiki/Design-Guidelines){.d-block}**
--   **[Developing Guide](/Azure/SONiC/wiki/Developing-Guide){.d-block}**
--   **[DHCP Relay Agent Test
-    Plan](/Azure/SONiC/wiki/DHCP-Relay-Agent-Test-Plan){.d-block}**
--   **[ECMP and LAG Hash
-    Seed](/Azure/SONiC/wiki/ECMP-and-LAG-Hash-Seed){.d-block}**
--   **[ECN WRED configuration
-    utility](/Azure/SONiC/wiki/ECN-WRED-configuration-utility){.d-block}**
--   **[Enable ECN on lossless
-    queues](/Azure/SONiC/wiki/Enable-ECN-on-lossless-queues){.d-block}**
--   **[Everflow High Level
-    Design](/Azure/SONiC/wiki/Everflow-High-Level-Design){.d-block}**
--   **[Everflow test
-    plan](/Azure/SONiC/wiki/Everflow-test-plan){.d-block}**
--   **[FAQ](/Azure/SONiC/wiki/FAQ){.d-block}**
--   **[Fast Reboot](/Azure/SONiC/wiki/Fast-Reboot){.d-block}**
--   **[FDB Scale Test
-    Plan](/Azure/SONiC/wiki/FDB-Scale-Test-Plan){.d-block}**
--   **[Feature arch spec
-    guidelines](/Azure/SONiC/wiki/Feature-arch-spec-guidelines){.d-block}**
--   **[FIB Scale Test
-    Plan](/Azure/SONiC/wiki/FIB-Scale-Test-Plan){.d-block}**
--   **[Generate Minigraph File Based On Testbed
-    Type](/Azure/SONiC/wiki/Generate-Minigraph-File-Based-On-Testbed-Type){.d-block}**
--   **[How to breakout a
-    port](/Azure/SONiC/wiki/How-to-breakout-a-port){.d-block}**
--   **[How to Change the
-    Password](/Azure/SONiC/wiki/How-to-Change-the-Password){.d-block}**
--   **[How to Check SNMP
-    Configuration](/Azure/SONiC/wiki/How-to-Check-SNMP-Configuration){.d-block}**
--   **[How to Clear MAC
-    table](/Azure/SONiC/wiki/How-to-Clear-MAC-table){.d-block}**
--   **[How to Deploy
-    SONiC](/Azure/SONiC/wiki/How-to-Deploy-SONiC){.d-block}**
--   **[How To Reset
-    Password](/Azure/SONiC/wiki/How-To-Reset-Password){.d-block}**
--   **[How to Use Mellanox SDK Debug
-    Utilities](/Azure/SONiC/wiki/How-to-Use-Mellanox-SDK-Debug-Utilities){.d-block}**
--   **[How to Use SAI
-    Player](/Azure/SONiC/wiki/How-to-Use-SAI-Player){.d-block}**
--   **[HOWTO compile and run sai server
-    docker](/Azure/SONiC/wiki/HOWTO-compile-and-run-sai-server-docker){.d-block}**
--   **[HOWTO Reset syncd
-    docker](/Azure/SONiC/wiki/HOWTO-Reset-syncd-docker){.d-block}**
--   **[HOWTO write a PTF
-    Test](/Azure/SONiC/wiki/HOWTO-write-a-PTF-Test){.d-block}**
--   **[IPv4 Decapsulation
-    test](/Azure/SONiC/wiki/IPv4-Decapsulation-test){.d-block}**
--   **[L2 Switch mode](/Azure/SONiC/wiki/L2-Switch-mode){.d-block}**
--   **[LAG Feature Test
-    Suite](/Azure/SONiC/wiki/LAG-Feature-Test-Suite){.d-block}**
--   **[LogAnalyzer](/Azure/SONiC/wiki/LogAnalyzer){.d-block}**
--   **[Manual for Enable SONiC L2 Mode on MSN2700 with Minimum
-    ConfigDB](/Azure/SONiC/wiki/Manual-for-Enable-SONiC-L2-Mode-on-MSN2700-with-Minimum-ConfigDB){.d-block}**
--   **[Mellanox SDK and PRM Sniffer Utility CLI Design for
-    SONiC](/Azure/SONiC/wiki/Mellanox-SDK-and-PRM-Sniffer-Utility-CLI-Design-for-SONiC){.d-block}**
--   **[MMU Allocation](/Azure/SONiC/wiki/MMU-Allocation){.d-block}**
--   **[OCP Summit 2018 and SONiC SAI Workshop Slide
-    Collection](/Azure/SONiC/wiki/OCP-Summit-2018--and-SONiC-SAI-Workshop-Slide-Collection){.d-block}**
--   **[OS10 SONiC](/Azure/SONiC/wiki/OS10-SONiC){.d-block}**
--   **[PFC and Queue SNMP counters High Level
-    Design](/Azure/SONiC/wiki/PFC-and-Queue-SNMP-counters-High-Level-Design){.d-block}**
--   **[PFC Watchdog](/Azure/SONiC/wiki/PFC-Watchdog){.d-block}**
--   **[PFC Watchdog
-    Design](/Azure/SONiC/wiki/PFC-Watchdog-Design){.d-block}**
--   **[PFC Watchdog Test
-    Plan](/Azure/SONiC/wiki/PFC-Watchdog-Test-Plan){.d-block}**
--   **[Port Breakout and Speed
-    Requirements](/Azure/SONiC/wiki/Port-Breakout-and-Speed-Requirements){.d-block}**
--   **[Port Breakout High Level
-    Design](/Azure/SONiC/wiki/Port-Breakout-High-Level-Design){.d-block}**
--   **[Port Configuration Utility High Level
-    Design](/Azure/SONiC/wiki/Port-Configuration-Utility-High-Level-Design){.d-block}**
--   **[Port Speed
-    Configuration](/Azure/SONiC/wiki/Port-Speed-Configuration){.d-block}**
--   **[Porting Guide](/Azure/SONiC/wiki/Porting-Guide){.d-block}**
--   **[QoS configuration in Config DB. ECN WRED configuration utility
-    test
-    plan](/Azure/SONiC/wiki/QoS-configuration-in-Config-DB.-ECN-WRED-configuration-utility-test-plan){.d-block}**
--   **[Quick Start](/Azure/SONiC/wiki/Quick-Start){.d-block}**
--   **[Router
-    Advertiser](/Azure/SONiC/wiki/Router-Advertiser){.d-block}**
--   **[Run Time Buffers Configuration Update
-    design](/Azure/SONiC/wiki/Run-Time-Buffers-Configuration-Update-design){.d-block}**
--   **[SNMP lldpLocManAddrTable and lldpRemManAddrTable
-    design](/Azure/SONiC/wiki/SNMP-lldpLocManAddrTable-and-lldpRemManAddrTable-design){.d-block}**
--   **[SONiC Clear FDB CLI
-    Design](/Azure/SONiC/wiki/SONiC-Clear-FDB-CLI-Design){.d-block}**
--   **[SONiC P4 Software
-    Switch](/Azure/SONiC/wiki/SONiC-P4-Software-Switch){.d-block}**
--   **[SONiC Pre Summit Workshop and Hackathon
-    2019](/Azure/SONiC/wiki/SONiC-Pre-Summit-Workshop-and-Hackathon-2019){.d-block}**
--   **[Sonic Roadmap
-    Planning](/Azure/SONiC/wiki/Sonic-Roadmap-Planning){.d-block}**
--   **[SONiC SMMP Design on Management
-    Ports](/Azure/SONiC/wiki/SONiC-SMMP-Design-on-Management-Ports){.d-block}**
--   **[SONiC to SONiC
-    update](/Azure/SONiC/wiki/SONiC-to-SONiC-update){.d-block}**
--   **[sonic version](/Azure/SONiC/wiki/sonic-version){.d-block}**
--   **[SONiC Workshop in Beijing Oct
-    2018](/Azure/SONiC/wiki/SONiC-Workshop-in-Beijing-Oct-2018){.d-block}**
--   **[SONiC Workshop on OCP Summit
-    2016](/Azure/SONiC/wiki/SONiC-Workshop-on-OCP-Summit-2016){.d-block}**
--   **[SSD Health design
-    (Draft)](/Azure/SONiC/wiki/SSD-Health-design-(Draft)){.d-block}**
--   **[Supported Devices and
-    Platforms](/Azure/SONiC/wiki/Supported-Devices-and-Platforms){.d-block}**
--   **[Testing Guide](/Azure/SONiC/wiki/Testing-Guide){.d-block}**
--   **[The PSU CLI and SNMP
-    support](/Azure/SONiC/wiki/The-PSU-CLI-and-SNMP-support){.d-block}**
--   **[Troubleshooting
-    Guide](/Azure/SONiC/wiki/Troubleshooting-Guide){.d-block}**
--   **[Upgrade SONiC to Debian
-    9](/Azure/SONiC/wiki/Upgrade-SONiC-to-Debian-9){.d-block}**
--   **[Upgrading SONiC kernel to 3.16.0ΓÇÉ5 or later
-    versions](/Azure/SONiC/wiki/Upgrading-SONiC-kernel-to-3.16.0%E2%80%905-or-later-versions){.d-block}**
--   **[Use routeresync to Swap the Routing
-    Stack](/Azure/SONiC/wiki/Use-routeresync-to-Swap-the-Routing-Stack){.d-block}**
--   **[Using swssconfig to apply
-    configuration](/Azure/SONiC/wiki/Using-swssconfig-to-apply-configuration){.d-block}**
--   **[VLAN Feature Test
-    Suite](/Azure/SONiC/wiki/VLAN-Feature-Test-Suite){.d-block}**
--   **[VLAN trunk test
-    plan](/Azure/SONiC/wiki/VLAN-trunk-test-plan){.d-block}**
--   Show 74 more pages...
-:::
-:::
-:::
-
-::: {.gollum-markdown-content}
-::: {.Box .Box--condensed .mb-4}
-::: {.Box-body .wiki-custom-sidebar .markdown-body}
--   [Home](/Azure/SONiC/wiki/Home){.internal .present}
--   [FAQ](/Azure/SONiC/wiki/FAQ){.internal .present}
--   For Users
-    -   [Quick Start](/Azure/SONiC/wiki/Quick-Start){.internal .present}
-    -   [Supported Devices and
-        Platforms](/Azure/SONiC/wiki/Supported-Devices-and-Platforms){.internal
-        .present}
-    -   [SONiC P4 Software
-        Switch](/Azure/SONiC/wiki/SONiC-P4-Software-Switch){.internal
-        .present}
-    -   [Configuration](/Azure/SONiC/wiki/Configuration){.internal
-        .present}
-    -   [Command
-        Reference](/Azure/SONiC/wiki/Command-Reference){.internal
-        .present}
-    -   [Troubleshooting
-        Guide](/Azure/SONiC/wiki/Troubleshooting-Guide){.internal
-        .present}
--   For Developers
-    -   [Becoming a
-        Contributor](/Azure/SONiC/wiki/Becoming-a-contributor){.internal
-        .present}
-    -   [Architecture](/Azure/SONiC/wiki/Architecture){.internal
-        .present}
-    -   [Building Guide](/Azure/SONiC/wiki/Building-Guide){.internal
-        .present}
-    -   [Porting Guide](/Azure/SONiC/wiki/Porting-Guide){.internal
-        .present}
-    -   [Testing Guide](/Azure/SONiC/wiki/Testing-Guide){.internal
-        .present}
-    -   [Developing Guide](/Azure/SONiC/wiki/Developing-Guide){.internal
-        .present}
--   [Sonic Roadmap
-    Planning](/Azure/SONiC/wiki/Sonic-Roadmap-Planning){.internal
-    .present}
--   [Report Issues](https://github.com/Azure/SONiC/issues)
--   Presentations
-    -   [OCP Summit
-        2016](files/talks/SAI-SONiC-OCP-Summit-Mar16-shared.pdf)
-    -   [OCP Summit
-        2017](https://www.youtube.com/watch?v=DvFTCpwnUQ4&feature=youtu.be)
--   [Community
-    Meetings](https://github.com/Azure/SONiC/wiki/Community-Meetings)
--   Join Us
-    -   [Mailing
-        list](https://groups.google.com/forum/#!forum/sonicproject)
-    -   [Slack
-        discussion](https://groups.google.com/forum/#!forum/sonicproject)
-:::
-:::
-:::
-
-##### Clone this wiki locally {#clone-this-wiki-locally .mt-0 .mb-2}
-
-::: {.width-full .input-group}
-:::
-:::
-:::
-:::
-
-::: {.modal-backdrop .js-touch-events}
-:::
-:::
-:::
-
-::: {.footer .container-lg .width-full .p-responsive role="contentinfo"}
-::: {.position-relative .d-flex .flex-row-reverse .flex-lg-row .flex-wrap .flex-lg-nowrap .flex-justify-center .flex-lg-justify-between .pt-6 .pb-2 .mt-6 .f6 .text-gray .border-top .border-gray-light}
--   ┬⌐ 2019 [GitHub]{title="0.35737s from unicorn-64465cd49-m6qv6"}, Inc.
--   [Terms](https://github.com/site/terms)
--   [Privacy](https://github.com/site/privacy)
--   [Security](https://github.com/security)
--   [Status](https://githubstatus.com/)
--   [Help](https://help.github.com)
-
-<!-- -->
-
--   [Contact GitHub](https://github.com/contact)
--   [Pricing](https://github.com/pricing)
--   [API](https://developer.github.com)
--   [Training](https://training.github.com)
--   [Blog](https://github.blog)
--   [About](https://github.com/about)
-:::
-
-::: {.d-flex .flex-justify-center .pb-6}
-[]{.f6 .text-gray-light}
-:::
-:::
-
-::: {#ajax-error-message .ajax-error-message .flash .flash-error}
-You can't perform that action at this time.
-:::
-
-::: {.js-stale-session-flash .stale-session-flash .flash .flash-warn .flash-banner hidden=""}
-[You signed in with another tab or window. [Reload]() to refresh your
-session.]{.signed-in-tab-flash} [You signed out in another tab or
-window. [Reload]() to refresh your session.]{.signed-out-tab-flash}
-:::
-
-::: {.octocat-spinner .my-6 .js-details-dialog-spinner}
-:::
-
-::: {.Popover .js-hovercard-content .position-absolute style="display: none; outline: none;" tabindex="0"}
-::: {.Popover-message .Popover-message--bottom-left .Popover-message--large .Box .box-shadow-large style="width:360px;"}
-:::
-:::
-
-::: {.js-global-screen-reader-notice .sr-only aria-live="polite"}
-:::
-:::
-:::
-:::
