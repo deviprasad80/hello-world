@@ -698,8 +698,30 @@ Q: Can we safely assume VRF design supports later versions of Linux Kernel 4.9?
 A: Yes
 
 -------------------------------------------------------------------------------------------
- 
+Q: How does SONiC support link aggregation?
 
+
+A: SONiC supports link aggregation with teamd container.  
+&nbsp; SONiC is using [libteam] (http://libteam.org/) as the LACP implementation.  
+&nbsp; The configuration is stored in the configuration database. Please refer to the [configuration] (https://github.com/Azure/SONiC/wiki/Configuration) samples here to configure the port-channels.
+
+-------------------------------------------------------------------------------------------
+Q: What is the main task of a daemon?
+
+A: The main task of a daemon is to post device data to DB. Currently to fetch switch peripheral devices related data SONiC will directly access hardware through platform pluggins
+
+Q: What are the different types of daemons?
+
+A: pmon container has `xcvrd`  for transceivers/SFPs and `ledd` for front panel LEDs  
+   
+
+Q: Does FAN unit has a daemon?
+
+A: Currently there is no daemon for FAN unit  
+
+
+       
+   
 
 
 
