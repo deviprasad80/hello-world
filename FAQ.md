@@ -1,22 +1,73 @@
+There is already a FAQ document. We need to add these questions to that FAQ.
+
+Shall we group the questions based on the module/protocol? And, find out how easy is it to provide a search in the FAQ document.
+
+
+
 # FAQs
 
-## How do we find out the onie version used by current SONIC? and what's the current version that's been used?
+## How to find the current onie version  version?
 
-  In the Sonic device, enter **cat /host/machine.conf**  command.
+  In the Sonic device, enter **cat /host/machine.conf**  command. This will give the current ONIE version along with other details such as vendor id, platform id, kernet version etc  
   - Example:
   ```
-  admin@sonic:~$ cat /host/machine.conf
-  onie_version=3.20.1.3
-  onie_vendor_id=674
-  onie_platform=x86_64-dell_s6000_s1220-r0
-  onie_machine=dell_s6000_s1220
-  onie_machine_rev=0
-  onie_arch=x86_64
-  onie_config_version=1
-  onie_build_date="2015-05-03T16:20-0700"
-  onie_partition_type=gpt
-  onie_kernel_version=3.2.35
+    admin@sonic:~$ cat /host/machine.conf
+    onie_version=3.20.1.3
+    onie_vendor_id=674
+    onie_platform=x86_64-dell_s6000_s1220-r0
+    onie_machine=dell_s6000_s1220
+    onie_machine_rev=0
+    onie_arch=x86_64
+    onie_config_version=1
+    onie_build_date="2015-05-03T16:20-0700"
+    onie_partition_type=gpt
+    onie_kernel_version=3.2.35
   ```
+
+----------------------------------------------------------------------------------------------------------------------------
+Q: How many host entries does SONiC support?
+
+A: SONiC currently supports around 2400 host entries
+
+
+Q: What is the maximum rate for ARP/ND?
+
+A: Currently the max rate for ARP/ND is 600 packets. It will be increased it to higher number(8000) in CoPP file  to improve the learning time.
+
+
+
+(https://github.com/Azure/SONiC/pull/399/commits/89abd4938d792215b75d801e87b47ccf2c22f111)
+
+----------------------------------------------------------------------------------------------------------------------------
+## How to print all the keys in a database?
+
+redis-cli -n 4 keys "MGMT_INTERFACE*"
+This will print all keys in the database number 4.
+4 is the CONFIG_DB
+6 is STATE_DB
+0 is APP_DB
+
+To get value for the particular key.
+redis-cli -n 4 HGETALL "MGMT_INTERFACE|eth0|10.11.12.13/24"
+
+----------------------------------------------------------------------------------------------------------------------------
+1)	Can we add static routes in SONiC using config_db.json? Whats the syntax?
+2)	Can we add static ARP in SONiC using config_db.json? Whats the syntax?
+3)	Can we add static MAC  in SONiC using config_db.json? Whats the syntax?
+
+1.	We don’t support it today. Static routes can be added via linux “ip route add..” but it will not be persistent after reboot
+2.	Yes, we can. Please refer (https://github.com/Azure/sonic-swss/blob/master/doc/swss-schema.md#neigh_table-1) section. 
+3.	We don’t support static MAC via config_db. However, there is a way to add fdb entries like this (https://github.com/Azure/SONiC/issues/249)  
+
+6 is STATE_DB. You would want to check 0 (APP_DB).
+
+
+----------------------------------------------------------------------------------------------------------------------------
+## Where do the python bindings, to program the switch's control plane are copied?
+
+Answer:
+
+The python bindings to program the switch's control plane are copied in an empty directory "switch_sai_thrift"  
 
 ----------------------------------------------------------------------------------------------------------------------------
 ## How to program FDB static/dynamic entries into ASIC?
@@ -49,6 +100,28 @@
   ]
  ```
 
+1.Enter into swss container
+$ docker exec -it swss bash
+
+2.     edit fdb.json
+
+[
+     {
+        "FDB_TABLE:Vlan1000:00-00-00-10-20-30": {
+               "port": "Ethernet16",
+               "type": "static"
+           },
+           "OP": “SET“  --> “DEL”: remove
+      }
+]
+
+
+3.     Apply fdb.json
+swssconfig ./fdb.json
+
+
+a. the VLAN configuration should be correct and interface (Ethernet16 in this example) should be 'up'
+ b. config should NOT be reload --> The static fdb configuration not be retained after reload
 ---------------------------------------------------------------------------------------------------------------------------- 
 ## How to know the interface naming mode?
   Enter the command **show interface naming_mode**. Initially it will be "default".
@@ -270,6 +343,374 @@ Really appreciate some insight.
 
 
 -------------------------------------------------------------------------------------------------------------------------------
+## Question about IP set on VLAN/LAG interface which is not existed
+
+1. To create a VLAN and set IP on the VLAN interface. We can see IP configuration in CONFIG_DB, APP_DB and Linux kernel.
+2. To delete VLAN, interface entry still exist in CONFIG_DB and APP_DB and vlan netdev is removed from Linux kernel.
+    root@sonic:/usr# ip address show Vlan2
+    78: Vlan2@Bridge: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
+        link/ether cc:37:ab:ec:de:9c brd ff:ff:ff:ff:ff:ff
+        inet 192.168.0.1/27 scope global Vlan2
+           valid_lft forever preferred_lft forever
+        inet6 fe80::ce37:abff:feec:de9c/64 scope link
+           valid_lft forever preferred_lft forever
+    root@sonic:/usr# config vlan del 2
+    root@sonic:/usr# ip address show Vlan2
+    Device "Vlan2" does not exist.
+    root@sonic:/usr# redis-cli
+    127.0.0.1:6379> select 0
+    OK
+    127.0.0.1:6379> hgetall "INTF_TABLE:Vlan2:192.168.0.1/27"
+    1) "scope"
+    2) "global"
+    3) "family"
+    4) "IPv4"
+    127.0.0.1:6379>
+ 
+3. Re-create VLAN, we expect that IP configuration on VLAN interface shall set to linux kernel, but no IP address on the VLAN interface in Linux kernel.
+    root@sonic:/usr# config vlan add 2
+    root@sonic:/usr# ip address show Vlan2
+    79: Vlan2@Bridge: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
+        link/ether cc:37:ab:ec:de:9c brd ff:ff:ff:ff:ff:ff
+        inet6 fe80::ce37:abff:feec:de9c/64 scope link
+           valid_lft forever preferred_lft forever
+    root@sonic:/usr# redis-cli
+    127.0.0.1:6379> select 0
+    OK
+    127.0.0.1:6379> hgetall "INTF_TABLE:Vlan2:192.168.0.1/27"
+    1) "scope"
+    2) "global"
+    3) "family"
+    4) "IPv4"
+    127.0.0.1:6379>
+ 
+We think it is bug.
+For current design, SONiC allow user to set IP on LAG/VLAN which is not created and the intfMgrd will re-try until LAG/VLAN is ready. 
+Please see source code as follows. 
+https://github.com/Azure/sonic-swss/blob/master/cfgmgr/intfmgr.cpp, start from line 193
+    193          * Don't proceed if port/LAG/VLAN is not ready yet. 
+    194          * The pending task will be checked periodically and retried. 
+    195          */ 
+    196         if (!isIntfStateOk(alias)) 
+    197         { 
+    198             SWSS_LOG_DEBUG("Interface is not ready, skipping %s", alias.c_str()); 
+    199             return false; 
+    200         } 
+ 
+ 
+We think intfMgrd shall subscribe to VLAN_TABLE in STATE_DB.
+When it received change of VLAN_TABLE in STATE_DB, shall update APP_DB.
+And follow original design, enter retry stage if VLAN is deleted after creating. Right?
+But no implement. Please advise us your suggestion. 
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+## How to configure ecmp in config_db.json? 
+
+ECMP routes are learned via BGP. There is currently no static support for this via config_db
+
+----------------------------------------------------------------------------------------------------------------------------------------
+Currently we are using the T0 testbed scenario which is trying to install around 6400 IPv4 and 6400 IPv6 routes learnt from BGP Peers.
+We wanted to know
+- what is the maximum value of IPv4 and IPv6 routes that SONiC can install . 
+- Does it depend on the maximum value of the CRM resources for IPv4 and IPv6 routes?
+- What if the underlying hardware doesn't support that much IPv4 and IPv6 routes to get installed ?
+How can we handle such scenario ?
+Please comment on this and provide your suggestions ?
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+I am trying to setting the MTU of VLAN interface. My configuration is shown as below.
+
+    "VLAN": {
+        "Vlan100": {
+            "mtu": "1300"
+        }
+    },
+    "VLAN_MEMBER": {
+        "Vlan100|Ethernet8": {
+            "tagging_mode": "untagged"
+        }
+    },
+    "VLAN_INTERFACE": {
+        "Vlan100|192.168.99.1/24": {}
+    },
+
+Then, I generate packet with the size more than the MTU, the packet was neither dropped nor fragmented by switch
+Dose anyone know the correct behavior of this MTU setting?
+
+
+ANSWER:
+
+In general,To set mtu as following:
+     
+"PORT": {
+        “Ethernet0”: {
+                             "mtu" : "9100"
+                            }
+        ...............
+
+-----------------------------------------------------------------------------------------------------------------------------------
+1) Are there any instructions to compile sonic-buildimage/src/sonic-sairedis code separately for a new platform and what are the steps required?  
+2) Also, what are the various files at the top level i need to change?  
+3) description of the Dockerfile.j2 and the requirements for the same  
+3) Any description of the docker containers that are used for sai  
+
+
+ANSWER:  
+
+sonic-sairedis are platform independent except vslib, I think.
+For new platform, add/modify sonic-buildimage/platform and sonic-buildimage/device.
+e.g. for broadcom platform, SAI library (libsaibcm package) is referenced in sonic-buildimage/platform/broadcom/sai.mk.
+See also porting guide https://github.com/Azure/SONiC/wiki/Porting-Guide
+
+------------------------------------------------------------------------------------------------------------------------------------
+How to configure pvlan for a port?  
+
+As per SAI header saiport.h, attribute SAI_PORT_ATTR_PORT_VLAN_ID can be used to configure port vlan id.
+How to configure this attribute through SONiC?
+
+SAI specification treats below two operations differently  
+1. setting port vlan id  
+2. adding a port as untagged memeber of vlan  
+
+If the application intends to use a different untagged VLAN it can do so by setting the port attribute SAI_PORT_ATTR_PORT_VLAN_ID as well as adding the port as an untagged member of the particular VLAN  
+
+From SONiC CLI or json configuration, I could not figure out how to do (1).
+Is it so SONiC does both these operations always together?
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+Is there demo or example code about call sonic CLI inside docker?
+
+such as call `show interfaces status` in sonic-telemetry docker.
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+It's not easy to find any information about what would be the minimum hardware requirements to run SONIC ? I'm reading through architecture guide, and am wondering
+about every component being ran in separate docker container. Isn't it hardware-intensive ? How much RAM/CPU power would the HW need to run SONIC smoothly ?
+Do you have any hands-on experience with that ?
+
+
+
+SONiC currently only supports x86_64 CPU (https://github.com/Azure/SONiC/wiki/Supported-Devices-and-Platforms)
+-------------------------------------------------------------------------------------------------------------------------------------
+1) Are there any instructions to compile sonic-buildimage/src/sonic-sairedis code separately for a new platform and what are the steps required ?
+
+2) Also, what are the various files at the top level i need to change. 
+
+3) description of the Dockerfile.j2 and the requirements for the same
+
+3) Any description of the docker containers that are used for sai
+
+(https://groups.google.com/forum/#!searchin/sonicproject/sonic$20sai-redis$20question%7Csort:date/sonicproject/pf-WXvaTwT4/nqjI7HE6BAAJ)
+A: sonic-sairedis are platform independent except vslib, I think.
+For new platform, add/modify sonic-buildimage/platform and sonic-buildimage/device.
+e.g. for broadcom platform, SAI library (libsaibcm package) is referenced in sonic-buildimage/platform/broadcom/sai.mk.
+See also porting guide https://github.com/Azure/SONiC/wiki/Porting-Guide
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Q: vlan configuration from the python cli results in a change in the redis database but not in the kernel level!!!
+Interfaces of a switch  stick to their startup configurations no matter what changes are made dynamically from the python cli.
+vlanmgrd needs to be restarted for the kernel to know about the change.
+why is  this,please????
+
+A:
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Q: How to connect 2 sonic-vs containers via virtual Ethernet link?
+
+A: 1)      Start two debian containers (sw0 and sw1) as below:
+
+docker run -id --name sw0 debian bash
+
+docker run -id --name sw1 debian bash
+
+ 
+
+2)      Create virtual Ethernet link
+
+      sudo ip link add sw0vEthernet0 type veth peer name sw1vEthernet0
+
+ 
+
+3)      Map the link endpoints to network namespace of respective containers
+
+      sudo ip link set sw0vEthernet0 netns sw0_pid
+
+      sudo ip link set sw1vEthernet0 netns sw1_pid
+
+ 
+
+Where sw0_pid and sw1_pid are PIDs of sw0 and sw1 containers
+
+ 
+
+4)      Change names of the interfaces to vEthernet0 and bring them up
+
+nsenter -t sw0_pid -n ip link set dev sw0vEthernet0 name vEthernet0
+
+nsenter -t sw0_pid -n ip link set dev vEthernet0 up
+
+ 
+
+nsenter -t sw1_pid -n ip link set dev sw1vEthernet0 name vEthernet0
+
+nsenter -t sw1_pid -n ip link set dev vEthernet0 up
+
+ 
+
+5)      Start two sonic-vs containers (vs0 and vs1)
+
+$ docker run --privileged --network container:sw0 --name vs0 -d docker-sonic-vs
+
+docker run --privileged --network container:sw1 --name vs1 -d docker-sonic-vs
+
+ 
+
+6)      Configure Ethernet0 interface in each sonic-vs container to 10.0.0.0/31 (in vs0) and 10.0.0.1/31 (in vs1)
+
+$ docker exec -it vs0 bash
+
+# ifconfig Ethernet0 10.0.0.0/31 up
+
+ 
+
+$ docker exec -it vs1 bash
+
+# ifconfig Ethernet0 10.0.0.1/31 up
+
+ 
+
+After running the above sequence I can ping 10.0.0.1 address from vs0 and 10.0.0.0 from vs1 container.
+
+ 
+
+However when I run “show interfaces status” command in each sonic-vs container, I get the below output indicating that operating status of Ethernet0 port is down.
+
+ 
+
+Interface            Lanes    Speed    MTU           Alias    Oper    Admin
+
+-----------  ---------------  -------  -----  --------------  ------  -------
+
+  Ethernet0      29,30,31,32      N/A    N/A    fortyGigE0/0    down      N/A
+  Ethernet4      25,26,27,28      N/A    N/A    fortyGigE0/4    down      N/A
+  Ethernet8      37,38,39,40      N/A    N/A    fortyGigE0/8    down      N/A
+
+
+The problem is visible in both sonic-vs containers.
+
+
+
+Q: What might a reason for the above problem?
+
+A: able to fix the problem by bringing up vEthernet0 interface using ifconfig
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+switch default VLAN 1 behavior
+
+My intention is to use a configuration with all ports part of VLAN1. I observed that the switch default VLAN (VLAN1) is not being exposed out to users. "show vlan brief" doesn't display an entry for VLAN1.
+
+When I tried to create VLAN1, it threw an error message.
+
+Nov 12 16:29:31.708140 sonic INFO kernel: [45185.022439] IPv6: ADDRCONF(NETDEV_UP): Vlan1: link is not ready
+Nov 12 16:29:31.710270 sonic NOTICE swss#orchagent: :- addVlan: Create an empty VLAN Vlan1 vid:1
+Nov 12 16:29:31.712193 sonic ERR syncd#syncd: brcm_sai_create_vlan:95 vlan create failed with error Entry exists (0xfffffff8).
+Nov 12 16:29:31.712446 sonic ERR syncd#syncd: :- processEvent: attr: SAI_VLAN_ATTR_VLAN_ID: 1
+Nov 12 16:29:31.712622 sonic ERR syncd#syncd: :- processEvent: failed to execute api: create, key: SAI_OBJECT_TYPE_VLAN:oid:0x2600000000061e, status: SAI_STATUS_ITEM_ALREADY_EXISTS
+
+At this point "show vlan brief" does display VLAN1. But when I try to add a port to be member of the VLAN1, orchagent crashes due to below error.
+
+Nov 11 23:23:12.309510 sonic ERR syncd#syncd: :- syncd_main: Runtime error: :- translate_vid_to_rid: unable to get RID for VID: 0x26000000000616  
+
+Now, the questions I have to the SONiC community are
+ - What is the expected role of the switch default VLAN1? 
+ - Is the above observed behavior as per SONiC design or is it because of some missing pieces in the code?
+ - Why does cpu port continue to participate in switch default VLAN1 when none of the other ports are being allowed to be part of it?
+
+
+The observations I made are on a Broadcom platform.
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+dynamic FDB entries installation
+
+Q: I came across one statement "SONiC must support installing dynamic FDB entries into ASIC".
+Can someone explain how does it happen ?
+
+A: You can program FDB entry into ASIC as dynamic. Please check this link. 
+
+https://github.com/Azure/SONiC/issues/249. Give type as "dynamic". 
+
+------------------------------------------------------------------------------------------------------
+TABLE_SIZE attribute in switch expected value?
+
+Q: What are the get attributes for switch in SAI for table size?  
+
+A: Following are the get attributes for switch in SAI for table size.
+   ```
+      SAI_SWITCH_ATTR_FDB_TABLE_SIZE  
+      SAI_SWITCH_ATTR_L3_NEIGHBOR_TABLE_SIZE  
+      SAI_SWITCH_ATTR_L3_ROUTE_TABLE_SIZE  
+   ```   
+------------------------------------------------------------------------------------------------------
+Q: How to connect to routing daemons like ospf/bgp in sonic docker environment for enabling daemon debugs to debug a problem?  
+   
+A: 
+
+------------------------------------------------------------------------------------------------------------------------------
+Q: After I boot up the SONiC switch, it always has default IP configured on each port.
+   How could I build an image without this default IP address configured on each port?
+
+A: During the initial install and boot process, Sonic creates the IPs for each interface and stores this in the config_db.json file (in /etc/sonic).  You can delete those interfaces or replace them in the file and then reapply the configuration.  Also replacing the config_db.json can be part of your deployment strategy.
+
+(https://groups.google.com/forum/#!topic/sonicproject/fKKDyunc6h8)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q: Which daemon writes to APP_DB?
+
+A: "fpmsyncd" writes to APP_DB
+
+----------------------------------------------------
+Q: Where does the configuration from "teamd" has been moved to?
+
+A: All the configuration from "/etc/teamd config file" has been moved to "teammgrd"
+
+(https://groups.google.com/forum/#!topic/sonicproject/Rt0-ZVovB9U)
+
+-------------------------------------------------------------------------------------
+Q: How does VRF configures in Linux kernel?  
+
+A: As of now, though there is a CLI wrapper, SONiC ultimately uses the linux NetLink calls
+
+-------------------------------------------------------------------------------------------
+Q: Can we safely assume VRF design supports later versions of Linux Kernel 4.9?  
+A: Yes
+
+-------------------------------------------------------------------------------------------
+ 
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
