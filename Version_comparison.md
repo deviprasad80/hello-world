@@ -43,8 +43,8 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- Added the "SAI_PORT_ATTR_EYE_VALUES" objectin the `saiport.h` file in v_1.4  
-- This will return the value "zero" if the port is down and will return the negotiated speed information if auto negotiation is on  
+- Added the "SAI_PORT_ATTR_EYE_VALUES" object in the `saiport.h` file in v_1.4.    
+- This commit is to enable the object to return the value "zero" if the port is down. If auto negotiation is on it will return the negotiated speed information.    
 
 
 ## Commit
