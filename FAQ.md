@@ -712,15 +712,115 @@ A: The main task of a daemon is to post device data to DB. Currently to fetch sw
 
 Q: What are the different types of daemons?
 
-A: pmon container has `xcvrd`  for transceivers/SFPs and `ledd` for front panel LEDs  
-   
+A: PMON container has 
+
+```
+   xcvrd for transceivers/SFPs 
+   ledd  for front panel LEDs  
+   psud  for PSUs
+
+```
 
 Q: Does FAN unit has a daemon?
 
 A: Currently there is no daemon for FAN unit  
 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+frr.conf is created by template file, and folder is created at /etc/sonic/frr/ when i check the mount in bgp docker container I see the same files as expected.
+But when I access the FRR daemon with vtysh i find it empty of config
 
-       
+
+ANSWER:
+
+Need to use vtysh -b first. Then vtysh  
+
+
+There are currently 3 modes of managing FRR configurations in SONiC today, they are controlled by the following attribute in config_db:
+{
+    "DEVICE_METADATA": {
+        "localhost": {
+            "docker_routing_config_mode": "xxxxxx",
+        }
+    },
+
+FRR itself has 2 modes of config management:
+   - integrated: the configurations of all daemons is maintained in frr.conf
+   - non-integrated: the configurations of each daemon is maintained in a specific <name>.conf file ( bgpd.conf, ospfd.conf etc..) and the "generic" config in zebra.conf
+this behavior is controlled by the presence of "service integrated-vtysh-config" in vtysh.conf
+
+for SONiC you can control this with:
+if docker_routing_config_mode is not present then FRR will function in non-integrated mode and bgpd.conf and zebra.conf files will be generated with a template and contents from config_db
+if docker_routing_config_mode is set to "separated" then FRR will function in non-integrated mode and bgpd.conf and zebra.conf files will be generated with a template and contents from config_db
+if docker_routing_config_mode is set to "unified" then FRR will function in integrated mode and a frr.conf file will be generated with a template and contents from config_db
+if docker_routing_config_mode is set to anything else (for eg. "split" or even "Mickey Mouse" as Nikos would put it ) then FRR functions in non-integrated mode and the config is not generated, its up to you to upload a /etc/sonic/frr/bgpd.conf on the host  
+
+before in non-integrated or non-managed mode the frr.conf file was not removed hence the behavior where the empty frr.conf file was used. Since commit f40795a it should work as advertised  
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Which of Mellanox's switches are compatible with DX10's?
+
+ANSWER:
+
+I have a pair of DX10's that don't play nice with some of my NIC's - in particular Mellanox Connectx-4's.
+They work fine when forced to 40 GbE, but won't get link with 100GbE. I have worked through a couple of things with Mellanox (cables [DAC and Optical]) but no success. At this point Mellanox stopped investigation since the DX10's are not on the compatibility list of the CX4's
+
+I have also reached out to Celestica but they apparently don't do hardware validation at all.
+
+
+Interestingly I have some Mellanox CX5's and those work without issue (with the same cables). 
+
+However, I am looking for two things -
+
+1. Feedback if anyone is successfully using CX4's with a DX10 or another Broadcom based switch
+2. Feedback on other NICs that are known to be compatible with  DX10's (or other Broadcom based switches) - basically looking for an alternative to the CX5'
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+When I cloned and tried to compile for Broadcom platform, I am getting foll= owing error in both master and 201904 branch.
+
+Is the following error seen by everyone? Is anyone working to resolve this?=  Not sure how Jenkins is able to get a clean build.
+
+Any help to resolve this build issue is highly appreciated.
+
+ 
+
+dpkg-buildpackage: info: host architecture amd64
+
+dpkg-checkbuilddeps: error: Unmet build dependencies: libcmocka-dev python3= -all-dev python3-all-dbg
+
+dpkg-buildpackage: warning: build dependencies/conflicts unsatisfied; abort= ing
+
+dpkg-buildpackage: warning: (Use -d flag to override.)
+
+Makefile:9: recipe for target '/sonic/target/debs/stretch/libyang0.16_0.16.=
+
+105-1_amd64.deb' failed
+
+make[1]: *** [/sonic/target/debs/stretch/libyang0.16_0.16.105-1_amd64.deb] = Error 3
+
+make[1]: Leaving directory '/sonic/src/libyang'
+
+Thanks & Regards,
+
+Kannan.KVS
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------
+I would like to know if there is an architectural guideline to avoid kernel programming from the orchagent ?
+
+  I see that mostly kernel programming happens from the manager components. 
+
+  The Arch document talks of kernel programming from syncd also. 
+
+  https://github.com/Azure/SONiC/wiki/Architecture (port-state interactions) 
+  
+  
+
+
+-------------------------------------------------------------------------------------------------------------------------------------   
    
 
 
