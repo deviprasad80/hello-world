@@ -205,7 +205,7 @@ A: Interfaces of a switch  stick to their startup configurations no matter what 
  
 ----------------------------------------------------------------------------------------------------------------------------
 ## Q:How to see 'telemetry binary' after building the Debian package?
-     Using Debian package in ubuntu 16.04 server, sonic-telemetry_0.1_amd64.deb is copied to sonic switch and installed it using "dpkg -i sonic-telemetry_0.1_amd64.deb". But unable to see telemetry binary.  
+   Using Debian package in ubuntu 16.04 server, sonic-telemetry_0.1_amd64.deb is copied to sonic switch and installed it using "dpkg -i sonic-telemetry_0.1_amd64.deb". But unable to see telemetry binary.  
 
 Example:
  ```
