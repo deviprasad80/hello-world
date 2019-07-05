@@ -52,7 +52,7 @@
 ----------------------------------------------------------------------------------------------------------------------------
 ## Q:How to add static ARP in SONiC using config_db.json? Whats the syntax?
 
-**A**:	Refer the [section!](https://github.com/Azure/sonic-swss/blob/master/doc/swss-schema.md#neigh_table-1) to add static ARP using configb_db.json.    
+**A**:	Refer the [section](https://github.com/Azure/sonic-swss/blob/master/doc/swss-schema.md#neigh_table-1) to add static ARP using configb_db.json.    
 
 ----------------------------------------------------------------------------------------------------------------------------
 ## Q:How to add static MAC  in SONiC using config_db.json? Whats the syntax?
@@ -80,7 +80,7 @@
 ----------------------------------------------------------------------------------------------------------------------------
 ## Q:How to program FDB static/dynamic entries into ASIC?
 
-**A**: You can program FDB entries into ASIC as static/dynamic. Please check this link [here!](https://github.com/Azure/SONiC/issues/249). Give type as either "static" or "dynamic"
+**A**: You can program FDB entries into ASIC as static/dynamic. Please check this link [here](https://github.com/Azure/SONiC/issues/249). Give type as either "static" or "dynamic"
   
 - Example:
   ```
@@ -195,7 +195,7 @@ NOTE:  Notice the change in the interface names under the "Interface" coloumn in
 ## Q:vlan configuration from the python cli results in a change in the redis database but not in the kernel level. Why?
 
 **A**: Interfaces of a switch  stick to their startup configurations no matter what changes are made dynamically from the python cli. Vlanmgrd needs to be restarted for the kernel to know about the change. Refer the below mentioned link for further information.  
-   [Link!](https://groups.google.com/forum/#!searchin/sonicproject/Vlan$20config$20from$20python$20cli%7Csort:date/sonicproject/wG0ZKYylVEU/GivLlGa5AAAJ)
+   [Link](https://groups.google.com/forum/#!searchin/sonicproject/Vlan$20config$20from$20python$20cli%7Csort:date/sonicproject/wG0ZKYylVEU/GivLlGa5AAAJ)
  
 ----------------------------------------------------------------------------------------------------------------------------
 ## Q:How to see 'telemetry binary' after building the Debian package?
@@ -252,7 +252,7 @@ Example:
 -----------------------------------------------------------------------------------------------------------------------------------
 ## Q:What is the CPU configuration that SONiC currently supports?
 
-**A**: SONiC currently only supports x86_64 CPU. For more information refer [this!](https://github.com/Azure/SONiC/wiki/Supported-Devices-and-Platforms)
+**A**: SONiC currently only supports x86_64 CPU. For more information refer [this](https://github.com/Azure/SONiC/wiki/Supported-Devices-and-Platforms)
 
 -------------------------------------------------------------------------------------------------------------------------------------
 ## Q:How to connect 2 sonic-vs containers via virtual Ethernet link?
@@ -364,7 +364,7 @@ A: All the configuration from "/etc/teamd config file" has been moved to "teammg
 -------------------------------------------------------------------------------------------
 ## Q:How does SONiC support link aggregation?
 
-**A**: SONiC supports link aggregation usig "teamd" container. SONiC uses [libteam!] (http://libteam.org/) as the LACP implementation.The configuration is stored in the configuration database. Please refer to the [configuration!] (https://github.com/Azure/SONiC/wiki/Configuration) samples here to configure the port-channels.  
+**A**: SONiC supports link aggregation usig "teamd" container. SONiC uses [libteam] (http://libteam.org/) as the LACP implementation.The configuration is stored in the configuration database. Please refer to the [configuration!] (https://github.com/Azure/SONiC/wiki/Configuration) samples here to configure the port-channels.  
 
 -------------------------------------------------------------------------------------------
 ## Q:What is the main task of a daemon?
