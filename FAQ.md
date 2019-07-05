@@ -34,8 +34,6 @@ A: SONiC currently supports around 2400 host entries
 
 A: Currently the max rate for ARP/ND is 600 packets. It will be increased it to higher number(8000) in CoPP file  to improve the learning time.
 
-(https://github.com/Azure/SONiC/pull/399/commits/89abd4938d792215b75d801e87b47ccf2c22f111)
-
 ----------------------------------------------------------------------------------------------------------------------------
 ## Q:How to print all the keys in a database?
 
@@ -53,12 +51,18 @@ A: To get value for the particular key. For example, the management interface;
    ``` redis-cli -n 4 HGETALL "MGMT_INTERFACE|eth0|10.11.12.13/24" ```
 
 ----------------------------------------------------------------------------------------------------------------------------
-## Q1:How to add static routes in SONiC using config_db.json? Whats the syntax? 
-## Q2:How to add static ARP in SONiC using config_db.json? Whats the syntax?
-## Q3:How to add static MAC  in SONiC using config_db.json? Whats the syntax?
+## Q:How to add static routes in SONiC using config_db.json? Whats the syntax? 
 
-A1:	Static route addition is not supported in SONiC at present. They can be added via linux “ip route add..” command but it will not be persistent after reboot.     
+A1:	Static route addition is not supported in SONiC at present. They can be added via linux “ip route add..” command but it will not be persistent after reboot.  
+
+----------------------------------------------------------------------------------------------------------------------------
+## Q:How to add static ARP in SONiC using config_db.json? Whats the syntax?
+
 A2:	Refer the [section!](https://github.com/Azure/sonic-swss/blob/master/doc/swss-schema.md#neigh_table-1) to add static ARP using configb_db.json.    
+
+----------------------------------------------------------------------------------------------------------------------------
+## Q:How to add static MAC  in SONiC using config_db.json? Whats the syntax?
+
 A3:	Static MAC configuration via config_db is not currently supported.  There is an alternate way by adding an FDB entry file.  
     ```
 	   [
@@ -73,8 +77,7 @@ A3:	Static MAC configuration via config_db is not currently supported.  There is
 	```
     Later use swssconfig tool which is located in docker swss to load it into APP_DB.  
 	Alternatively you can add entry to app_db manually, but you also need to publish event to the channel that subscribed by fdborch.  
- 
- 
+	
 ----------------------------------------------------------------------------------------------------------------------------
 ## Q:Where do the python bindings, to program the switch's control plane are copied?
 
