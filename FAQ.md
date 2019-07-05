@@ -195,7 +195,7 @@ NOTE:  Notice the change in the interface names under the "Interface" coloumn in
 ## Q:vlan configuration from the python cli results in a change in the redis database but not in the kernel level. Why?
 
 **A**: Interfaces of a switch  stick to their startup configurations no matter what changes are made dynamically from the python cli. Vlanmgrd needs to be restarted for the kernel to know about the change. Refer the below mentioned link for further information.  
-   [Link](https://groups.google.com/forum/#!searchin/sonicproject/Vlan$20config$20from$20python$20cli%7Csort:date/sonicproject/wG0ZKYylVEU/GivLlGa5AAAJ)
+   (https://groups.google.com/forum/#!searchin/sonicproject/Vlan$20config$20from$20python$20cli%7Csort:date/sonicproject/wG0ZKYylVEU/GivLlGa5AAAJ)
  
 ----------------------------------------------------------------------------------------------------------------------------
 ## Q:How to see 'telemetry binary' after building the Debian package?
@@ -339,8 +339,6 @@ After running the above sequence check by pinging 10.0.0.1 address from vs0 and 
 
 **A**: During the initial install and boot process, Sonic creates the IPs for each interface and stores this in the config_db.json file (in /etc/sonic).  These interfaces can either be deleted or replaced in the file and then reapply the configuration.  Also replacing the config_db.json can be part of the deployment strategy.  
 
-(https://groups.google.com/forum/#!topic/sonicproject/fKKDyunc6h8)  
-
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Q:Which daemon writes to APP_DB?  
 
@@ -364,7 +362,7 @@ A: All the configuration from "/etc/teamd config file" has been moved to "teammg
 -------------------------------------------------------------------------------------------
 ## Q:How does SONiC support link aggregation?
 
-**A**: SONiC supports link aggregation usig "teamd" container. SONiC uses [libteam] (http://libteam.org/) as the LACP implementation.The configuration is stored in the configuration database. Please refer to the [configuration!] (https://github.com/Azure/SONiC/wiki/Configuration) samples here to configure the port-channels.  
+**A**: SONiC supports link aggregation usig "teamd" container. SONiC uses [libteam](http://libteam.org/) as the LACP implementation.The configuration is stored in the configuration database. Please refer to the [configuration](https://github.com/Azure/SONiC/wiki/Configuration) samples here to configure the port-channels.  
 
 -------------------------------------------------------------------------------------------
 ## Q:What is the main task of a daemon?
