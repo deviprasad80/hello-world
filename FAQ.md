@@ -2,7 +2,7 @@
 
 ## Q:How to find the current onie version  version?
 
-## A: In the Sonic device, enter **cat /host/machine.conf**  command. This will give the current ONIE version along with other details such as vendor id, platform id, kernet version etc  
+**A**: In the Sonic device, enter **cat /host/machine.conf**  command. This will give the current ONIE version along with other details such as vendor id, platform id, kernet version etc  
   - Example:
   ```
     admin@sonic:~$ cat /host/machine.conf
@@ -21,12 +21,12 @@
 ----------------------------------------------------------------------------------------------------------------------------
 ## Q:How many host entries does SONiC support?
 
-## A: SONiC currently supports around 2400 host entries
+**A**: SONiC currently supports around 2400 host entries
 
 ----------------------------------------------------------------------------------------------------------------------------
 ## Q:What is the maximum rate for ARP/ND?
 
-## A: Currently the max rate for ARP/ND is 600 packets. It will be increased it to higher number(8000) in CoPP file  to improve the learning time.
+**A**: Currently the max rate for ARP/ND is 600 packets. It will be increased it to higher number(8000) in CoPP file  to improve the learning time.
 
 ----------------------------------------------------------------------------------------------------------------------------
 ## Q:How to print all the keys in a database?
@@ -40,24 +40,24 @@ A: redis-cli -n 4 keys "MGMT_INTERFACE*"
 ----------------------------------------------------------------------------------------------------------------------------
 ## Q: How to get the value for a particular key?
 
-## A: To get value for the particular key. For example, the management interface;  
+**A**: To get value for the particular key. For example, the management interface;  
 
    ``` redis-cli -n 4 HGETALL "MGMT_INTERFACE|eth0|10.11.12.13/24" ```
 
 ----------------------------------------------------------------------------------------------------------------------------
 ## Q:How to add static routes in SONiC using config_db.json? Whats the syntax? 
 
-## A:	Static route addition is not supported in SONiC at present. They can be added via linux “ip route add..” command but it will not be persistent after reboot.  
+**A**:	Static route addition is not supported in SONiC at present. They can be added via linux “ip route add..” command but it will not be persistent after reboot.  
 
 ----------------------------------------------------------------------------------------------------------------------------
 ## Q:How to add static ARP in SONiC using config_db.json? Whats the syntax?
 
-## A:	Refer the [section!](https://github.com/Azure/sonic-swss/blob/master/doc/swss-schema.md#neigh_table-1) to add static ARP using configb_db.json.    
+**A**:	Refer the [section!](https://github.com/Azure/sonic-swss/blob/master/doc/swss-schema.md#neigh_table-1) to add static ARP using configb_db.json.    
 
 ----------------------------------------------------------------------------------------------------------------------------
 ## Q:How to add static MAC  in SONiC using config_db.json? Whats the syntax?
 
-## A:	Static MAC configuration via config_db is not currently supported.  There is an alternate way by adding an FDB entry file.  
+**A**:	Static MAC configuration via config_db is not currently supported.  There is an alternate way by adding an FDB entry file.  
     ```
 	   [
          {
@@ -75,12 +75,12 @@ A: redis-cli -n 4 keys "MGMT_INTERFACE*"
 ----------------------------------------------------------------------------------------------------------------------------
 ## Q:Where do the python bindings, to program the switch's control plane are copied?
 
-## A: The python bindings to program the switch's control plane are copied in an empty directory "switch_sai_thrift".  
+**A**: The python bindings to program the switch's control plane are copied in an empty directory "switch_sai_thrift".  
 
 ----------------------------------------------------------------------------------------------------------------------------
 ## Q:How to program FDB static/dynamic entries into ASIC?
 
-## A: You can program FDB entries into ASIC as static/dynamic. Please check this link [here!](https://github.com/Azure/SONiC/issues/249). Give type as either "static" or "dynamic"
+**A**: You can program FDB entries into ASIC as static/dynamic. Please check this link [here!](https://github.com/Azure/SONiC/issues/249). Give type as either "static" or "dynamic"
   
 - Example:
   ```
@@ -138,7 +138,7 @@ NOTE:
 ---------------------------------------------------------------------------------------------------------------------------- 
 ## Q:How to know the interface naming mode?
 
-## A: Enter the command "show interface naming_mode". Initially it will be "default".  
+**A**: Enter the command "show interface naming_mode". Initially it will be "default".  
 
 - Example:
   ```
@@ -162,7 +162,7 @@ NOTE:
 ---------------------------------------------------------------------------------------------------------------------------- 
 ## Q:How to change the interface naming mode?
 
-## A: Enter the command -   
+**A**: Enter the command -   
    **sudo config interface_naming_mode alias**  `Non-root user`  
    **config interface_naming_mode alias**  `Root user`  
    
@@ -194,7 +194,7 @@ NOTE:  Notice the change in the interface names under the "Interface" coloumn in
 ----------------------------------------------------------------------------------------------------------------------------
 ## Q:vlan configuration from the python cli results in a change in the redis database but not in the kernel level. Why?
 
-## A: Interfaces of a switch  stick to their startup configurations no matter what changes are made dynamically from the python cli. Vlanmgrd needs to be restarted for the kernel to know about the change. Refer the below mentioned link for further information.  
+**A**: Interfaces of a switch  stick to their startup configurations no matter what changes are made dynamically from the python cli. Vlanmgrd needs to be restarted for the kernel to know about the change. Refer the below mentioned link for further information.  
    [Link!](https://groups.google.com/forum/#!searchin/sonicproject/Vlan$20config$20from$20python$20cli%7Csort:date/sonicproject/wG0ZKYylVEU/GivLlGa5AAAJ)
  
 ----------------------------------------------------------------------------------------------------------------------------
@@ -212,7 +212,7 @@ Example:
     popd
  ```
  
-## A: Telemetry runs on a docker and it is located in the path: /usr/bin/telemetry.sh.  
+**A**: Telemetry runs on a docker and it is located in the path: /usr/bin/telemetry.sh.  
    An easy way is to include telemetry in sonic image itself. You can do that by marking ENABLE_SYSTEM_TELEMETRY=y  on the "rules/config" file while building sonic image. Telemetry service gets started automatically.   
 
    Use the following command to view the telemtry process currently running.  
@@ -228,12 +228,12 @@ Example:
 -------------------------------------------------------------------------------------------------------------------------------
 ## Q:What is the significance of DEVICE_ROLE and difference between ToRRouter & LeafRouter role. Why is radvd configured and started only when Sonic DEVICE_ROLE is set to "ToRRouter"?
 
-## A: The radv is the IPv6 ND protocol part feature, used by routers to advertise their router-role information to the shared-link devices. DEVICE_ROLE meaning the device(switch) roles in the DC network, ToRRouter meaning "Top of the Rack Router/Switcher", LeafRouter that is the middle device between ToRRouter and Spine; The ToRs often directly connect to the Servers(host), so ToRs need the function radvd to spread the router-link informations. But LeafRouter is not directly connected to the servers(hosts), so one must not enable this function.   
+**A**: The radv is the IPv6 ND protocol part feature, used by routers to advertise their router-role information to the shared-link devices. DEVICE_ROLE meaning the device(switch) roles in the DC network, ToRRouter meaning "Top of the Rack Router/Switcher", LeafRouter that is the middle device between ToRRouter and Spine; The ToRs often directly connect to the Servers(host), so ToRs need the function radvd to spread the router-link informations. But LeafRouter is not directly connected to the servers(hosts), so one must not enable this function.   
 
 -------------------------------------------------------------------------------------------------------------------------------
 ## Q:How to configure ecmp in config_db.json? 
 
-## A: ECMP routes are learned via BGP. There is currently no static support for this via config_db.  
+**A**: ECMP routes are learned via BGP. There is currently no static support for this via config_db.  
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 ## Q:How to set the MTU size?
@@ -252,12 +252,12 @@ Example:
 -----------------------------------------------------------------------------------------------------------------------------------
 ## Q:What is the CPU configuration that SONiC currently supports?
 
-## A: SONiC currently only supports x86_64 CPU. For more information refer [this!](https://github.com/Azure/SONiC/wiki/Supported-Devices-and-Platforms)
+**A**: SONiC currently only supports x86_64 CPU. For more information refer [this!](https://github.com/Azure/SONiC/wiki/Supported-Devices-and-Platforms)
 
 -------------------------------------------------------------------------------------------------------------------------------------
 ## Q:How to connect 2 sonic-vs containers via virtual Ethernet link?
 
-## A: Start two debian containers (sw0 and sw1) as below  
+**A**: Start two debian containers (sw0 and sw1) as below  
 
  ```	
 	docker run -id --name sw0 debian bash
@@ -327,7 +327,7 @@ After running the above sequence check by pinging 10.0.0.1 address from vs0 and 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Q:What are the get attributes for switch in SAI for table size?  
 
-## A: Following are the get attributes for switch in SAI for table size.
+**A**: Following are the get attributes for switch in SAI for table size.
    ```
       SAI_SWITCH_ATTR_FDB_TABLE_SIZE  
       SAI_SWITCH_ATTR_L3_NEIGHBOR_TABLE_SIZE  
@@ -337,14 +337,14 @@ After running the above sequence check by pinging 10.0.0.1 address from vs0 and 
 ------------------------------------------------------------------------------------------------------
 ## Q:After booting the SONiC switch, it always has default IP configured on each port. How to build an image without this default IP address configured on each port?  
 
-## A: During the initial install and boot process, Sonic creates the IPs for each interface and stores this in the config_db.json file (in /etc/sonic).  These interfaces can either be deleted or replaced in the file and then reapply the configuration.  Also replacing the config_db.json can be part of the deployment strategy.  
+**A**: During the initial install and boot process, Sonic creates the IPs for each interface and stores this in the config_db.json file (in /etc/sonic).  These interfaces can either be deleted or replaced in the file and then reapply the configuration.  Also replacing the config_db.json can be part of the deployment strategy.  
 
 (https://groups.google.com/forum/#!topic/sonicproject/fKKDyunc6h8)  
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Q:Which daemon writes to APP_DB?  
 
-## A: "fpmsyncd" daemon writes to APP_DB  
+**A**: "fpmsyncd" daemon writes to APP_DB  
 
 -------------------------------------------------------------------------------------
 ## Q:Where does the configuration from "teamd" has been moved to?  
@@ -354,27 +354,27 @@ A: All the configuration from "/etc/teamd config file" has been moved to "teammg
 --------------------------------------------------------------------------------------------
 ## Q:How is VRF configured in Linux kernel?  
 
-## A: VRF is configured though the CLI wrapper but eventually SONiC uses the linux NetLink calls  
+**A**: VRF is configured though the CLI wrapper but eventually SONiC uses the linux NetLink calls  
 
 ---------------------------------------------------------------------------------------------
 ## Q:Does VRF design support later versions of Linux Kernel 4.9?  
 
-## A: Yes. VRF design supports later versions of Linux kernel.  
+**A**: Yes. VRF design supports later versions of Linux kernel.  
 
 -------------------------------------------------------------------------------------------
 ## Q:How does SONiC support link aggregation?
 
-## A: SONiC supports link aggregation usig "teamd" container. SONiC uses [libteam!] (http://libteam.org/) as the LACP implementation.The configuration is stored in the configuration database. Please refer to the [configuration!] (https://github.com/Azure/SONiC/wiki/Configuration) samples here to configure the port-channels.  
+**A**: SONiC supports link aggregation usig "teamd" container. SONiC uses [libteam!] (http://libteam.org/) as the LACP implementation.The configuration is stored in the configuration database. Please refer to the [configuration!] (https://github.com/Azure/SONiC/wiki/Configuration) samples here to configure the port-channels.  
 
 -------------------------------------------------------------------------------------------
 ## Q:What is the main task of a daemon?
 
-## A: The main task of a daemon is to post device data to DB. Currently, to fetch switch peripheral devices related data SONiC will directly access hardware through platform pluggins
+**A**: The main task of a daemon is to post device data to DB. Currently, to fetch switch peripheral devices related data SONiC will directly access hardware through platform pluggins
 
 -------------------------------------------------------------------------------------------
 ## Q:What are the different types of PMON container daemons?
 
-## A: PMON container has the following daemons.  
+**A**: PMON container has the following daemons.  
 
 ```
    xcvrd for transceivers/SFPs 
@@ -385,18 +385,18 @@ A: All the configuration from "/etc/teamd config file" has been moved to "teammg
 -------------------------------------------------------------------------------------------
 ## Q:Does FAN unit has a daemon?
 
-## A: Currently there is no daemon for FAN unit  
+**A**: Currently there is no daemon for FAN unit  
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Q:What package does SONiC use?
 
-## A: SONiC uses the "click Python package" in order to expose the available APIs.
+**A**: SONiC uses the "click Python package" in order to expose the available APIs.
 
 -------------------------------------------------------------------------------------------------------------------------------------
 ## Q:Why does an IPv6 address is assigned by default when an L2 VLAN is created?
 
-## A: SONiC supports IPv6 forwarding and a link local address is added by the Kernel. When L2 VLAN is created that IP address is assigned to it by default.  
+**A**: SONiC supports IPv6 forwarding and a link local address is added by the Kernel. When L2 VLAN is created that IP address is assigned to it by default.  
    If required it can be disabled by adding a line in /etc/sysctl.conf  on switch.
    
    ```
