@@ -194,9 +194,8 @@ NOTE:  Notice the change in the interface names under the "Interface" coloumn in
 ----------------------------------------------------------------------------------------------------------------------------
 ## Q:vlan configuration from the python cli results in a change in the redis database but not in the kernel level. Why?
 
-**A**: Interfaces of a switch  stick to their startup configurations no matter what changes are made dynamically from the python cli. Vlanmgrd needs to be restarted for the kernel to know about the change. Refer the below mentioned link for further information.  
-   (https://groups.google.com/forum/#!searchin/sonicproject/Vlan$20config$20from$20python$20cli%7Csort:date/sonicproject/wG0ZKYylVEU/GivLlGa5AAAJ)
- 
+**A**: Interfaces of a switch  stick to their startup configurations no matter what changes are made dynamically from the python cli. Vlanmgrd needs to be restarted for the kernel to know about the change.  
+   
 ----------------------------------------------------------------------------------------------------------------------------
 ## Q:How to see 'telemetry binary' after building the Debian package?
    Using Debian package in ubuntu 16.04 server, sonic-telemetry_0.1_amd64.deb is copied to sonic switch and installed it using "dpkg -i sonic-telemetry_0.1_amd64.deb". But unable to see telemetry binary.  
