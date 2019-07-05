@@ -1,9 +1,3 @@
-There is already a FAQ document. We need to add these questions to that FAQ.
-
-Shall we group the questions based on the module/protocol? And, find out how easy is it to provide a search in the FAQ document.
-
-
-
 # FAQs
 
 ## Q:How to find the current onie version  version?
