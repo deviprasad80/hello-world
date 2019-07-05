@@ -31,7 +31,7 @@
 ----------------------------------------------------------------------------------------------------------------------------
 ## Q:How to print all the keys in a database?
 
-A: redis-cli -n 4 keys "MGMT_INTERFACE*"
+**A**: redis-cli -n 4 keys "MGMT_INTERFACE*"
    This will print all keys in the database number 4.
    4 is the CONFIG_DB
    6 is STATE_DB
