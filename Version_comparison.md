@@ -5,7 +5,7 @@
 ## Description
 
 This object is included in the `saiacl.h` file and this has been added in addition to "SAI_OBJECT_TYPE_PORT" to test the mixed object port type  
-Mixed object port type "SAI_OBJECT_TYPE_BRIDGE_PORT" is reverted as all the lists were supporting single object types only.
+Mixed object port type "SAI_OBJECT_TYPE_BRIDGE_PORT" is reverted as all the lists were supporting single object types only.  
 
 ## Commit
 
@@ -28,7 +28,7 @@ Mixed object port type "SAI_OBJECT_TYPE_BRIDGE_PORT" is reverted as all the list
 
 ## Description
 
-Tear down process of a host adapter ensues the removal of the switch id. This will stop all the data plane and control plane transactions. If the data plane continues to be active without the control plane it will result in security risk. To mitigate this risk the value "SAI_SWITCH_ATTR_UNINIT_DATA_PLANE_ON_REMOVAL" is set to `TRUE` except for special scenarios such as "fast boot" where host adapter would like to set this value to `False` and then initiate call remove switch function and have the data plane still running  
+Tear down process of a host adapter ensues the removal of the switch id. This will stop all the data plane and control plane transactions. If the data plane continues to be active without the control plane it will result in security risk. To mitigate this risk the value "SAI_SWITCH_ATTR_UNINIT_DATA_PLANE_ON_REMOVAL" is set to `TRUE` except for special scenarios such as "fast boot" where host adapter would like to set this value to `False` and then initiate call remove switch function and have the data plane still running.    
 
 ## Commit
 
@@ -43,8 +43,8 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- Added the "SAI_PORT_ATTR_EYE_VALUES" object in the `saiport.h` file in v_1.4.    
-- This commit is to enable the object to return the value "zero" if the port is down. If auto negotiation is on it will return the negotiated speed information.    
+- Created the "SAI_PORT_ATTR_EYE_VALUES" object in the `saiport.h` file in v_1.4.  
+- This commit is to enable the object to return the value "zero" if the port is down. If auto negotiation is on it will return the negotiated speed information. 
 
 
 ## Commit
@@ -61,8 +61,8 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- Capabilities package written in "Perl" is incorporated in v_1.4
-- Metadata attributes such as "LoadCapabilities, CheckCapabilities()" added  
+- Capabilities package written in "Perl" is incorporated in v_1.4.  
+- Created the Metadata attributes such as "LoadCapabilities, CheckCapabilities()".    
 
 ## Commit
 
@@ -77,8 +77,8 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- License information for metadata files such as "cap.pm", "checksymbols.pl", "parse.pl", "saidepgraphgen.cpp" etc, is incorporated   
-- Check for non ascii characters in metadata files and C files check too added  
+- License information for metadata files such as "cap.pm", "checksymbols.pl", "parse.pl", "saidepgraphgen.cpp" etc, is incorporated.     
+- Check for non ascii characters in metadata files and C files check are also added.    
 
 ## Commit
 
@@ -93,7 +93,7 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- Replaced the parameter "out" with "inout" in the attribute list array in the file "inc/saiacl.h"  
+- Replaced the parameter "out" with "inout" in the attribute list array in the file "inc/saiacl.h" as part of metadata updation.   
   - Example:
   ```
   _Out_ sai_attribute_t *attr_list)  
@@ -112,9 +112,9 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- Created a Virtual RIF object, which only programs the ingress router MAC that simplifies the management of VRRP master router's configuration in SAI adapter. Using a Virtual RIF allows SAI to optimize resources, so neighbor entries cannot be learned on a Virtual RIF. On a virtual RIF following attributes are invalid: ADMIN state, MTU size, packet action and multicast enable.
+- Created a Virtual RIF object, which only programs the ingress router MAC. This simplifies the management of VRRP master router's configuration in SAI adapter. Using a Virtual RIF allows SAI to optimize resources. As a result neighbor entries cannot be learned on a Virtual RIF. On a virtual RIF following attributes are invalid: ADMIN state, MTU size, packet action and multicast enable.  
 
-- This object is created in the `sairouterinterface.h` file  
+- This object is created in the `sairouterinterface.h` file.    
 
 ## Commit
 
@@ -129,7 +129,7 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- Experimental object types include brief extensions to SAI APIs and are included in few extension files such as "saiextensions.h", "saiswitchextensions.h", saitypeextensions.h"  
+- Experimental object types are included as brief extensions to SAI APIs. These are included in few extension files such as "saiextensions.h", "saiswitchextensions.h", saitypeextensions.h"  
 
 ## Commit
 
@@ -144,9 +144,9 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- Prameter prefixes modified form "inout" to "out" in the attributes such as "sai_get_maximum_attribute_count" and " sai_get_object_count"  
+- As part of metadata updates, prefixes of few prameters such as "sai_get_maximum_attribute_count" and " sai_get_object_count" are modified form "inout" to "out" in the attributes.   
 
-- These changes are incorporated in the "saiobject.h" file  
+- These changes are incorporated in the "saiobject.h" file.   
 
 ## Commit
 
@@ -161,7 +161,7 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- Parser values modified for "serialize" & "deserialize" attributes in the meta file "saiserialize.c"  
+- Parser values are modified for "serialize" & "deserialize" attributes in the meta file "saiserialize.c"   
 
 ## Commit
 
@@ -191,9 +191,9 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- Two attributes "SAI_MIRROR_SESSION_CONGESTION_MODE_INDEPENDENT" & "SAI_MIRROR_SESSION_CONGESTION_MODE_CORRELATED" are incorporated. In the former, the Mirroring traffic is independent from original traffic as the original traffic not affected by congestion of mirroring traffic. In the later, Mirroring traffic is correlated with original traffic and can cause back pressure and can even discard the original traffic if there is congestion  
+- Two attributes "SAI_MIRROR_SESSION_CONGESTION_MODE_INDEPENDENT" & "SAI_MIRROR_SESSION_CONGESTION_MODE_CORRELATED" are incorporated. In the former, the Mirroring traffic is independent from original traffic as the original traffic not affected by congestion of mirroring traffic. In the later, Mirroring traffic is correlated with original traffic and can cause back pressure and can even discard the original traffic if there is congestion.   
 
-- These are incorporated in the meta file "saimirror.h"  
+- These are incorporated in the meta file "saimirror.h".  
 
 ## Commit
 
@@ -208,9 +208,9 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- Host interface traps for "CDP", "VTP", "DTP" & "PAgP"  are added in the metafile "saihostif.h"  
+- Host interface traps for "CDP", "VTP", "DTP" & "PAgP"  are added in the metafile "saihostif.h".    
 
-- These protocols are proprietory of Cisco and the traps are to capture individual types of cisco multicast to the CPU  
+- These protocols are proprietory of Cisco and the traps are to capture individual types of cisco multicast to the CPU.   
 
 ## Commit
 
@@ -225,7 +225,7 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- The attribute "SAI_ACL_ENTRY_ATTR_ACTION_DTEL_TAIL_DROP_REPORT_ENABLE" is incorporated to selectively enable/disable queue tail drop reporting when drop reporting is enabled. If the new attribute is disabled, all other drops are still reported  
+- The attribute "SAI_ACL_ENTRY_ATTR_ACTION_DTEL_TAIL_DROP_REPORT_ENABLE" is incorporated to selectively enable/disable queue tail drop reporting when drop reporting is enabled. If the new attribute is disabled, all other drops are still reported.   
 
 ## Commit
 
@@ -240,7 +240,7 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- "SAI_LOG_LEVEL_NOTICE" attribute changed to "log_level" for all the SAI APIs to simplify the labeling of the attributes  
+- "SAI_LOG_LEVEL_NOTICE" attribute changed to "log_level" for all the SAI APIs to simplify the labeling of the attributes.    
 
 - Example  
   ```
@@ -261,7 +261,7 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- "vlan_oid" is used instead of "vlan_id" in the file "test/saithrift/tests/saimirror.py". This is used as a reference to the actual VLAN ID in the Redis Database   
+- "vlan_oid" is used instead of "vlan_id" in the file "test/saithrift/tests/saimirror.py". This is used as a reference to the actual VLAN ID in the Redis Database.    
 
 ## Commit
 
@@ -276,9 +276,9 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- Provision to create/remove parameters in the hostif trap group for the sai_thrift_object_id incorporated
+- Provision to create/remove parameters in the hostif trap group for the sai_thrift_object_id incorporated.  
 
-- Change policer meter type from bytes to packets
+- Policer meter type changed from bytes to packets.  
 
 ## Commit
 
@@ -293,7 +293,7 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- For the packet test framework tests, changes are made for new SAI header. Local routes are used to simplify the tests
+- Changes in packet framework tests are included for new SAI header. Local routes are used to simplify these tests.  
 
 ## Commit
 
@@ -308,7 +308,7 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- Incorporated tests for L2FDBMissUnicastTest, L2FDBMissBroadcastTest, L2FDBFloodRoutingNoVlan in the file "test/saithrift/tests/saifdb.py"  
+- New tests for L2FDBMissUnicastTest, L2FDBMissBroadcastTest, L2FDBFloodRoutingNoVlan in the file "test/saithrift/tests/saifdb.py" are added.   
 
 ## Commit
 
@@ -323,9 +323,9 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- SAI API over the P4 BM is implemented  to allow programming of packet forwarding planes
-  P4 - (Programming Protocol-Independent Packet Processors)
-  BM - (Behavioral Model)
+- SAI API over the P4 BM is implemented  to allow programming of packet forwarding planes.  
+  - P4 - (Programming Protocol-Independent Packet Processors).  
+  - BM - (Behavioral Model).  
 
 ## Commit
 
@@ -340,7 +340,7 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- Processes for adding SAI extensions and attributes have been incorporated	
+- New processes to include SAI extensions and attributes have been incorporated.  
 
 ## Commit
 
@@ -355,7 +355,7 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- New attribute (SAI_FDB_FLUSH_ENTRY_TYPE_ALL) that serves as new flush type for clearing all FDB entries has been added in the new version  
+- New attribute (SAI_FDB_FLUSH_ENTRY_TYPE_ALL) that serves as new flush type for clearing all FDB entries has been added in the new version.   
 
 ## Commit
 
@@ -370,7 +370,7 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- New attribute to puase and unpause the output(egress) from a port has been incorporated  
+- New attribute to pause and unpause the output(egress) from a port has been incorporated.    
 
 ## Commit
 
@@ -385,7 +385,7 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- Error counters for both packets and octets for the router interface to record the errors have been incorporated  
+- Error counters for both packets and octets for the router interface to record the errors are incorporated.  
 
 ## Commit
 
@@ -400,7 +400,7 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- P4(Programming Protocol-Independent Packet Processors) compiler sub modules have been incorporated. This serves as the back end for p4_16 compiler p4c  
+- New P4 compiler sub modules are added. They act as the back end for p4_16 compiler(p4c).  
 
 ## Commit
 
@@ -415,7 +415,7 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- PTP(Precision Time Protocol) support is added through the incorporation of PTP traps coupled with RX/TX meatadata  
+- PTP(Precision Time Protocol) support is added by including PTP traps coupled with RX/TX meatadata.    
 
 ## Commit
 
@@ -430,7 +430,7 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- Changed aux.py to P4_aux.py (reserved name) and then importing the same with the alias aux.py. This ensures that no changes to be made in the python code and at the same time assigning the proper reserved name to the function  
+- The library "aux" is renamed as "P4_aux" wich is a reserved name. It is imported with the alias "aux" in the "P4_api_SAI.py" file. It is to ensure that no changes are required in the python code with respect to the library name and at the same time assigning the proper reserved name to the function.  
 
 ## Commit
 
@@ -445,7 +445,7 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- Updated the decapsulation PTF tests by adding new IPs (IPv4 & IPv6) along with Generic Routing Encapsulation (GRE)
+- Updated the decapsulation PTF tests by adding new IPs (IPv4 & IPv6) along with Generic Routing Encapsulation (GRE).  
 
 ## Commit
 
@@ -460,7 +460,7 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- This enhancement adds support for managing port isolation group. The isolation group attribute can be set on port or bridge port object. Packets which ingress on port/bridge port should not forward packets to the members of port isolation group object  
+- This enhancement adds support for managing port isolation group. The isolation group attribute can be set on a port or a bridge port object. Packets which ingress on port/bridge port should not forward packets to the members of port isolation group object.   
 
 ## Commit
 
@@ -475,7 +475,7 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- Attributes and syntax written in the older Python version are modified to be compatible with new python version(version 3)    
+- Attributes and syntax written in the older Python version are modified to be compatible with new python version(version 3).        
 
 ## Commit
 
@@ -490,7 +490,7 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- During warm restart, few ASICs are reinitialized from scratch and the attribute "SAI_KEY_BOOT_TYPE" has the value notifying the type of boot that has happened. In other ASICs the restart doesn't happen from scratch. Instead the process that was in progress before the restart gets resumed. In order to indicate that the process is resumed and not reinitialized from scratch, the new attribute "SAI_SWITCH_ATTR_WARM_RECOVER" is incorporated   
+- At the time of warm restart, few ASICs are reinitialized from scratch. The attribute "SAI_KEY_BOOT_TYPE" has the value for notifying the type of boot that has happened. In other ASICs the restart doesn't happen from scratch. Instead the process that was in progress before the restart gets resumed. In order to indicate that the process is resumed and not reinitialized from scratch, the new attribute "SAI_SWITCH_ATTR_WARM_RECOVER" is incorporated.   
 
 ## Commit
 
@@ -505,7 +505,7 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- VXLAN tunnel "SAI_TUNNEL_TYPE_VXLAN" added to SAI_TUNNEL_ATTR_UNDERLAY_INTERFACE condition. At the time of VXLAN creation, the router interface in which the routing happens post encapsulation should be specified  
+- VXLAN tunnel "SAI_TUNNEL_TYPE_VXLAN" added to SAI_TUNNEL_ATTR_UNDERLAY_INTERFACE condition. At the time of VXLAN creation, the router interface should be specified in which the routing happens post encapsulation.        
 
 ## Commit
 
@@ -550,7 +550,7 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- This is to incorporate an additional object type "SAI_OBJECT_TYPE_LAG" to "SAI_ACL_ENTRY_ATTR_FIELD_IN/OUT_PORT". This will further support the the object id list  
+- This commit incorporates an additional object type "SAI_OBJECT_TYPE_LAG" to "SAI_ACL_ENTRY_ATTR_FIELD_IN/OUT_PORT". This will further support the object id list.     
 
 ## Commit
 
@@ -565,7 +565,7 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- Case "SAI_ATTR_VALUE_TYPE_OBJECT_LIST" created to allow "SAI_OBJECT_TYPE_MIRROR_SESSION" object
+- A new case "SAI_ATTR_VALUE_TYPE_OBJECT_LIST" is created to allow "SAI_OBJECT_TYPE_MIRROR_SESSION" object.  
 
 ## Commit
 
@@ -580,7 +580,7 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- Updated the "check_mixed_object_list_types" case to allow "SAI_OBJECT_TYPE_MIRROR_SESSION" object
+- Updated the "check_mixed_object_list_types" case to allow "SAI_OBJECT_TYPE_MIRROR_SESSION" object.  
 
 ## Commit
 
@@ -595,7 +595,7 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- Next Hop attribute type is updated with "MPLS" and "TUNNEL_CAP" types  
+- Next Hop attribute type is updated with "MPLS" and "TUNNEL_CAP" types.    
 
 ## Commit
 
@@ -610,7 +610,7 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- Metadata information is updated with the pointer to the status of the enum (statenumname)
+- Metadata information is updated with the pointer to the status of the enum (statenumname).  
 
 ## Commit
 
@@ -625,7 +625,7 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- "CheckStatsFunction" function incorporated with conditions and exceptions for a list of attributes  
+- "CheckStatsFunction" function incorporated with conditions and exceptions for a list of attributes.    
 
 ## Commit
 
@@ -640,7 +640,7 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- Metadata (meta/aspell.en.pws) is updated with the parameters "offsetof" and "sizeof"  
+- Metadata (meta/aspell.en.pws) is updated with the parameters "offsetof" and "sizeof".    
 
 ## Commit
 
@@ -655,7 +655,7 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- Test case named "statenum_defined" created along with the corresponding test header
+- Test case named "statenum_defined" created along with the corresponding test header.  
 
 ## Commit
 
@@ -670,11 +670,11 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- To add the bridge id attribute for router interface of type SAI_ROUTER_INTERFACE_TYPE_BRIDGE.
+- To add the bridge id attribute for router interface of type SAI_ROUTER_INTERFACE_TYPE_BRIDGE.  
 
-- A bridge router interface can be connected only to one bridge. Adding bridge id attribute in bridge router interface would ensure that a bridge router interface can be connected only to one bridge. If this attribute is not present, the bridge router interface can be connected to multiple bridges which is invalid.
+- A bridge router interface can be connected only to one bridge. Adding bridge id attribute in bridge router interface would ensure that a bridge router interface can be connected only to one bridge. If this attribute is not present, the bridge router interface can be connected to multiple bridges which is invalid.  
 
-- All the router interface types have a key which need to be given during creation. Ex: For VLAN router interface, VLAN object ID is the key. For Port router interface, Port/LAG object ID is the key. However for bridge router interface, currently there is no key. So bridge id is added as a key attribute for bridge router interface. This makes creation of all router interface types consistent.
+- All the router interface types have a key which need to be given during creation. Ex: For VLAN router interface, VLAN object ID is the key. For Port router interface, Port/LAG object ID is the key. However for bridge router interface, currently there is no key. So bridge id is added as a key attribute for bridge router interface. This makes creation of all router interface types consistent.  
 
 ## Commit
 
@@ -689,7 +689,7 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- Because SAI_MIRROR_SESSION_ATTR_VLAN_ID is no longer set as mandatory on create, user needs to set this VLAN ID specifically when creating an RSPAN session. Otherwise, the default value 0 will be used.  
+- Because SAI_MIRROR_SESSION_ATTR_VLAN_ID is no longer set as mandatory on create, user needs to set this VLAN ID specifically when creating an RSPAN session. Otherwise, the default value 0 will be used.   
 
 ## Commit
 
@@ -704,7 +704,7 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- Packages: "aiserver" and "saiserver-dbg" added
+- Packages: "aiserver" and "saiserver-dbg" added.  
 
 ## Commit
 
@@ -719,9 +719,9 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- Add meta data attribute support to SAI extensions
+- Add meta data attribute support to SAI extensions.  
 
-- Clarify SAI thrift test setup instructions
+- Clarify SAI thrift test setup instructions.  
 
 ## Commit
 
@@ -736,7 +736,7 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- Notification attributes are incorporated to the metadata. These attributes are used for the notification of switch.
+- Notification attributes are incorporated to the metadata. These attributes are used for the notification of switch.  
 
 ## Commit
 
@@ -751,9 +751,9 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- To get average temperature from sensors  
+- To get average temperature from sensors.   
 
-- Added new sensor attributes. Change SAI_SWITCH_ATTR_MAX_NUMBER_OF_TEMP_SENSORS to U8  
+- Added new sensor attributes. Change SAI_SWITCH_ATTR_MAX_NUMBER_OF_TEMP_SENSORS to U8.  
 
 ## Commit
 
@@ -768,7 +768,7 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- Object names modified in order for the Force stat functions to be consistent across all SAI  
+- Object names modified in order for the Force stat functions to be consistent across all SAI.    
 
 ## Commit
 
@@ -783,7 +783,7 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- A binary check is incorporated in the 'makefile'. It is a part of metadata  
+- A binary check is incorporated in the 'makefile'. It is a part of metadata.    
 
 ## Commit
 
@@ -798,7 +798,7 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- The attribute "SAI_SWITCH_ATTR_PRE_SHUTDOWN" is incorporated for the purpose of warm shutdown of the device  
+- The attribute "SAI_SWITCH_ATTR_PRE_SHUTDOWN" is incorporated for the purpose of warm shutdown of the device.    
 
 ## Commit
 
@@ -813,9 +813,9 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- Add unittests and Update unittests  
+- Add unittests and Update unittests.    
 
-- Add support for 32 bit pointer and Use macro for platform detect  
+- Add support for 32 bit pointer and Use macro for platform detect.  
 
 ## Commit
 
@@ -830,7 +830,7 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- The changes are effected through the entire header style. It's purpose is to name parameters after type. So if type is sai_zzz_t parameter is named as zzz  
+- The changes are effected through the entire header style. It's purpose is to name parameters after type. So if type is sai_zzz_t parameter is named as zzz.    
 
 ## Commit
 
@@ -845,7 +845,7 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- "_In_ sai_pointer_t" pointer modified into "_In_ const sai_pointer_t" to include the proper handle  
+- "_In_ sai_pointer_t" pointer modified into "_In_ const sai_pointer_t" to include the proper handle.    
 
 ## Commit
 
@@ -860,9 +860,9 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- This extension module is temporarily stored until the infrastructure for integrating P4 autogenerated headers during build will be available  
+- This extension module is temporarily stored until the infrastructure for integrating P4 autogenerated headers during build will be available.    
 
-- Update for new pipeline  
+- Update for new pipeline incorporated.     
 
 ## Commit
 
@@ -877,7 +877,7 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- Enable the ability to attach a policer to the mirror session to throttle the mirrored packets without affecting the original traffic  
+- This commit is to enable the ability to attach a policer to the mirror session to throttle the mirrored packets without affecting the original traffic.    
 
 ## Commit
 
@@ -892,8 +892,8 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- In addition to the current port speed attribute which shows the configured speed, a new read only attribute is incorporated for operational speed.
-  This shows the actual speed the port is working, depending on configuration, peer, cable, and can be zero if port is down  
+- In addition to the current port speed attribute which shows the configured speed, a new read only attribute is incorporated for operational speed.  
+  This shows the actual speed the port is working, depending on configuration, peer, cable, and can be zero if port is down.    
 
 ## Commit
 
@@ -908,7 +908,7 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- Added OpCode field in Base Transport Header (BTH) and Syndrome field in The ACK Extended Transport Header (AETH) for the purpose of matching the RDMA fileds to that in the ACL  
+- Added OpCode field in Base Transport Header (BTH) and Syndrome field in The ACK Extended Transport Header (AETH) for the purpose of matching the RDMA fileds to that in the ACL.   
 
 ## Commit
 
@@ -923,7 +923,7 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- A duplicate entry of behavioral model is removed in gitmodules file  
+- A duplicate entry of behavioral model is removed in gitmodules file.    
 
 ## Commit
 
@@ -938,7 +938,7 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- ICMP changes for IPv6 implemented in the file /inc/saiacl.h under the "SAI_ACL_TABLE_ATTR_FIELD_ICMP_CODE" section
+- ICMP changes for IPv6 implemented in the file /inc/saiacl.h under the "SAI_ACL_TABLE_ATTR_FIELD_ICMP_CODE" section.  
 
 ## Commit
 
@@ -953,7 +953,7 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- Attributes with the suffix "group" are discarded of their suffixes. For instance "SAI_TABLE_TUNNEL_ROUTE_ENTRY_ATTR_NEXT_HOP_GROUP" is changed to "SAI_TABLE_TUNNEL_ROUTE_ENTRY_ATTR_NEXT_HOP"  
+- Attributes with the suffix "group" are discarded of their suffixes. For instance "SAI_TABLE_TUNNEL_ROUTE_ENTRY_ATTR_NEXT_HOP_GROUP" is changed to "SAI_TABLE_TUNNEL_ROUTE_ENTRY_ATTR_NEXT_HOP".    
 
 ## Commit
 
@@ -968,8 +968,8 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- Created and updated saibmtor.md  in order to allow the route entry to be present in multiple VRFs at the same time.
-  In BMTOR tunnel table, every VRF ID is assigned a single bit in a bitvector instead of some integer number, which allows us to match on multiple VRF IDs at the same time without duplicating route entries for each VRF.
+- Created and updated saibmtor.md  in order to allow the route entry to be present in multiple VRFs at the same time.  
+  In BMTOR tunnel table, every VRF ID is assigned a single bit in a bitvector instead of some integer number, which allows us to match on multiple VRF IDs at the same time without duplicating route entries for each VRF.  
 
 
 ## Commit
@@ -985,7 +985,7 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- Packet Test Framework to test the ERSPAN VLAN header is incorporated 
+- Packet Test Framework to test the ERSPAN VLAN header is incorporated.   
 
 ## Commit
 
@@ -1000,9 +1000,9 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- PORT non object list attributes is set to internal switch values in the object type "SAI_OBJECT_TYPE_PORT"  
+- PORT non object list attributes is set to internal switch values in the object type "SAI_OBJECT_TYPE_PORT".    
 
-- Allow non object lists on PORT to be set to internal default value in the object type "SAI_DEFAULT_VALUE_TYPE_SWITCH_INTERNAL"  
+- Allow non object lists on PORT to be set to internal default value in the object type "SAI_DEFAULT_VALUE_TYPE_SWITCH_INTERNAL".    
 
 ## Commit
 
@@ -1017,9 +1017,9 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- Incorporated boolean data to ACL parameter union  in saitypes.h file
+- Incorporated boolean data to ACL parameter union  in saitypes.h file.  
 
-- Use EXTENSIONS_MAX as sai object type array size in test.pm file 
+- This commit uses the object "EXTENSIONS_MAX" as sai object type array size in test.pm file.  
 
 ## Commit
 
@@ -1034,7 +1034,7 @@ Tear down process of a host adapter ensues the removal of the switch id. This wi
 
 ## Description
 
-- SAI Port attributes are defined for setting preemphasis and other serdes driver settings   
+- SAI Port attributes are defined for setting preemphasis and other serdes driver settings.     
 
 ## Commit
 
