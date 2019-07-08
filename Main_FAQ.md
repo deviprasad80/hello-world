@@ -425,9 +425,30 @@ A: SONiC supports IPv6 forwarding and a link local address is added by the Kerne
 	 net.ipv6.conf.all.disable_ipv6=1  <<<<<<<<<<<
    ```
 --------------------------------------------------------------------------------------------------------------------------------------
+## ##Q: 1. What different with pytest ?
 
+**A**: pytest more like acceptation test test by Python. Do it when code is done.
+Unit test is do in development phase. Do it when code is not ready. In this phase we will spend more time to check the local variable / pointer in different stack frames are correct or NOT.
+Also, check does have heap memory is leaked or overrun issue ...
+
+The second different is pytest doesn't call orchagent API just operate Redis, unit test will call C++ function directly.
+We can do more internal function / object operation more quickly.
+
+Without no need to run two orchagent, syncD deamon and Redis server for each code modification.
+So, can find bug and bug fix quickly more then pytest.
+
+## Q: Why using libvs for unit test ?
+
+**A**: We all need a mock data (or call virtual switch) in test phase (that using to save time and find bug quickly as possible)
+We can using self mock data for core component test. That have less operation via SAI.
+But in test for Orch class we want to test the path from CONFIG_DB to SAI is work or NOT. AND without fake dependencies (SAI or other orch). Closer to real case.
+So, we using libvs that already simulate the chip behavior.
+
+Use it can get closer behaviors with real cases and no spend duplicated effort.
    
- 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 
 
 
