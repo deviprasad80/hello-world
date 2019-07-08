@@ -43,7 +43,7 @@
 |LLDP	|	Link Layer Discovery Protocol								|
 |MD/md	|	Mark Down													|
 |MIB	|	Management Information Base									|
-|MLAG	|	(MC|LAG) Multi chasis Link Aggregation Group				|
+|MLAG	|	(MC/LAG) Multi chasis Link Aggregation Group				|
 |MMU	|	Memory Management Unit										|
 |NDP	|	Network Discovery Protocol									|
 |NOS	|	Network Open Switch											|
