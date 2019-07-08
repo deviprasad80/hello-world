@@ -445,9 +445,15 @@ But in test for Orch class we want to test the path from CONFIG_DB to SAI is wor
 So, we using libvs that already simulate the chip behavior.
 
 Use it can get closer behaviors with real cases and no spend duplicated effort.
-   
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+https://groups.google.com/forum/#!topic/sonic-test-workgroup/GGBYggZBNmk
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Q:How to add static ARP in SONiC using config_db.json? What is the syntax?
+
+**A**:	Refer the [section](https://github.com/Azure/sonic-swss/blob/master/doc/swss-schema.md#neigh_table-1) to add static ARP using configb_db.json.    
+
+----------------------------------------------------------------------------------------------------------------------------
 
 
 

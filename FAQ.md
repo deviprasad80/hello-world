@@ -50,11 +50,6 @@
 **A**:	Static route addition is not supported in SONiC at present. They can be added via linux “ip route add” command but it will not be persistent after reboot.  
 
 ----------------------------------------------------------------------------------------------------------------------------
-## Q:How to add static ARP in SONiC using config_db.json? What is the syntax?
-
-**A**:	Refer the [section](https://github.com/Azure/sonic-swss/blob/master/doc/swss-schema.md#neigh_table-1) to add static ARP using configb_db.json.    
-
-----------------------------------------------------------------------------------------------------------------------------
 ## Q:How to add static MAC  in SONiC using config_db.json? What is the syntax?
 
 **A**:	Static MAC configuration via config_db is not currently supported.  There is an alternate way by adding an FDB entry file.  
