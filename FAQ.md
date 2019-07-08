@@ -251,7 +251,7 @@ Example:
 -----------------------------------------------------------------------------------------------------------------------------------
 ## Q:What is the CPU configuration that SONiC currently supports?
 
-**A**: SONiC currently only supports x86_64 CPU. For more information refer this [link].(https://github.com/Azure/SONiC/wiki/Supported-Devices-and-Platforms)
+**A**: SONiC currently only supports x86_64 CPU. For more information refer this [link](https://github.com/Azure/SONiC/wiki/Supported-Devices-and-Platforms).
 
 -------------------------------------------------------------------------------------------------------------------------------------
 ## Q:How to connect 2 sonic-vs containers via virtual Ethernet link?
