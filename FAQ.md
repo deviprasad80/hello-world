@@ -237,7 +237,7 @@ Example:
 ----------------------------------------------------------------------------------------------------------------------------------------
 ## Q:How to set the MTU size?
 
-A: To set the MTU size using an entry in the configb_db.json file using the following steps.  
+**A**: To set the MTU size using an entry in the configb_db.json file using the following steps.  
   
 Example:
  ```
@@ -346,7 +346,7 @@ After running the above sequence check by pinging 10.0.0.1 address from vs0 and 
 -------------------------------------------------------------------------------------
 ## Q:Where does the configuration from "teamd" has been moved to?  
 
-A: All the configuration from "/etc/teamd config file" has been moved to "teammgrd"  
+**A**: All the configuration from "/etc/teamd config file" has been moved to "teammgrd"  
 
 --------------------------------------------------------------------------------------------
 ## Q:How is VRF configured in Linux kernel?  
