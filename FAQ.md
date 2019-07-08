@@ -237,7 +237,7 @@ Example:
 ----------------------------------------------------------------------------------------------------------------------------------------
 ## Q:How to set the MTU size?
 
-**A**: To set the MTU size using an entry in the configb_db.json file using the following steps.  
+**A**: To set the MTU size make an entry in the "configb_db.json" file using the following steps.  
   
 Example:
  ```
@@ -256,14 +256,14 @@ Example:
 -------------------------------------------------------------------------------------------------------------------------------------
 ## Q:How to connect 2 sonic-vs containers via virtual Ethernet link?
 
-**A**: Start two debian containers (sw0 and sw1) as below  
+**A**: Start two debian containers (sw0 and sw1) as shown below   
 
  ```	
 	docker run -id --name sw0 debian bash
     docker run -id --name sw1 debian bash
  ```
 
-   Create virtual Ethernet link  
+   Create a virtual Ethernet link  
    
  ```
     sudo ip link add sw0vEthernet0 type veth peer name sw1vEthernet0
@@ -321,7 +321,7 @@ Now run “show interfaces status” command in each sonic-vs container.
 If the output shows that operating status of Ethernet0 port is down, then bring up the vEthernet0 interface in each VS using "ifconfig" command.
 
 
-After running the above sequence check by pinging 10.0.0.1 address from vs0 and 10.0.0.0 from vs1 container.
+After running the above sequence of commands, check the connectivity by pinging 10.0.0.1 address from vs0 and 10.0.0.0 from vs1 container.
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Q:What are the get attributes for switch in SAI for table size?  
@@ -346,7 +346,7 @@ After running the above sequence check by pinging 10.0.0.1 address from vs0 and 
 -------------------------------------------------------------------------------------
 ## Q:Where does the configuration from "teamd" has been moved to?  
 
-**A**: All the configuration from "/etc/teamd config file" has been moved to "teammgrd"  
+**A**: All the configuration from "/etc/teamd" config file has been moved to "teammgrd"  
 
 --------------------------------------------------------------------------------------------
 ## Q:How is VRF configured in Linux kernel?  
