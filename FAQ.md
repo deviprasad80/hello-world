@@ -47,7 +47,7 @@
 ----------------------------------------------------------------------------------------------------------------------------
 ## Q:How to add static routes in SONiC using config_db.json? What is the syntax? 
 
-**A**:	Static route addition is not supported in SONiC at present. They can be added via linux “ip route add..” command but it will not be persistent after reboot.  
+**A**:	Static route addition is not supported in SONiC at present. They can be added via linux “ip route add” command but it will not be persistent after reboot.  
 
 ----------------------------------------------------------------------------------------------------------------------------
 ## Q:How to add static ARP in SONiC using config_db.json? What is the syntax?
@@ -58,25 +58,21 @@
 ## Q:How to add static MAC  in SONiC using config_db.json? What is the syntax?
 
 **A**:	Static MAC configuration via config_db is not currently supported.  There is an alternate way by adding an FDB entry file.  
-    ```
-	   [
-         {
-           "FDB_TABLE:Vlan1000:00-00-00-10-20-30": {
-                  "port": "Ethernet31",
-                  "type": "static"
-              },
-              "OP": "SET"
-         }
-       ]
-	```
+ ```
+	[
+      {
+        "FDB_TABLE:Vlan1000:00-00-00-10-20-30": {
+              "port": "Ethernet31",
+              "type": "static"
+          },
+          "OP": "SET"
+      }
+    ]
+	   
+ ```
     Later use swssconfig tool which is located in docker swss to load it into APP_DB.  
 	Alternatively you can add entry to app_db manually, but you also need to publish event to the channel that subscribed by fdborch.  
 	
-----------------------------------------------------------------------------------------------------------------------------
-## Q:Where do the python bindings, to program the switch's control plane are copied?
-
-**A**: The python bindings to program the switch's control plane are copied in an empty directory "switch_sai_thrift".  
-
 ----------------------------------------------------------------------------------------------------------------------------
 ## Q:How to program FDB static/dynamic entries into ASIC?
 
@@ -133,9 +129,14 @@ Apply fdb.json
 
 NOTE:  
     a. The VLAN configuration should be correct and interface (Ethernet16 in this example) should be 'up'.  
-    b. config should NOT be reloaded because the static fdb configuration is not retained after reload.  
+    b. Config should NOT be reloaded because the static fdb configuration is not retained after reload.  
 
 ---------------------------------------------------------------------------------------------------------------------------- 
+## Q:How does SONIC support CPU controlled fdb learning; Per port or per vlan basis?
+
+**A**: Sonic supports hardware based fdb learning. The events of learning/aging/move is notified by hardware/SAI to Orchagent.  
+
+----------------------------------------------------------------------------------------------------------------------------
 ## Q:How to know the interface naming mode?
 
 **A**: Enter the command "show interface naming_mode". Initially it will be "default".  
@@ -196,6 +197,11 @@ NOTE:  Notice the change in the interface names under the "Interface" coloumn in
 
 **A**: Interfaces of a switch  stick to their startup configurations no matter what changes are made dynamically from the python cli. Vlanmgrd needs to be restarted for the kernel to know about the change.  
    
+----------------------------------------------------------------------------------------------------------------------------
+## Q:Where do the python bindings, to program the switch's control plane are copied?
+
+**A**: The python bindings to program the switch's control plane are copied in an empty directory "switch_sai_thrift".  
+
 ----------------------------------------------------------------------------------------------------------------------------
 ## Q:How to see 'telemetry binary' after building the Debian package?
    Using Debian package in ubuntu 16.04 server, sonic-telemetry_0.1_amd64.deb is copied to sonic switch and installed it using "dpkg -i sonic-telemetry_0.1_amd64.deb". But unable to see telemetry binary.  
