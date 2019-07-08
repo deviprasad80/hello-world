@@ -1,5 +1,5 @@
 |ACRONYM|		FULL FORM		   										|
-|-------  --------------------------------------------------------------|
+|-------|  --------------------------------------------------------------|
 |ABI	|	Application Binary Interface								|
 |ARP	|	Address Resolution Protocol									|
 |ASIC	|	Application|Specific Integrated Circuit 					|
