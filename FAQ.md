@@ -70,8 +70,8 @@
     ]
 	   
  ```
-    Later use swssconfig tool which is located in docker swss to load it into APP_DB.  
-	Alternatively you can add entry to app_db manually, but you also need to publish event to the channel that subscribed by fdborch.  
+ 
+Later use swssconfig tool which is located in docker swss to load it into APP_DB. Alternatively you can add entry to app_db manually, but you also need to publish event to the channel that subscribed by fdborch.  
 	
 ----------------------------------------------------------------------------------------------------------------------------
 ## Q:How to program FDB static/dynamic entries into ASIC?
