@@ -2,7 +2,7 @@
 |-------|  --------------------------------------------------------------|
 |ABI	|	Application Binary Interface								|
 |ARP	|	Address Resolution Protocol									|
-|ASIC	|	Application|Specific Integrated Circuit 					|
+|ASIC	|	Application Specific Integrated Circuit 					|
 |Bash	|	Bourne Again SHell											|
 |bcmcmd	|	Broadcom shell commands										|
 |BFD	|	Bidirectional Forwarding Detection							|
@@ -19,7 +19,7 @@
 |DIP	|	Destination IP												|
 |DSCP	|	Differentiated Services Code Point							|
 |DUT	|	Device Under Test											|
-|ECMP	|	Equal Cost Multi|Path ROUTING								|
+|ECMP	|	Equal Cost Multi Path ROUTING								|
 |ECN	|	Explicit Congestion Notification							|
 |ERSPAN	|	Encapsulated RSPAN											|
 |EUI	|	Extended Unique Identifiers									|
