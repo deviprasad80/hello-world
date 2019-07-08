@@ -45,17 +45,17 @@
    ``` redis-cli -n 4 HGETALL "MGMT_INTERFACE|eth0|10.11.12.13/24" ```
 
 ----------------------------------------------------------------------------------------------------------------------------
-## Q:How to add static routes in SONiC using config_db.json? Whats the syntax? 
+## Q:How to add static routes in SONiC using config_db.json? What is the syntax? 
 
 **A**:	Static route addition is not supported in SONiC at present. They can be added via linux “ip route add..” command but it will not be persistent after reboot.  
 
 ----------------------------------------------------------------------------------------------------------------------------
-## Q:How to add static ARP in SONiC using config_db.json? Whats the syntax?
+## Q:How to add static ARP in SONiC using config_db.json? What is the syntax?
 
 **A**:	Refer the [section](https://github.com/Azure/sonic-swss/blob/master/doc/swss-schema.md#neigh_table-1) to add static ARP using configb_db.json.    
 
 ----------------------------------------------------------------------------------------------------------------------------
-## Q:How to add static MAC  in SONiC using config_db.json? Whats the syntax?
+## Q:How to add static MAC  in SONiC using config_db.json? What is the syntax?
 
 **A**:	Static MAC configuration via config_db is not currently supported.  There is an alternate way by adding an FDB entry file.  
     ```
@@ -251,7 +251,7 @@ Example:
 -----------------------------------------------------------------------------------------------------------------------------------
 ## Q:What is the CPU configuration that SONiC currently supports?
 
-**A**: SONiC currently only supports x86_64 CPU. For more information refer [this](https://github.com/Azure/SONiC/wiki/Supported-Devices-and-Platforms)
+**A**: SONiC currently only supports x86_64 CPU. For more information refer this [link].(https://github.com/Azure/SONiC/wiki/Supported-Devices-and-Platforms)
 
 -------------------------------------------------------------------------------------------------------------------------------------
 ## Q:How to connect 2 sonic-vs containers via virtual Ethernet link?
