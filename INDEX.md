@@ -55,7 +55,7 @@
 |OID	|	Object Identifiers											|
 |ONIE	|	Open Network Installer Environment							|
 |Orchagent	|	Orchestration Agent										|
-|OS|10	|	Open Switch 10												|
+|OS	10	|	Open Switch 10												|
 |OUI	|	Organizationally Unique Identifiers							|
 |P4		|	Programming Protocol|Independent Packet Processors			|
 |PFC	|	Priority Flow Control										|
