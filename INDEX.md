@@ -92,7 +92,7 @@
 |UML	|	Unified Modeling Language									|
 |usr	|	User or Unique System Resource								|
 |UTF	|	Unicode Transformation Format								|
-|vPC	|	Virtual|Port|Channel 										|
+|vPC	|	Virtual Port Channel 										|
 |VRF	|	Virtual Routing and Forwarding								|
 |VTEPs	|	VXLAN Tunnel End Points										|
 |vxlan	|	Virtual Extensible LAN										|
