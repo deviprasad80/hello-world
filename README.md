@@ -11,7 +11,8 @@ My second underline
 
 To display '< , >' you have to use '\\\'.
 Ex:
-'\<ip_address>\'
+`\<ip_address>\`  
+
 
 A: SONiC supports link aggregation with teamd container.  
 &nbsp;&nbsp; SONiC is using [libteam!] (http://libteam.org/) as the LACP implementation.  
