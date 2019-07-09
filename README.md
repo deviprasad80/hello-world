@@ -9,7 +9,7 @@ My first underline
 My second underline  
 -------------------
 
-To display '< , >' you have to use '\'.
+To display '< , >' you have to use '\\\'.
 Ex:
 '\<ip_address>\'
 
