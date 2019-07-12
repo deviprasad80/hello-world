@@ -454,6 +454,12 @@ https://groups.google.com/forum/#!topic/sonic-test-workgroup/GGBYggZBNmk
 **A**:	Refer the [section](https://github.com/Azure/sonic-swss/blob/master/doc/swss-schema.md#neigh_table-1) to add static ARP using configb_db.json.    
 
 ----------------------------------------------------------------------------------------------------------------------------
+Is PDE specific to BRCM chipset? Not necessarily, who ever supoport SAI can use it.
+What are the interfaces PDE provides for ASIC and platform? PDDF data driven framework (JSON APIs)& existing driver API's
+Can framework allow vendor extensions ? PDDF supports vendor extensions
+How to package PDE ?  PDE can be built along with full sonic image & dockers or individual docker
+Will custom plugins (ex:BMC) could integrate with PDE? yes
+Can we load PDE into multiple targets? possible 
 
 
 
