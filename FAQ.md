@@ -405,9 +405,29 @@ After running the above sequence of commands, check the connectivity by pinging 
 	
 	 net.ipv6.conf.all.disable_ipv6=1  <<<<<<<<<<<
    ```
---------------------------------------------------------------------------------------------------------------------------------------
 
-   
+--------------------------------------------------------------------------------------------------------------------------------------
+## Q: Can a NTP server be run through a network port?
+
+**A**: The sonic ntp config listens only on management interface and loopback back port
+
+--------------------------------------------------------------------------------------------------------------------------------------
+## Q: How to configure a NTP server in configdb?
+
+**A**:  "MGMT_INTERFACE": {  
+        "eth0|10.0.0.20/24": {  
+            "gwaddr": "10.0.0.1"  
+        }  
+       },  
+       "NTP_SERVER": {  
+         "ntp.example.jp": {}  
+       }  
+
+And vaild /etc/resolv.conf. Use "sudo service ntp status" command to get help.
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+
  
 
 

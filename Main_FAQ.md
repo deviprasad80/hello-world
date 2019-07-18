@@ -461,9 +461,28 @@ How to package PDE ?  PDE can be built along with full sonic image & dockers or 
 Will custom plugins (ex:BMC) could integrate with PDE? yes
 Can we load PDE into multiple targets? possible 
 
+------------------------------------------------------------------------------------------------------------------------------
 
+## Q: Can a NTP server be run through a network port?
 
+https://groups.google.com/forum/#!topic/sonicproject/eZyBdpXxAYI
 
+------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+## Q: How to configure a NTP server in configdb?
+
+**A**:  "MGMT_INTERFACE": {  
+        "eth0|10.0.0.20/24": {  
+            "gwaddr": "10.0.0.1"  
+        }  
+       },  
+       "NTP_SERVER": {  
+         "ntp.example.jp": {}  
+       }  
+
+And vaild /etc/resolv.conf. Use "sudo service ntp status" command to get help.
+
+----------------------------------------------------------------------------------------------------------------------------------------
 
 
 
