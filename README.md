@@ -9,6 +9,11 @@ My first underline
 My second underline  
 -------------------
 
+<ol>
+   <li> First message </li>
+   <li> Second message <li>
+</ol>
+
 To display '< , >' you have to use '\\\'.
 Ex:
 `\ <ip_address> \`  
