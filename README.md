@@ -14,6 +14,8 @@ My second underline
    <li> Second message </li>
 </ol>
 
+My first message <br> My second message
+
 To display '< , >' you have to use '\\\'.
 Ex:
 `\ <ip_address> \`  
