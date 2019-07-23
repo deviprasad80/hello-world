@@ -1,6 +1,103 @@
 # FAQs
 
-## Q:How to find the current onie version  version?
+### Q: What is SONiC?
+
+**A**: SONiC is a collection of networking software components required to have a fully functional L3 device. It is designed meet the requirements of a cloud data center. It is fully open-sourced at OCP.
+
+----------
+
+### Q: What is SAI? What's the relationship between SONiC and SAI?
+
+**A**: SAI stands for "Switch Abstraction Interface". It is a common API that is supported by many switch ASIC vendors. SONiC uses SAI to program the ASIC. This enabled SONiC to work across multiple ASIC platforms naturally. 
+
+----------
+
+### Q: Is SONiC a Linux distribution?
+
+**A**: No. SONiC is Linux-based, but is not a distribution by itself. Today, SONiC runs on Debian Jessie. SONiC has also been ported to Ubuntu (as a snap). 
+
+----------
+
+### Q: How can I get SONiC?
+
+**A**: If you clone the [sonic-buildimage repo](https://github.com/Azure/sonic-buildimage) and follow the instructions there, you should be able to produce the SONiC image yourself. Our Jenkins server also produces a regular build. So you can download the image there as well. The list of supported devices and ASICs are maintained [here](https://github.com/Azure/SONiC/wiki/Supported-Devices-and-Platforms). 
+
+----------
+
+### Q: How can I get the SONiC source code?
+
+**A**: SONiC is fully open-sourced on GitHub, and distributed under Apache License. It is maintained as multiple repositories instead of a single big repo for manageability reasons. The list of SONiC source code repos is maintained [here](https://github.com/Azure/SONiC/blob/gh-pages/sourcecode.md). 
+
+----------
+
+### Q: Why are certain SAI implementations only distributed in binary form?
+
+**A**: SAI defines the common API supported by multiple ASIC vendors. The SAI implementation depends on each individual vendor's SDK, which may not be open-sourced itself. Therefore, depending on the vendor's license model, SONiC may or may not be allowed to open source the SAI implementation. 
+
+----------
+
+### Q: Does SONiC offer Linux options, and/or can it be customized?
+
+**A**: Today (March, 2017) SONiC requires Linux kernel 3.16.  We built and tested on Debian Linux, but theoretically any distribution could be supported.  It is fully open sourced and can be customized by users.  A contributorâ€™s guide is posted to cover how to add documentation and code as well as report and fix bugs. 
+
+----------
+
+[comment]: Hardware
+
+### Q: Which hardware platforms and ASIC chipsets are you running SONiC on?
+
+**A**: SONiC supports all the ASICs that are supported by SAI. Those ASICs are available via various switch hardware through both ODMs and OEMs. Currently, SONiC focuses on single ASIC devices. 
+
+   You can find a full list of supported devices and platforms [here](https://github.com/Azure/SONiC/wiki/Supported-Devices-and-Platforms). 
+
+----------
+
+### Q. Does SONiC have its own hardware?
+
+**A**. No. SONiC is purely a software solution. 
+
+----------
+
+### Q. How can I port SONiC to a new device?
+
+**A**. Please follow the [porting guide](https://github.com/Azure/SONiC/wiki/Porting-Guide). 
+
+----------
+
+### Q. Is SONiC deployed in Microsoft data centers today?
+
+**A**. Yes, SONiC is deployed in Microsoft production data centers.
+
+----------
+
+### Q. How many devices are running SONiC?
+
+**A**. The deployment is growing from one data center to cross regions.  We plan to rapidly expand SONiC deployment over the coming months. 
+
+----------
+
+### Q. How is SONiC supported?
+
+**A**. SONiC is a community supported product.  Microsoft is committed to engage with the community to keep SONiC relevant, reliable and stable.  We use it in our own production network.
+ 
+Microsoft has no plans to sell SONiC to customers or provide any network engineering or development support.
+
+----------
+
+### Q. What is the relationship between [Azure Cloud Switch](https://azure.microsoft.com/en-us/blog/microsoft-showcases-the-azure-cloud-switch-acs/) and SONiC? 
+
+**A**. Azure Cloud Switch was the previous project name of SONiC. That name has been deprecated. 
+
+----------
+
+[comment]: Contribution
+
+### Q. How can I contribute to SONiC? 
+
+**A**. SONiC welcome collaboration with the community in many different capacities.  Please check the contributor's guide for details: https://github.com/Azure/SONiC/wiki
+
+
+### Q:How to find the current onie version?
 
 **A**: In the Sonic device, enter **cat /host/machine.conf**  command. This will give the current ONIE version along with other details such as vendor id, platform id, kernet version etc  
   - Example:
@@ -19,17 +116,17 @@
   ```
 
 ----------------------------------------------------------------------------------------------------------------------------
-## Q:How many host entries does SONiC support?
+### Q:How many host entries does SONiC support?
 
 **A**: SONiC currently supports around 2400 host entries
 
 ----------------------------------------------------------------------------------------------------------------------------
-## Q:What is the maximum rate for ARP/ND?
+### Q:What is the maximum rate for ARP/ND?
 
-**A**: Currently the max rate for ARP/ND is 600 packets. It will be increased it to higher number(8000) in CoPP file  to improve the learning time.
+**A**: Currently the max rate for ARP/ND is 600 packets. It will be increased to higher number(8000) in CoPP file  to improve the learning time.
 
 ----------------------------------------------------------------------------------------------------------------------------
-## Q:How to print all the keys in a database?
+### Q:How to print all the keys in a database?
 
 **A**: redis-cli -n 4 keys "MGMT_INTERFACE*"  
    This will print all keys in the database number 4  
@@ -38,19 +135,19 @@
    0 is APP_DB  
 
 ----------------------------------------------------------------------------------------------------------------------------
-## Q: How to get the value for a particular key?
+### Q: How to get the value for a particular key?
 
-**A**: To get value for the particular key. For example, the management interface;  
-
+**A**: To get value for the particular key, for example, the management interface; give the following command   
+         
    ``` redis-cli -n 4 HGETALL "MGMT_INTERFACE|eth0|10.11.12.13/24" ```
 
 ----------------------------------------------------------------------------------------------------------------------------
-## Q:How to add static routes in SONiC using config_db.json? What is the syntax? 
+### Q:How to add static routes in SONiC using config_db.json?
 
-**A**:	Static route addition is not supported in SONiC at present. They can be added via linux “ip route add” command but it will not be persistent after reboot.  
+**A**:	Static route addition is not supported in SONiC at present. It can be added via linux ```ip route add``` command but it will not be retained after reboot.  
 
 ----------------------------------------------------------------------------------------------------------------------------
-## Q:How to add static MAC  in SONiC using config_db.json? What is the syntax?
+### Q:How to add static MAC  in SONiC using config_db.json?
 
 **A**:	Static MAC configuration via config_db is not currently supported.  There is an alternate way by adding an FDB entry file.  
  ```
@@ -66,12 +163,12 @@
 	   
  ```
  
-Later use swssconfig tool which is located in docker swss to load it into APP_DB. Alternatively you can add entry to app_db manually, but you also need to publish event to the channel that subscribed by fdborch.  
+Later use swssconfig tool which is located in docker swss to load it into APP_DB. Alternatively entry to app_db can be added manually, but it is required to publish the event to the channel that is subscribed by fdborch.  
 	
 ----------------------------------------------------------------------------------------------------------------------------
-## Q:How to program FDB static/dynamic entries into ASIC?
+### Q:How to program FDB static/dynamic entries into ASIC?
 
-**A**: You can program FDB entries into ASIC as static/dynamic. Please check this link [here](https://github.com/Azure/SONiC/issues/249). Give type as either "static" or "dynamic"
+**A**: FDB entries can be programmed into ASIC as static/dynamic. Please check this link [here](https://github.com/Azure/SONiC/issues/249). Give type as either "static" or "dynamic"
   
 - Example:
   ```
@@ -127,12 +224,12 @@ NOTE:
     b. Config should NOT be reloaded because the static fdb configuration is not retained after reload.  
 
 ---------------------------------------------------------------------------------------------------------------------------- 
-## Q:How does SONIC support CPU controlled fdb learning; Per port or per vlan basis?
+### Q:Does SONIC support CPU controlled fdb learning?
 
 **A**: Sonic supports hardware based fdb learning. The events of learning/aging/move is notified by hardware/SAI to Orchagent.  
 
 ----------------------------------------------------------------------------------------------------------------------------
-## Q:How to know the interface naming mode?
+### Q:How to know the interface naming mode?
 
 **A**: Enter the command "show interface naming_mode". Initially it will be "default".  
 
@@ -156,13 +253,12 @@ NOTE:
   ```
 
 ---------------------------------------------------------------------------------------------------------------------------- 
-## Q:How to change the interface naming mode?
+### Q:How to change the interface naming mode?
 
 **A**: Enter the command -   
-   **sudo config interface_naming_mode alias**  `Non-root user`  
    **config interface_naming_mode alias**  `Root user`  
    
-   Logout and login into the device for the change to take effect.
+   Logout and login to the device for the change to take effect.
    
    - Example: 
   ```
@@ -188,32 +284,20 @@ NOTE:
 NOTE:  Notice the change in the interface names under the "Interface" coloumn in the above two examples.  
 
 ----------------------------------------------------------------------------------------------------------------------------
-## Q:vlan configuration from the python cli results in a change in the redis database but not in the kernel level. Why?
+### Q:vlan configuration from the python cli results in a change in the redis database but not in the kernel level. Why?
 
-**A**: Interfaces of a switch  stick to their startup configurations no matter what changes are made dynamically from the python cli. Vlanmgrd needs to be restarted for the kernel to know about the change.  
+**A**: Interfaces of a switch  stick to their startup configuration no matter what changes are made dynamically from the python cli. Vlanmgrd needs to be restarted for the kernel to know about the change.  
    
 ----------------------------------------------------------------------------------------------------------------------------
-## Q:Where do the python bindings, to program the switch's control plane are copied?
+### Q:Where do the python bindings, to program the switch's control plane are copied?
 
 **A**: The python bindings to program the switch's control plane are copied in an empty directory "switch_sai_thrift".  
 
 ----------------------------------------------------------------------------------------------------------------------------
-## Q:How to see 'telemetry binary' after building the Debian package?
-   Using Debian package in ubuntu 16.04 server, sonic-telemetry_0.1_amd64.deb is copied to sonic switch and installed it using "dpkg -i sonic-telemetry_0.1_amd64.deb". But unable to see telemetry binary.  
-
-Example:
- ```
-    root@switch2:/home/admin#  ./telemetry --help
-    bash: ./telemetry: No such file or directory 
-  
-    git clone https://github.com/Azure/sonic-telemetry.git
-    pushd sonic-telemetry
-    dpkg-buildpackage -rfakeroot -b -us -uc
-    popd
- ```
- 
+### Q:How to see 'telemetry binary' after building the Debian package?
+    
 **A**: Telemetry runs on a docker and it is located in the path: /usr/bin/telemetry.sh.  
-   An easy way is to include telemetry in sonic image itself. You can do that by marking ENABLE_SYSTEM_TELEMETRY=y  on the "rules/config" file while building sonic image. Telemetry service gets started automatically.   
+   An easy way is to include telemetry in sonic image itself. It is done by marking the parameter "ENABLE_SYSTEM_TELEMETRY=y"  on the "rules/config" file while building sonic image and the telemetry service gets started automatically.   
 
    Use the following command to view the telemtry process currently running.  
 
@@ -226,19 +310,19 @@ Example:
  ```
 
 -------------------------------------------------------------------------------------------------------------------------------
-## Q:What is the significance of DEVICE_ROLE and difference between ToRRouter & LeafRouter role. Why is radvd configured and started only when Sonic DEVICE_ROLE is set to "ToRRouter"?
+### Q:What is the significance of DEVICE_ROLE and difference between ToRRouter & LeafRouters. Why is radvd configured and started only when Sonic DEVICE_ROLE is set to "ToRRouter"?
 
-**A**: The radv is the IPv6 ND protocol part feature, used by routers to advertise their router-role information to the shared-link devices. DEVICE_ROLE meaning the device(switch) roles in the DC network, ToRRouter meaning "Top of the Rack Router/Switcher", LeafRouter that is the middle device between ToRRouter and Spine; The ToRs often directly connect to the Servers(host), so ToRs need the function radvd to spread the router-link informations. But LeafRouter is not directly connected to the servers(hosts), so one must not enable this function.   
+**A**: DEVICE_ROLE signifies the role of the device(switch) in the DC network. ToRRouter meaning "Top of the Rack Router/Switch", LeafRouter is the middle device between ToRRouter and Spine. The radv is the IPv6 ND protocol part feature, used by routers to advertise their router-role information to the shared-link devices. The ToRs often directly connect to the Servers(host), so ToRs need the radvd function to spread the router-link informations. But radvd function should not be enabled for the LeafRouter as it is not directly connected to the servers(hosts).   
 
 -------------------------------------------------------------------------------------------------------------------------------
-## Q:How to configure ecmp in config_db.json? 
+### Q:How to configure ecmp in config_db.json? 
 
 **A**: ECMP routes are learned via BGP. There is currently no static support for this via config_db.  
 
 ----------------------------------------------------------------------------------------------------------------------------------------
-## Q:How to set the MTU size?
+### Q:How to set the MTU size?
 
-**A**: To set the MTU size make an entry in the "configb_db.json" file using the following steps.  
+**A**: To set the MTU size make an entry in the "configb_db.json" using the below configuration    
   
 Example:
  ```
@@ -250,12 +334,12 @@ Example:
  ```
  
 -----------------------------------------------------------------------------------------------------------------------------------
-## Q:What is the CPU configuration that SONiC currently supports?
+### Q:What is the CPU configuration that SONiC currently supports?
 
 **A**: SONiC currently only supports x86_64 CPU. For more information refer this [link](https://github.com/Azure/SONiC/wiki/Supported-Devices-and-Platforms).
 
 -------------------------------------------------------------------------------------------------------------------------------------
-## Q:How to connect 2 sonic-vs containers via virtual Ethernet link?
+### Q:How to connect 2 sonic-vs containers via virtual Ethernet link?
 
 **A**: Start two debian containers (sw0 and sw1) as shown below   
 
@@ -325,7 +409,7 @@ If the output shows that operating status of Ethernet0 port is down, then bring 
 After running the above sequence of commands, check the connectivity by pinging 10.0.0.1 address from vs0 and 10.0.0.0 from vs1 container.
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-## Q:What are the get attributes for switch in SAI for table size?  
+### Q:What are the get attributes for switch in SAI for table size?  
 
 **A**: Following are the get attributes for switch in SAI for table size.
    ```
@@ -335,42 +419,42 @@ After running the above sequence of commands, check the connectivity by pinging 
 	  
    ```   
 ------------------------------------------------------------------------------------------------------
-## Q:After booting the SONiC switch, it always has default IP configured on each port. How to build an image without this default IP address configured on each port?  
+### Q:After booting the SONiC switch, it always has default IP configured on each port. How to build an image without this default IP address configured on each port?  
 
-**A**: During the initial install and boot process, Sonic creates the IPs for each interface and stores this in the config_db.json file (in /etc/sonic).  These interfaces can either be deleted or replaced in the file and then reapply the configuration.  Also replacing the config_db.json can be part of the deployment strategy.  
+**A**: During the initial install and boot process, Sonic creates the IPs for each interface and stores this in the config_db.json file (in /etc/sonic).  These interfaces can either be deleted or replaced in the file and can then be reapplied in the configuration.  Also replacing the config_db.json can be a part of the deployment strategy.  
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-## Q:Which daemon writes to APP_DB?  
+### Q:Which daemon writes to APP_DB?  
 
 **A**: "fpmsyncd" daemon writes to APP_DB  
 
 -------------------------------------------------------------------------------------
-## Q:Where does the configuration from "teamd" has been moved to?  
+### Q:Where does the configuration from "teamd" has been moved to?  
 
 **A**: All the configuration from "/etc/teamd" config file has been moved to "teammgrd"  
 
 --------------------------------------------------------------------------------------------
-## Q:How is VRF configured in Linux kernel?  
+### Q:How is VRF configured in Linux kernel?  
 
 **A**: VRF is configured though the CLI wrapper but eventually SONiC uses the linux NetLink calls  
 
 ---------------------------------------------------------------------------------------------
-## Q:Does VRF design support later versions of Linux Kernel 4.9?  
+### Q:Does VRF design support later versions of Linux Kernel 4.9?  
 
 **A**: Yes. VRF design supports later versions of Linux kernel.  
 
 -------------------------------------------------------------------------------------------
-## Q:How does SONiC support link aggregation?
+### Q:How does SONiC support link aggregation?
 
 **A**: SONiC supports link aggregation usig "teamd" container. SONiC uses [libteam](http://libteam.org/) as the LACP implementation.The configuration is stored in the configuration database. Please refer to the [configuration](https://github.com/Azure/SONiC/wiki/Configuration) samples here to configure the port-channels.  
 
 -------------------------------------------------------------------------------------------
-## Q:What is the main task of a daemon?
+### Q:What is the main task of a daemon?
 
 **A**: The main task of a daemon is to post device data to DB. Currently, to fetch switch peripheral devices related data SONiC will directly access hardware through platform pluggins
 
 -------------------------------------------------------------------------------------------
-## Q:What are the different types of PMON container daemons?
+### Q:What are the different types of PMON container daemons?
 
 **A**: PMON container has the following daemons.  
 
@@ -381,18 +465,18 @@ After running the above sequence of commands, check the connectivity by pinging 
 
 ```
 -------------------------------------------------------------------------------------------
-## Q:Does FAN unit has a daemon?
+### Q:Does FAN unit has a daemon?
 
 **A**: Currently there is no daemon for FAN unit  
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## Q:What package does SONiC use?
+### Q:What package does SONiC use?
 
 **A**: SONiC uses the "click Python package" in order to expose the available APIs.
 
 -------------------------------------------------------------------------------------------------------------------------------------
-## Q:Why does an IPv6 address is assigned by default when an L2 VLAN is created?
+### Q:Why does an IPv6 address is assigned by default when an L2 VLAN is created?
 
 **A**: SONiC supports IPv6 forwarding and a link local address is added by the Kernel. When L2 VLAN is created that IP address is assigned to it by default.  
    If required it can be disabled by adding a line in /etc/sysctl.conf  on switch.
@@ -407,25 +491,73 @@ After running the above sequence of commands, check the connectivity by pinging 
    ```
 
 --------------------------------------------------------------------------------------------------------------------------------------
-## Q: Can a NTP server be run through a network port?
+### Q: Can a NTP server be run through a network port?
 
 **A**: The sonic ntp config listens only on management interface and loopback back port
 
---------------------------------------------------------------------------------------------------------------------------------------
-## Q: How to configure a NTP server in configdb?
+---------------------------------------------------------------------------------------------------------------------------------------
+### Q: How to create an ACL_RULE to drop all the packets in specified ports?
 
-**A**:  "MGMT_INTERFACE": {  
-        "eth0|10.0.0.20/24": {  
-            "gwaddr": "10.0.0.1"  
-        }  
-       },  
-       "NTP_SERVER": {  
-         "ntp.example.jp": {}  
-       }  
+**A**: First configure an ACL_TABLE specifying the ports and then configure and ACL_RULE to drop all the packets  
 
-And vaild /etc/resolv.conf. Use "sudo service ntp status" command to get help.
+   ```
+	   "ACL_TABLE":{
+		     "DROP_ALL": {
+             "policy_desc": "DROP_ALL_PACKETS",
+             "type": "L3",
+             "ports": [ "Ethernet0", "Ethernet4", "Ethernet8", "Ethernet12" ]
+         }
+       },
+       "ACL_RULE":  {
+             "DROP_ALL|1": {
+             "PRIORITY": "100",
+             "IP_TYPE": "ipv4any",
+             "PACKET_ACTION": "drop"
+         }
+       }
+   ```
 
-----------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------
+### Q: Where to find the "port stat" definition?
+
+**A** : In the source code "port stat" conditions are mentioned  
+
+   ```
+      /** SAI port stat if in discards */
+      SAI_PORT_STAT_IF_IN_DISCARDS,
+
+      /** SAI port stat if out discards */
+      SAI_PORT_STAT_IF_OUT_DISCARDS, 
+   ```
+
+This is similar to the MIB definition which is mentioned below  
+
+   ```
+   
+      ifInDiscards OBJECT-TYPE
+      SYNTAX      Counter32
+      MAX-ACCESS  read-only
+      STATUS      current
+      DESCRIPTION
+              The number of inbound packets which were chosen to be
+              discarded even though no errors had been detected to prevent
+
+              their being deliverable to a higher-layer protocol.  One
+              possible reason for discarding such a packet could be to
+              free up buffer space.
+
+              Discontinuities in the value of this counter can occur at
+              re-initialization of the management system, and at other
+              times as indicated by the value of
+              ifCounterDiscontinuityTime."
+      ::= { ifEntry 13 }
+   
+   ```
+   
+---------------------------------------------------------------------------------------------------------------
+
+
+
 
 
  
