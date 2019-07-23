@@ -96,7 +96,7 @@ Microsoft has no plans to sell SONiC to customers or provide any network enginee
 
 **A**. SONiC welcome collaboration with the community in many different capacities.  Please check the contributor's guide for details: https://github.com/Azure/SONiC/wiki
 
-
+----------
 ### Q:How to find the current onie version?
 
 **A**: In the Sonic device, enter **cat /host/machine.conf**  command. This will give the current ONIE version along with other details such as vendor id, platform id, kernet version etc  
@@ -263,7 +263,7 @@ NOTE:
    - Example: 
   ```
   admin@sonic:~$ sudo config interface_naming_mode alias
-  Please logout and log back in for changes take effect.
+  Please logout and log back in for changes to take effect.
   admin@sonic:~$ logout
   
   admin@sonic:~$ show interface naming_mode
@@ -299,7 +299,7 @@ NOTE:  Notice the change in the interface names under the "Interface" coloumn in
 **A**: Telemetry runs on a docker and it is located in the path: /usr/bin/telemetry.sh.  
    An easy way is to include telemetry in sonic image itself. It is done by marking the parameter "ENABLE_SYSTEM_TELEMETRY=y"  on the "rules/config" file while building sonic image and the telemetry service gets started automatically.   
 
-   Use the following command to view the telemtry process currently running.  
+   Use the command "ps -elf | grep tel" to view the telemetry process currently running.  
 
 Example:
  ```
