@@ -1,17 +1,17 @@
-# TECHNICAL FAQs
+# TECHNICAL FAQ DOCUMENT
 
 ## Document History
 
 | #   | Date         |  Document Version | Details |
 | --- | ---          | ---               | ---     |
-| 1   |  Jul-26-2019 |FAQ doc release    | Collated the FAQs between 8th March-2016 and 25th July-2019. For further details refer this [group](https://groups.google.com/forum/#!forum/sonicproject) |
+| 1   |  Jul-26-2019 |Technical_FAQ_v1   | Collated the FAQs between 8th March-2016 and 25th July-2019. For further details refer [here](https://groups.google.com/forum/#!forum/sonicproject) |
 
 
 ## ACL
 
 ### Q: How to create an ACL_RULE to drop all the packets in specified ports?
 
-**A**: First configure an ACL_TABLE specifying the ports and then configure and ACL_RULE to drop all the packets  
+**A**: First configure an ACL_TABLE specifying the ports and then configure an ACL_RULE to drop all the packets as shown below  
 
    ```
 	   "ACL_TABLE":{
@@ -51,10 +51,10 @@
 
 **A**: The procedure to update a docker container in SONiC is as follows
 	   <ol> 
-		  <li> sudo systemctl stop swss </li>
-		  <li> remove the container: docker rm ... </li>
-		  <li> replace the image: docker rmi ... </li>
-		  <li> sudo systemctl start swss </li>
+		  <li> Execute: sudo systemctl stop swss </li>
+		  <li> Remove the container: docker rm ... </li>
+		  <li> Replace the image: docker rmi ... </li>
+		  <li> Execute: sudo systemctl start swss </li>
 	   </ol>
 
 ------------------------------------------------
@@ -173,7 +173,7 @@ After running the above sequence of commands, check the connectivity by pinging 
 ------------------------------------------------
 ### Q:How to print all the keys in a database?
 
-**A**: redis-cli -n 4 keys "MGMT_INTERFACE*"  
+**A**: Execute the command "redis-cli -n 4 keys "MGMT_INTERFACE*""
    This will print all keys in the database number 4. Chage the number according to the database that is required  
    
 ------------------------------------------------
@@ -181,14 +181,14 @@ After running the above sequence of commands, check the connectivity by pinging 
 
 **A**: The list of database counters is mentioned below  
 ```
-	APPL_DB 0
-	ASIC_DB 1
-	COUNTERS_DB 2
-	LOGLEVEL_DB 3
-	CONFIG_DB 4
-	PFC_WD_DB 5
-	FLEX_COUNTER_DB 5
-	STATE_DB 6
+	APPL_DB 	- 0
+	ASIC_DB 	- 1
+	COUNTERS_DB - 2
+	LOGLEVEL_DB - 3
+	CONFIG_DB 	- 4
+	PFC_WD_DB 	- 5
+	FLEX_COUNTER_DB - 5
+	STATE_DB 	- 6
 ```
 
 --------------------------------------------------
@@ -204,7 +204,7 @@ After running the above sequence of commands, check the connectivity by pinging 
 **A**: For sample configuration of RDMA features refer [here](https://github.com/Azure/sonic-swss/tree/master/swssconfig/sample). To see which platform has enabled rmda, refer [here](https://www.google.com/url?q=https%3A%2F%2Fgithub.com%2FAzure%2Fsonic-buildimage%2Fblob%2Fmaster%2Fdockers%2Fdocker-orchagent%2Fswssconfig.sh&sa=D&sntz=1&usg=AFQjCNEp8i8-5ms9iHjgKyBBD2iQcXNABQ)
 
 --------------------------------------------------
-### Q: Where the switch state info is stored?
+### Q: Where is the switch state info stored?
 
 **A**: Switch state info is stored centrally in the redis database. However,a reliable message passing mechanism based on the redis sub/pub interface-the producer and consumer table is designed so that all messages are explicitly stored in the redis database by the producer, and the consumer has to explicitly remove the message from the queue ensuring a reliable message passage  
    
