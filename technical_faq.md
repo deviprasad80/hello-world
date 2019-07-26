@@ -1,5 +1,20 @@
 # TECHNICAL FAQ DOCUMENT
 
+Table of Contents
+=================
+
+   * [Document History](#document-history)
+   * [ACL](#ACL)
+   * [CONTAINERS AND DOCKERS](#CONTAINERS-AND-DOCKERS)
+   * [DATABASE](#DATABASE)
+   * [INTERFACE AND PORTS](#INTERFACE-AND-PORTS)
+   * [PYTHON](#PYTHON)
+   * [ROUTING AND SWITCHING](#ROUTING-AND-SWITCHING)
+   * [SNMP](#SNMP)
+   * [SONIC](#SNMP)
+   * [SWSS](#SNMP)
+   * [SYNCD](#SYNCD)
+
 ## Document History
 
 | #   | Date         |  Document Version | Details |
@@ -45,7 +60,7 @@
 
 ------------------------------------------------------------------------------------------------
 
-## CONTAINERS & DOCKERS
+## CONTAINERS AND DOCKERS
 
 ### Q: How to update a docker container in sonic?
 
