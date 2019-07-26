@@ -177,8 +177,6 @@ After running the above sequence of commands, check the connectivity by pinging 
 ------------------------------------------
 
 
-
-
 ## DATABASE
 
 ### Q: Why does the Dynamic entry is not removed from the APP DB, even after the entry ages out in ASIC DB?
@@ -263,7 +261,7 @@ After running the above sequence of commands, check the connectivity by pinging 
 ------------------------------------------------
 
 
-## INTERFACE & PORTS
+## INTERFACE AND PORTS
 
 ### Q: How to configure muti-IP addresses on a interface in Minigraph?
 
@@ -513,7 +511,7 @@ This is similar to the MIB definition which is mentioned below
 -----------------------------------------------------------------------------------
 
 
-## ROUTING & SWITCHING
+## ROUTING AND SWITCHING
 
 ### Q:How to add static routes in SONiC using config_db.json?
 
