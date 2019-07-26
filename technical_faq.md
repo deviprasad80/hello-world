@@ -11,8 +11,8 @@ Table of Contents
    * [PYTHON](#PYTHON)
    * [ROUTING AND SWITCHING](#ROUTING-AND-SWITCHING)
    * [SNMP](#SNMP)
-   * [SONIC](#SNMP)
-   * [SWSS](#SNMP)
+   * [SONIC](#SONIC)
+   * [SWSS](#SWSS)
    * [SYNCD](#SYNCD)
 
 ## Document History
