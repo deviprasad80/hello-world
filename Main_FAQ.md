@@ -484,6 +484,9 @@ And vaild /etc/resolv.conf. Use "sudo service ntp status" command to get help.
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
+https://groups.google.com/forum/#!topic/sonicproject/L_FwmoTh-Iw
+
+https://groups.google.com/forum/#!topic/sonicproject/MgYUyw1Z1Y4
 
 
 
