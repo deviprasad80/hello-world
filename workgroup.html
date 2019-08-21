@@ -1,3 +1,52 @@
+Skip to content
+
+ 
+  
+Pull requests 
+Issues 
+Marketplace 
+Explore 
+
+
+ 
+ 
+ 
+
+
+Learn Git and GitHub without any code!
+Using the Hello World guide, you’ll start a branch, write comments, and open a pull request. 
+Read the guide 
+ 
+ Watch 
+0 
+ Star 
+0 
+ Fork 
+0 
+
+kannankvs/kvskSONiC 
+ Code 
+ Issues 0 
+ Pull requests 1 
+ Projects 0 
+ Wiki 
+ Security 
+ Insights 
+Branch: master 
+kvskSONiC/workgroups.html 
+Find file 
+Copy path 
+ deviprasad80 Update workgroups.html 
+c203554 on Jul 17 
+2 contributors 
+ 
+ 
+369 lines (328 sloc) 17.4 KB 
+Raw
+Blame
+History
+   
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -8,7 +57,7 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>SONiC | Home</title>
 
@@ -276,97 +325,139 @@
 
     <div class="container">
 
-        <div class="col-md-12">
+        <div class="col-lg-12 col-md-12">
 
 			<div class="row">
 
 			  <div class="col-lg-6 col-md-6">				
 
-				  <h3 style="color: #01BAFD; margin-top: 70px; font-weight: bold"> Testing Workgroup</h3>
+				  <h3 style="color: #01BAFD; margin-top: 40px; font-weight: bold"> Testing Workgroup</h3>
 
-                    <p>Join the mailing list <font color="#0000FF" size="3">sonic-test-workgroup@gmail.com </font></p>
+				     <p> Join the mailing list <font color="#0000FF" size="3">sonic-test-workgroup@gmail.com </font></p>
 
-		    <p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; <font color="#0000FF" size="3">sonic-mgmt-workgroup@googlegroups.com </font></p>
+                     <p> Workgroup <a href="https://groups.google.com/forum/#!forum/sonic-test-workgroup"><font color="#0000FF" size="3">link</font></a></p>
 
-		    <p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; <font color="#0000FF" size="3">sonic-mlag-workgroup@googlegroups.com </font></p>
+	            	 <h4 style="color: #01BAFD; margin-top: 20px; font-weight: bold"> Testing Workgroup Charter</h4></p>
 
-		    <p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <font color="#0000FF" size="3">sonic-vrf-workgroup@googlegroups.com </font></p>
+					   <p> 
 
-                    <p> Workgroup <a href="https://groups.google.com/forum/#!forum/sonic-test-workgroup"><font color="#0000FF" size="3">link</font></a></p>	
+				  	     <ol>
 
-					<h4 style="color: #01BAFD; margin-top: 70px; font-weight: bold"> Testing Workgroup Charter</h4>
+				  	       <li>Testbed improvement.</li>
 
-					<p> 1. Testbed improvement. 
+					       <li>Pytest framework enhancement </li>
 
-						<ul style="list-style-type:disc;padding-left: 30px;">
+					       <li>Pytest conversion from ansible test. </li>
 
-						  <li> support sonic device as a neighbor. </li>
+					       <li>Specific/new tests </li>
 
-						  <li> include pdu/console information.  </li>
+					       <li>Visualized DUT with data plane capabilities </li>
 
-						  <li> using exabgp to build bgp routes.  </li>
+					       <li>One(AKA, Crystalnet) integration (open source) </li>
 
-						</ul>
+				  	     </ol>
 
+				  			  
 
+				               For detailed SONiC test-workgroup charter click <a href="https://groups.google.com/forum/#!topic/sonic-test-workgroup/OD_UhjqlZ9Y"><font color="0000FF" size="3">here</font></a>.
 
-						2. Pytest framework enhancement 
+				       </p>
 
-						<ul style="list-style-type:disc;padding-left: 30px;">
+				  
 
-						   <li> How to execute commands on arista devices? </li>
+				  <h3 style="color: #01BAFD; margin-top: 40px; font-weight: bold"> VRF Workgroup</h3>
 
-						   <li> How to improve the DUT reboot? Add console connection support so that we can see the console log while rebooting. </li>
+                    <p>Join the mailing list <font color="#0000FF" size="3">sonic-vrf-workgroup@googlegroups.com </font></p>
 
-						   <li> Loganalyzer improvement can be implemented as a pytest fixture now. </li>
+                    <p> Workgroup <a href="https://groups.google.com/forum/#!forum/sonic-vrf-workgroup"><font color="#0000FF" size="3">vrf-link</font></a></p>
 
-						</ul>
+	     			<h4 style="color: #01BAFD; margin-top: 20px; font-weight: bold"> VRF Workgroup Charter</h4>
 
-						3. Pytest conversion from ansible test. 
-
-						<ul style="list-style-type:disc;padding-left: 30px;">
-
-						   <li> strategy to conversion and deprecating the existing ansible test one-by-one. once a pytest has been developed, then we can deprecate the ansible test by calling the pytest in ansible playbook so that there is no change on the user side. Meanwhile, if there will be further improvement the improvement will go to pytest, and community does not need to maintain both versions. </li>
-
-						</ul>
-
-						4. Specific/new tests: 
+			          <p> 1. SONiC VRF enhancement 
 
 						<ul style="list-style-type:disc;padding-left: 30px;">
 
-						   <li> Platform related tests. () </li>
+						  <li> VRF HLD 1.1 PR review, timeline. </li>
 
-						   <li> Qos/RDMA tests. </li>
+						  <li> VRF CLI reconciliation.  </li>
 
-						   <li> image upgrades testing. </li>
+						  <li> Nephos test script availability.  </li>
 
-						   <li> acl tests improvement. </li>
-
-						   <li> scalability tests on all the tables (l3/acl/fdb), error handling. for example, l3 route exceeds the asic capability. </li>
-
-						   <li> validation checks, error scenario. for example, port-channel configuration sequence. </li>
-
-						   <li> scenario, flap the link while sending the traffic. </li>
-
-						   <li> test categorization: functional/scalability/negative tests/control plane performance/stress </li>
-
-						   <li> test creation based on current outstanding issues (prevent regression) </li>
+						  <li> Config DB migrator fix. </li>
 
 						</ul>
 
-						5. Visualized DUT with data plane capabilities 
+					  </p>
 
-						<ul style="list-style-type:disc;padding-left: 30px;">
+					  <p><b>Note:</b> This group will converge soon with SONiC main community group.</p>
 
-						   <li> adding specific data plane functions to the virtual switch. </li>
+		
 
-						</ul>
+			  </div>
 
-						6. One(AKA, Crystalnet) integration (open source) 
+			  <div class="col-lg-6 col-md-6">
+
+				  <h3 style="color: #01BAFD; margin-top: 40px; font-weight: bold"> Management Workgroup</h3>
+
+                    		  <p>Join the mailing list <font color="#0000FF" size="3">sonic-mgmt-workgroup@googlegroups.com </font></p>
+
+                    		  <p> Workgroup <a href="https://groups.google.com/forum/#!forum/sonic-mgmt-workgroup"><font color="#0000FF" size="3">mgmt-link</font></a></p>
+
+	            
+
+					<h4 style="color: #01BAFD; margin-top: 20px; font-weight: bold"> Management Workgroup Charter</h4>
+
+			               	<p> 
+
+					   <ol>
+
+					       <li> Simplify and Standardize SONiC management </li>
+
+					       <li> Make SONiC management DevOps friendly </li>
+
+					       <li> Industry standard CLI for SONiC config validations and error feedback </li>
+
+				  	   </ol>
 
 					</p>
 
-			  </div>					  
+	  			   <br>
+
+	  			   <br>
+
+	  			   <br>
+
+	  			   <br>
+
+	  			   		
+
+				  <h3 style="color: #01BAFD; margin-top: 40px; font-weight: bold"> MLAG Workgroup</h3>
+
+                    		  <p>Join the mailing list <font color="#0000FF" size="3">sonic-mlag-workgroup@googlegroups.com </font></p>
+
+                    		  <p> Workgroup <a href="https://groups.google.com/forum/#!forum/sonic-mlag-workgroup"><font color="#0000FF" size="3">mlag-link</font></a>
+
+	            
+
+					<h4 style="color: #01BAFD; margin-top: 20px; font-weight: bold"> MLAG Workgroup Charter</h4></p>
+
+			               	<p> 
+
+					   <ol>
+
+					       <li> To provide user options to choose different versions of MLAG to implement in the network. </li>
+
+					       <li> Co-existence of Nephos & BRCM in SONiC code base and letting users to choose as per their requirement. </li>
+
+					       <li> To enable cross-functional collaboration by incorporating different MLAG control plane frameworks. </li>
+
+	    				   </ol>	    				
+
+					</p>
+
+	  				<p><b>Note:</b> This group will converge soon with SONiC main community group.</p>				  
+
+			  </div>       
 
             </div>
 
@@ -384,31 +475,167 @@
 
 
 
-  <!-- Start footer -->
+<div class = "container-fluid">
 
-  <footer id="mu-footer">
+  <div class = "row">
+
+    <div class =""col-lg-12 col-md-12">
+
+      <!-- Start footer -->
+
+	  <footer id="mu-footer">
 
 
 
-    <!-- start footer bottom -->
+		<!-- start footer bottom -->
 
-    <div class="mu-footer-bottom">
+        <div class="mu-footer-bottom">
 
-      <div class="container">
+          <div class="container">
 
-        <div class="mu-footer-bottom-area">
+            <div class="mu-footer-bottom-area">
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- end footer bottom -->
+
+      </footer>
+
+      <!-- End footer -->
+
+    </div>
+
+	
+
+	  <!-- jQuery library -->
+
+      <script src="assets/js/jquery.min.js"></script>  
+
+      <!-- Include all compiled plugins (below), or include individual files as needed -->
+
+      <script src="assets/js/bootstrap.js"></script>   
+
+      <!-- Slick slider -->
+
+      <script type="text/javascript" src="assets/js/slick.js"></script>
+
+      <!-- Counter -->
+
+      <script type="text/javascript" src="assets/js/waypoints.js"></script>
+
+      <script type="text/javascript" src="assets/js/jquery.counterup.js"></script>  
+
+      <!-- Mixit slider -->
+
+      <script type="text/javascript" src="assets/js/jquery.mixitup.js"></script>
+
+      <!-- Add fancyBox -->        
+
+      <script type="text/javascript" src="assets/js/jquery.fancybox.pack.js"></script>
+
+
+
+      <!-- Custom js -->
+
+      <script src="assets/js/custom.js"></script> 
+
+
+
+      <!-- End latest course section -->
+
+ 
+
+      <!-- Start footer -->
+
+      <footer id="mu-footer"> 
+
+      <!-- start footer top -->
+
+      <div class="mu-footer-top">
+
+        <div class="container">
+
+          <div class="mu-footer-top-area">
+
+            <div class="row">
+
+              <div class="col-lg-4 col-md-4 col-sm-4">
+
+                <div class="mu-footer-widget">
+
+                  <h4>Mailing List</h4>
+
+                  <p>sonicproject@googlegroups.com, click <a target="_blank" href="https://groups.google.com/forum/#!forum/sonicproject"><font color="#6F65F3" size="3">here</font></a> to join</p>             
+
+                </div>
+
+              </div>		  
+
+              <div class="col-lg-4 col-md-4 col-sm-4">
+
+                <div class="mu-footer-widget">
+
+                  <h4 style="margin-left: 40px" >Slack</h4>
+
+                  <ul>
+
+                    <li style="margin-top: -4px; margin-left: 40px"><a target="_blank" href="https://sonicswitch.slack.com/">Slack Discussion Group</a></li>                
+
+                  </ul>
+
+                </div>
+
+              </div>
+
+              <div class="col-lg-4 col-md-4 col-sm-4">
+
+                <div class="mu-footer-widget">
+
+                  <h4><span class="fa fa-twitter"></span></h4>
+
+                  <ul>
+
+                    <p>#SONiC_and_SAI</p>
+
+                  </ul>				
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
 
         </div>
 
       </div>
 
-    </div>
+      <!-- end footer top -->
 
-    <!-- end footer bottom -->
+      <!-- start footer bottom -->
 
-  </footer>
+      <div class="mu-footer-bottom">
 
-  <!-- End footer -->
+        <div class="container">
+
+          <div class="mu-footer-bottom-area">
+
+            <p>&copy; Template based on <a href="http://www.markups.io/" rel="nofollow">MarkUps.io</a></p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- end footer bottom -->
+
+    </footer>
 
 
 
@@ -416,46 +643,157 @@
 
 
 
+    <!-- jQuery library -->
 
+    <script src="assets/js/jquery.min.js"></script>  
 
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
 
+    <script src="assets/js/bootstrap.js"></script>   
+
+    <!-- Slick slider -->
+
+    <script type="text/javascript" src="assets/js/slick.js"></script>
+
+    <!-- Counter -->
+
+    <script type="text/javascript" src="assets/js/waypoints.js"></script>
+
+    <script type="text/javascript" src="assets/js/jquery.counterup.js"></script>  
+
+    <!-- Mixit slider -->
+
+    <script type="text/javascript" src="assets/js/jquery.mixitup.js"></script>
+
+    <!-- Add fancyBox -->        
+
+    <script type="text/javascript" src="assets/js/jquery.fancybox.pack.js"></script>
 
   
 
-  <!-- jQuery library -->
+        <script type = "application/javascript">
 
-  <script src="assets/js/jquery.min.js"></script>  
+           function loadJSON() {
 
-  <!-- Include all compiled plugins (below), or include individual files as needed -->
+              var data_file = "https://api.github.com/repos/kannankvs/sonic-buildimage";
 
-  <script src="assets/js/bootstrap.js"></script>   
+              var http_request = new XMLHttpRequest();
 
-  <!-- Slick slider -->
+              try{
 
-  <script type="text/javascript" src="assets/js/slick.js"></script>
+                 // Opera 8.0+, Firefox, Chrome, Safari
 
-  <!-- Counter -->
+                 http_request = new XMLHttpRequest();
 
-  <script type="text/javascript" src="assets/js/waypoints.js"></script>
+              }catch (e) {
 
-  <script type="text/javascript" src="assets/js/jquery.counterup.js"></script>  
+                 // Internet Explorer Browsers
 
-  <!-- Mixit slider -->
+                 try{
 
-  <script type="text/javascript" src="assets/js/jquery.mixitup.js"></script>
+                    http_request = new ActiveXObject("Msxml2.XMLHTTP");
 
-  <!-- Add fancyBox -->        
+					
 
-  <script type="text/javascript" src="assets/js/jquery.fancybox.pack.js"></script>
+                 }catch (e) {
+
+				
+
+                    try{
+
+                       http_request = new ActiveXObject("Microsoft.XMLHTTP");
+
+                    }catch (e) {
+
+                       // Something went wrong
+
+                       alert("Your browser broke!");
+
+                       return false;
+
+                    }
+
+					
+
+                 }
+
+              }
+
+			
+
+              http_request.onreadystatechange = function() {
+
+			
+
+                 if (http_request.readyState == 4  ) {
+
+                    // Javascript function JSON.parse to parse JSON data
+
+                    var jsonObj = JSON.parse(http_request.responseText);
 
 
 
-  <!-- Custom js -->
+                    // jsonObj variable now contains the data structure and can
 
-  <script src="assets/js/custom.js"></script> 
+                    // be accessed as jsonObj.name and jsonObj.country.
+
+				  
+
+                 }
+
+              }
+
+			
+
+              http_request.open("GET", data_file, true);
+
+              http_request.send();
+
+           }
+
+		
+
+        </script>
+
+    <!-- Custom js -->
+
+    <script src="assets/js/custom.js"></script> 
+
+
+
+  </div>
+
+ </div>
 
 
 
   </body>
 
+  <!--  
+
+   Copyright 2019 markups.io
+
+   Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+   The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.  
+
+  -->
+
 </html>
+
+© 2019 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+ 
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+
